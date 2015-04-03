@@ -49,7 +49,7 @@
     //Setting background color
     self.signup.backgroundColor = grayColor;
     self.login.backgroundColor = grayColor;
-    self.header.backgroundColor = grayColor;
+    self.header.backgroundColor = [UIColor blackColor];
     self.selector.backgroundColor = grayColor;
     
     self.viewSelector.tintColor = yellowColor;

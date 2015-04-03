@@ -19,6 +19,11 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RXP-LS-G5Y" userLabel="header">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="138"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo2_blanco" translatesAutoresizingMaskIntoConstraints="NO" id="6wl-dT-vsH">
+                                        <rect key="frame" x="0.0" y="0.0" width="85" height="138"/>
+                                    </imageView>
+                                </subviews>
                                 <color key="backgroundColor" red="1" green="0.35821101659999999" blue="0.4248970433" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="138" id="bfI-nv-nUB"/>
@@ -179,4 +184,7 @@
             <point key="canvasLocation" x="225" y="250"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="logo2_blanco" width="196" height="382"/>
+    </resources>
 </document>
