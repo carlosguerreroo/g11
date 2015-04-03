@@ -51,6 +51,7 @@
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nombre de empresa" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jEj-39-OFa">
                                         <rect key="frame" x="51" y="20" width="219" height="30"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
@@ -124,8 +125,14 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="cities" destination="sJI-n2-Rmf" id="HNC-zy-j5c"/>
+                        <outlet property="header" destination="RXP-LS-G5Y" id="XKM-pI-v9Z"/>
                         <outlet property="login" destination="COo-P6-lOZ" id="Uwd-kf-Ykp"/>
+                        <outlet property="selector" destination="sOG-4v-gw4" id="WV0-eC-EhE"/>
                         <outlet property="signup" destination="swE-NH-aby" id="ZI0-d5-PdC"/>
+                        <outletCollection property="signupItems" destination="jEj-39-OFa" id="YKj-L3-8an"/>
+                        <outletCollection property="signupItems" destination="Bvz-ZG-ynr" id="TX7-V6-Osj"/>
+                        <outletCollection property="signupItems" destination="ufG-ud-T08" id="TLp-Xs-6is"/>
+                        <outletCollection property="signupItems" destination="8tA-zY-c51" id="dLz-qf-HXY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
