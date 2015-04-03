@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UIView *selector;
 @property (weak, nonatomic) IBOutlet UIPickerView *cities;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *viewSelector;
+@property (weak, nonatomic) IBOutlet UIButton *signupButton;
 
 //Login items
 
@@ -62,6 +63,8 @@
         object.layer.borderWidth = 1.5f;
 	}
     
+    self.signupButton.backgroundColor = yellowColor;
+    self.signupButton.layer.cornerRadius = 4.0f;
     
 }
 - (void)didReceiveMemoryWarning {
