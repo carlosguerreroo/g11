@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -16,9 +17,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RXP-LS-G5Y" userLabel="header">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RXP-LS-G5Y" userLabel="header">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="138"/>
                                 <color key="backgroundColor" red="1" green="0.35821101659999999" blue="0.4248970433" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="138" id="bfI-nv-nUB"/>
+                                </constraints>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="COo-P6-lOZ" userLabel="login">
                                 <rect key="frame" x="0.0" y="181" width="320" height="387"/>
@@ -42,7 +46,7 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="swE-NH-aby" userLabel="signup">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="swE-NH-aby" userLabel="signup">
                                 <rect key="frame" x="0.0" y="181" width="320" height="387"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nombre de empresa" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jEj-39-OFa">
@@ -77,10 +81,10 @@
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.60993701219999996" blue="0.16741275789999999" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sOG-4v-gw4" userLabel="selector">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sOG-4v-gw4" userLabel="selector">
                                 <rect key="frame" x="0.0" y="138" width="320" height="43"/>
                                 <subviews>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="7IA-Tl-MhW">
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="7IA-Tl-MhW">
                                         <rect key="frame" x="67" y="7" width="186" height="29"/>
                                         <segments>
                                             <segment title="Iniciar Sesión"/>
@@ -92,9 +96,26 @@
                                     </segmentedControl>
                                 </subviews>
                                 <color key="backgroundColor" red="0.91372555489999996" green="0.40000003579999999" blue="0.2588235438" alpha="1" colorSpace="deviceRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="centerX" secondItem="7IA-Tl-MhW" secondAttribute="centerX" id="IBF-My-mPd"/>
+                                    <constraint firstAttribute="height" constant="43" id="TpX-8B-gFV"/>
+                                    <constraint firstAttribute="centerY" secondItem="7IA-Tl-MhW" secondAttribute="centerY" constant="0.5" id="dR8-am-hpw"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="swE-NH-aby" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="1XT-cs-R3G"/>
+                            <constraint firstItem="RXP-LS-G5Y" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="-20" id="3zt-ZV-zYf"/>
+                            <constraint firstItem="RXP-LS-G5Y" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="BBV-sJ-NKP"/>
+                            <constraint firstItem="sOG-4v-gw4" firstAttribute="top" secondItem="RXP-LS-G5Y" secondAttribute="bottom" id="DhK-ZC-4p2"/>
+                            <constraint firstItem="sOG-4v-gw4" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="KAy-tP-UFY"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="RXP-LS-G5Y" secondAttribute="trailing" constant="-16" id="LpL-sS-nSX"/>
+                            <constraint firstItem="swE-NH-aby" firstAttribute="top" secondItem="sOG-4v-gw4" secondAttribute="bottom" id="e43-Ah-4FK"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="sOG-4v-gw4" secondAttribute="trailing" constant="-16" id="gZa-an-aCe"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="swE-NH-aby" secondAttribute="trailing" constant="-16" id="sE0-qd-uPD"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="swE-NH-aby" secondAttribute="bottom" id="xWZ-sY-rYJ"/>
+                        </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
