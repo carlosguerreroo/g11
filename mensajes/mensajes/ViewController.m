@@ -75,12 +75,13 @@
     switch (sender.selectedSegmentIndex)
     {
         case 0:
-            self.signup.hidden = NO;
-            self.login.hidden = YES;
-            break;
-        case 1:
             self.signup.hidden = YES;
             self.login.hidden = NO;
+            break;
+        case 1:
+
+            self.signup.hidden = NO;
+            self.login.hidden = YES;
             break;
         default: 
             break; 
