@@ -11,6 +11,7 @@
 @interface ViewController () {
     
     NSArray *_pickerData;
+    NSArray *_socialUrl;
     UIColor *grayColor;
     UIColor *yellowColor;
 }
@@ -40,6 +41,7 @@
     [self signup].hidden = NO;
     [self login].hidden = YES;
     _pickerData = @[@"Item 1", @"Item 2", @"Item 3", @"Item 4", @"Item 5", @"Item 6"];
+    _socialUrl = @[@"www.facebook.com", @"www.twiteer.com", @"www.youtube.com"];
     grayColor = [UIColor colorWithRed:0.651 green:0.651 blue:0.651 alpha:1];
     yellowColor = [UIColor colorWithRed:0.996 green:0.761 blue:0.133 alpha:1];
 
@@ -86,6 +88,10 @@
         default: 
             break; 
     }
+}
+- (IBAction)displaySocialNetwork:(id)sender {
+    
+    NSLog(_socialUrl[((UIButton *) sender).tag]);
 }
 
 
