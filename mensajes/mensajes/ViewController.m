@@ -23,13 +23,13 @@
 @property (weak, nonatomic) IBOutlet UIPickerView *cities;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *viewSelector;
 @property (weak, nonatomic) IBOutlet UIButton *signupButton;
-
-//Login items
-
+@property (weak, nonatomic) IBOutlet UIButton *loginButton;
 
 
-//Signup items
+// Signup items
 @property (strong, nonatomic) IBOutletCollection(UITextField) NSArray *signupItems;
+// Login items
+@property (strong, nonatomic) IBOutletCollection(UITextField) NSArray *loginItems;
 
 @end
 
@@ -40,6 +40,7 @@
     [super viewDidLoad];
     [self signup].hidden = NO;
     [self login].hidden = YES;
+    
     _pickerData = @[@"Item 1", @"Item 2", @"Item 3", @"Item 4", @"Item 5", @"Item 6"];
     _socialUrl = @[@"https://www.facebook.com/grupoONCE11",
                    @"https://twitter.com/grupoONCE11",
@@ -58,8 +59,6 @@
     
     self.viewSelector.tintColor = yellowColor;
     
-    
-    
     for (UITextField *object in self.signupItems) {
         object.layer.cornerRadius = 4.0f;
         object.layer.masksToBounds= YES;
@@ -67,8 +66,19 @@
         object.layer.borderWidth = 1.5f;
 	}
     
+    for (UITextField *object in self.loginItems) {
+        object.layer.cornerRadius = 4.0f;
+        object.layer.masksToBounds= YES;
+        object.layer.borderColor = [yellowColor CGColor];
+        object.layer.borderWidth = 1.5f;
+    }
+    
+    
     self.signupButton.backgroundColor = yellowColor;
     self.signupButton.layer.cornerRadius = 4.0f;
+    
+    self.loginButton.backgroundColor = yellowColor;
+    self.loginButton.layer.cornerRadius = 4.0f;
     
 }
 - (void)didReceiveMemoryWarning {
@@ -87,7 +97,7 @@
             self.signup.hidden = NO;
             self.login.hidden = YES;
             break;
-        default: 
+        default:
             break; 
     }
 }

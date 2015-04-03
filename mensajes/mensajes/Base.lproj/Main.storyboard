@@ -83,28 +83,6 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="COo-P6-lOZ" userLabel="login">
-                                <rect key="frame" x="0.0" y="181" width="320" height="387"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vyc-bM-NBR">
-                                        <rect key="frame" x="251" y="334" width="46" height="30"/>
-                                        <state key="normal" title="Entrar">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                    </button>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Correo electrónico" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OHF-Ds-WCI">
-                                        <rect key="frame" x="50" y="11" width="240" height="30"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Contraseña" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rP9-ZA-da9">
-                                        <rect key="frame" x="50" y="67" width="240" height="30"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                </subviews>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="swE-NH-aby" userLabel="signup">
                                 <rect key="frame" x="0.0" y="181" width="320" height="387"/>
                                 <subviews>
@@ -178,6 +156,42 @@
                                     <constraint firstAttribute="centerX" secondItem="ufG-ud-T08" secondAttribute="centerX" constant="4" id="yNf-aV-AOU"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="COo-P6-lOZ" userLabel="login">
+                                <rect key="frame" x="0.0" y="181" width="320" height="387"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vyc-bM-NBR">
+                                        <rect key="frame" x="205" y="339" width="97" height="30"/>
+                                        <state key="normal" title="Entrar">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Correo electrónico" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OHF-Ds-WCI">
+                                        <rect key="frame" x="20" y="5" width="272" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="272" id="Tqb-Ik-djE"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Contraseña" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rP9-ZA-da9">
+                                        <rect key="frame" x="20" y="43" width="272" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="272" id="vVG-iD-vXt"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="centerX" secondItem="OHF-Ds-WCI" secondAttribute="centerX" constant="4" id="8c5-P5-izR"/>
+                                    <constraint firstItem="OHF-Ds-WCI" firstAttribute="top" secondItem="COo-P6-lOZ" secondAttribute="top" constant="5" id="JZE-Fs-aAu"/>
+                                    <constraint firstItem="rP9-ZA-da9" firstAttribute="top" secondItem="OHF-Ds-WCI" secondAttribute="bottom" constant="8" id="k4s-r3-nNh"/>
+                                    <constraint firstAttribute="centerX" secondItem="rP9-ZA-da9" secondAttribute="centerX" constant="4" id="nOm-fu-Xi2"/>
+                                    <constraint firstItem="rP9-ZA-da9" firstAttribute="width" secondItem="OHF-Ds-WCI" secondAttribute="width" id="tcx-Ih-fa0"/>
+                                </constraints>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sOG-4v-gw4" userLabel="selector">
                                 <rect key="frame" x="0.0" y="138" width="320" height="43"/>
                                 <subviews>
@@ -223,6 +237,7 @@
                         <outlet property="cities" destination="sJI-n2-Rmf" id="HNC-zy-j5c"/>
                         <outlet property="header" destination="RXP-LS-G5Y" id="XKM-pI-v9Z"/>
                         <outlet property="login" destination="COo-P6-lOZ" id="Uwd-kf-Ykp"/>
+                        <outlet property="loginButton" destination="Vyc-bM-NBR" id="aBt-Fs-QpH"/>
                         <outlet property="selector" destination="sOG-4v-gw4" id="WV0-eC-EhE"/>
                         <outlet property="signup" destination="swE-NH-aby" id="ZI0-d5-PdC"/>
                         <outlet property="signupButton" destination="4LL-7C-zbY" id="kS8-p6-xNi"/>
@@ -231,6 +246,8 @@
                         <outletCollection property="signupItems" destination="Bvz-ZG-ynr" id="TX7-V6-Osj"/>
                         <outletCollection property="signupItems" destination="ufG-ud-T08" id="TLp-Xs-6is"/>
                         <outletCollection property="signupItems" destination="8tA-zY-c51" id="dLz-qf-HXY"/>
+                        <outletCollection property="loginItems" destination="OHF-Ds-WCI" id="Jg0-TZ-8WB"/>
+                        <outletCollection property="loginItems" destination="rP9-ZA-da9" id="Kp5-qw-YVN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
