@@ -41,7 +41,9 @@
     [self signup].hidden = NO;
     [self login].hidden = YES;
     _pickerData = @[@"Item 1", @"Item 2", @"Item 3", @"Item 4", @"Item 5", @"Item 6"];
-    _socialUrl = @[@"www.facebook.com", @"www.twiteer.com", @"www.youtube.com"];
+    _socialUrl = @[@"https://www.facebook.com/grupoONCE11",
+                   @"https://twitter.com/grupoONCE11",
+                   @"https://www.youtube.com/user/grupo11ONCE"];
     grayColor = [UIColor colorWithRed:0.651 green:0.651 blue:0.651 alpha:1];
     yellowColor = [UIColor colorWithRed:0.996 green:0.761 blue:0.133 alpha:1];
 
@@ -91,7 +93,8 @@
 }
 - (IBAction)displaySocialNetwork:(id)sender {
     
-    NSLog(_socialUrl[((UIButton *) sender).tag]);
+    NSInteger index = ((UIButton *)sender).tag;
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:  _socialUrl[index]]];
 }
 
 
