@@ -58,9 +58,12 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4LL-7C-zbY">
-                                        <rect key="frame" x="200" y="349" width="102" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4LL-7C-zbY">
+                                        <rect key="frame" x="205" y="339" width="97" height="30"/>
                                         <color key="backgroundColor" red="0.94901967050000002" green="0.84705889229999998" blue="0.21568629149999999" alpha="1" colorSpace="deviceRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="97" id="dny-1P-DPJ"/>
+                                        </constraints>
                                         <state key="normal" title="Registrarse">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -99,9 +102,11 @@
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.60993701219999996" blue="0.16741275789999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="4LL-7C-zbY" secondAttribute="bottom" constant="18" id="4gb-ZQ-VXl"/>
                                     <constraint firstItem="ufG-ud-T08" firstAttribute="top" secondItem="Bvz-ZG-ynr" secondAttribute="bottom" constant="8" id="6Gs-ou-pIr"/>
                                     <constraint firstItem="ufG-ud-T08" firstAttribute="width" secondItem="Bvz-ZG-ynr" secondAttribute="width" id="GU8-4g-3uX"/>
                                     <constraint firstAttribute="centerX" secondItem="jEj-39-OFa" secondAttribute="centerX" constant="4" id="Iqj-xf-Jy4"/>
+                                    <constraint firstAttribute="trailing" secondItem="4LL-7C-zbY" secondAttribute="trailing" constant="18" id="UzC-Ae-aq1"/>
                                     <constraint firstItem="Bvz-ZG-ynr" firstAttribute="top" secondItem="jEj-39-OFa" secondAttribute="bottom" constant="8" id="X9X-Bj-Kwo"/>
                                     <constraint firstItem="ufG-ud-T08" firstAttribute="width" secondItem="jEj-39-OFa" secondAttribute="width" id="a40-9B-amC"/>
                                     <constraint firstItem="8tA-zY-c51" firstAttribute="top" secondItem="ufG-ud-T08" secondAttribute="bottom" constant="8" symbolic="YES" id="ban-Uc-luU"/>
