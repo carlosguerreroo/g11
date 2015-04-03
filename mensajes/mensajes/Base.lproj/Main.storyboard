@@ -129,6 +129,7 @@
                         <outlet property="login" destination="COo-P6-lOZ" id="Uwd-kf-Ykp"/>
                         <outlet property="selector" destination="sOG-4v-gw4" id="WV0-eC-EhE"/>
                         <outlet property="signup" destination="swE-NH-aby" id="ZI0-d5-PdC"/>
+                        <outlet property="viewSelector" destination="7IA-Tl-MhW" id="w6n-tt-IQA"/>
                         <outletCollection property="signupItems" destination="jEj-39-OFa" id="YKj-L3-8an"/>
                         <outletCollection property="signupItems" destination="Bvz-ZG-ynr" id="TX7-V6-Osj"/>
                         <outletCollection property="signupItems" destination="ufG-ud-T08" id="TLp-Xs-6is"/>

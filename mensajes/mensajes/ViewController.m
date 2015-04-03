@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UIView *header;
 @property (weak, nonatomic) IBOutlet UIView *selector;
 @property (weak, nonatomic) IBOutlet UIPickerView *cities;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *viewSelector;
 
 //Login items
 
@@ -50,6 +51,9 @@
     self.header.backgroundColor = grayColor;
     self.selector.backgroundColor = grayColor;
     
+    self.viewSelector.tintColor = yellowColor;
+    
+    
     
     for (UITextField *object in self.signupItems) {
         object.layer.cornerRadius = 4.0f;
@@ -57,6 +61,8 @@
         object.layer.borderColor = [yellowColor CGColor];
         object.layer.borderWidth = 1.5f;
 	}
+    
+    
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
