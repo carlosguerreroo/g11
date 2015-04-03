@@ -41,7 +41,7 @@
     [self signup].hidden = NO;
     [self login].hidden = YES;
     
-    _pickerData = @[@"Item 1", @"Item 2", @"Item 3", @"Item 4", @"Item 5", @"Item 6"];
+    _pickerData = @[@"Monterrey", @"Guadalajara", @"Queretaro"];
     _socialUrl = @[@"https://www.facebook.com/grupoONCE11",
                    @"https://twitter.com/grupoONCE11",
                    @"https://www.youtube.com/user/grupo11ONCE"];
