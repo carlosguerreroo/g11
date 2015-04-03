@@ -106,5 +106,8 @@
     return _pickerData[row];
 }
 
+- (BOOL)prefersStatusBarHidden {
+    return YES;
+}
 
 @end
