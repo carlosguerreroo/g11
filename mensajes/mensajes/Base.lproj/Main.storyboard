@@ -24,7 +24,7 @@
                                     <constraint firstAttribute="height" constant="138" id="bfI-nv-nUB"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="COo-P6-lOZ" userLabel="login">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="COo-P6-lOZ" userLabel="login">
                                 <rect key="frame" x="0.0" y="181" width="320" height="387"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vyc-bM-NBR">
@@ -109,10 +109,14 @@
                             <constraint firstItem="RXP-LS-G5Y" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="-20" id="3zt-ZV-zYf"/>
                             <constraint firstItem="RXP-LS-G5Y" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="BBV-sJ-NKP"/>
                             <constraint firstItem="sOG-4v-gw4" firstAttribute="top" secondItem="RXP-LS-G5Y" secondAttribute="bottom" id="DhK-ZC-4p2"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="COo-P6-lOZ" secondAttribute="bottom" id="H2C-LS-aYv"/>
                             <constraint firstItem="sOG-4v-gw4" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="KAy-tP-UFY"/>
                             <constraint firstAttribute="trailingMargin" secondItem="RXP-LS-G5Y" secondAttribute="trailing" constant="-16" id="LpL-sS-nSX"/>
+                            <constraint firstItem="COo-P6-lOZ" firstAttribute="top" secondItem="sOG-4v-gw4" secondAttribute="bottom" id="Ykv-iC-ZAT"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="COo-P6-lOZ" secondAttribute="trailing" constant="-16" id="c88-4k-HY3"/>
                             <constraint firstItem="swE-NH-aby" firstAttribute="top" secondItem="sOG-4v-gw4" secondAttribute="bottom" id="e43-Ah-4FK"/>
                             <constraint firstAttribute="trailingMargin" secondItem="sOG-4v-gw4" secondAttribute="trailing" constant="-16" id="gZa-an-aCe"/>
+                            <constraint firstItem="COo-P6-lOZ" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="kmJ-nb-00A"/>
                             <constraint firstAttribute="trailingMargin" secondItem="swE-NH-aby" secondAttribute="trailing" constant="-16" id="sE0-qd-uPD"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="swE-NH-aby" secondAttribute="bottom" id="xWZ-sY-rYJ"/>
                         </constraints>
