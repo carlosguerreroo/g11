@@ -29,6 +29,30 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cover" translatesAutoresizingMaskIntoConstraints="NO" id="Dc9-Z5-KRK">
                                         <rect key="frame" x="74" y="0.0" width="252" height="143"/>
                                     </imageView>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BlI-oB-IpW">
+                                        <rect key="frame" x="74" y="0.0" width="67" height="138"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gq2-eF-gbG">
+                                                <rect key="frame" x="22" y="26" width="23" height="27"/>
+                                                <state key="normal" image="facebook">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MEQ-Oa-zNH">
+                                                <rect key="frame" x="19" y="58" width="28" height="33"/>
+                                                <state key="normal" title="Button" image="twitter">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Je-Sc-TNY">
+                                                <rect key="frame" x="7" y="98" width="52" height="38"/>
+                                                <state key="normal" title="Button" image="youtube">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="0.5" colorSpace="calibratedWhite"/>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.35821101659999999" blue="0.4248970433" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -207,6 +231,9 @@
     </scenes>
     <resources>
         <image name="cover" width="1024" height="512"/>
+        <image name="facebook" width="256" height="512"/>
         <image name="logo2_blanco" width="196" height="382"/>
+        <image name="twitter" width="512" height="512"/>
+        <image name="youtube" width="512" height="512"/>
     </resources>
 </document>
