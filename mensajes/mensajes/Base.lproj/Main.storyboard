@@ -49,9 +49,12 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="swE-NH-aby" userLabel="signup">
                                 <rect key="frame" x="0.0" y="181" width="320" height="387"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nombre de empresa" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jEj-39-OFa">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nombre de empresa" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jEj-39-OFa">
                                         <rect key="frame" x="20" y="5" width="272" height="30"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="272" id="iUY-q6-lY5"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
@@ -63,26 +66,53 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                     </button>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Correo electronico" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bvz-ZG-ynr">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Correo electronico" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bvz-ZG-ynr">
                                         <rect key="frame" x="20" y="43" width="272" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="272" id="dVB-c4-s7j"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Contraseña" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ufG-ud-T08">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Contraseña" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ufG-ud-T08">
                                         <rect key="frame" x="20" y="81" width="272" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="272" id="ZIp-ME-i8z"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Contraseña" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8tA-zY-c51">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Contraseña" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8tA-zY-c51">
                                         <rect key="frame" x="20" y="119" width="272" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="272" id="QP7-zY-Y31"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sJI-n2-Rmf">
-                                        <rect key="frame" x="-28" y="157" width="320" height="162"/>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sJI-n2-Rmf">
+                                        <rect key="frame" x="0.0" y="152" width="320" height="162"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="162" id="979-p5-YWR"/>
+                                        </constraints>
                                     </pickerView>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.60993701219999996" blue="0.16741275789999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="ufG-ud-T08" firstAttribute="top" secondItem="Bvz-ZG-ynr" secondAttribute="bottom" constant="8" id="6Gs-ou-pIr"/>
+                                    <constraint firstItem="ufG-ud-T08" firstAttribute="width" secondItem="Bvz-ZG-ynr" secondAttribute="width" id="GU8-4g-3uX"/>
+                                    <constraint firstAttribute="centerX" secondItem="jEj-39-OFa" secondAttribute="centerX" constant="4" id="Iqj-xf-Jy4"/>
+                                    <constraint firstItem="Bvz-ZG-ynr" firstAttribute="top" secondItem="jEj-39-OFa" secondAttribute="bottom" constant="8" id="X9X-Bj-Kwo"/>
+                                    <constraint firstItem="ufG-ud-T08" firstAttribute="width" secondItem="jEj-39-OFa" secondAttribute="width" id="a40-9B-amC"/>
+                                    <constraint firstItem="8tA-zY-c51" firstAttribute="top" secondItem="ufG-ud-T08" secondAttribute="bottom" constant="8" symbolic="YES" id="ban-Uc-luU"/>
+                                    <constraint firstAttribute="centerX" secondItem="Bvz-ZG-ynr" secondAttribute="centerX" constant="4" id="bap-Lh-1Q8"/>
+                                    <constraint firstItem="ufG-ud-T08" firstAttribute="width" secondItem="8tA-zY-c51" secondAttribute="width" id="dYd-mz-Pu8"/>
+                                    <constraint firstAttribute="centerX" secondItem="8tA-zY-c51" secondAttribute="centerX" constant="4" id="evs-My-gti"/>
+                                    <constraint firstItem="sJI-n2-Rmf" firstAttribute="top" secondItem="8tA-zY-c51" secondAttribute="bottom" constant="3" id="hn5-05-qL6"/>
+                                    <constraint firstAttribute="centerX" secondItem="sJI-n2-Rmf" secondAttribute="centerX" id="k2w-f3-IfB"/>
+                                    <constraint firstItem="jEj-39-OFa" firstAttribute="top" secondItem="swE-NH-aby" secondAttribute="top" constant="5" id="pJM-K3-Yvi"/>
+                                    <constraint firstAttribute="centerX" secondItem="ufG-ud-T08" secondAttribute="centerX" constant="4" id="yNf-aV-AOU"/>
+                                </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sOG-4v-gw4" userLabel="selector">
                                 <rect key="frame" x="0.0" y="138" width="320" height="43"/>
