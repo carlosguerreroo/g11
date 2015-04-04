@@ -129,5 +129,14 @@
 - (BOOL)prefersStatusBarHidden {
     return YES;
 }
+- (IBAction)loginOrSignup:(id)sender {
+    // Login
+    if (_viewSelector.selectedSegmentIndex == 0) {
+    
+    // Sing up
+    } else {
+    
+    }
+}
 
 @end

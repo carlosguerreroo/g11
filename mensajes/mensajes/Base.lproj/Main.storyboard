@@ -105,6 +105,9 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="loginOrSignup:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="lBQ-fK-oFr"/>
+                                        </connections>
                                     </button>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Correo electronico" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bvz-ZG-ynr">
                                         <rect key="frame" x="20" y="43" width="272" height="30"/>
@@ -168,6 +171,9 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="loginOrSignup:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="0NY-7V-7h5"/>
+                                        </connections>
                                     </button>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Correo electrónico" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OHF-Ds-WCI">
                                         <rect key="frame" x="20" y="5" width="272" height="30"/>
@@ -262,7 +268,7 @@
         <!--Menu View Controller-->
         <scene sceneID="u0y-c8-9Ge">
             <objects>
-                <viewController id="bm3-rf-nLI" customClass="MenuViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MenuViewController" id="bm3-rf-nLI" customClass="MenuViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zOi-eN-L7s"/>
                         <viewControllerLayoutGuide type="bottom" id="hRQ-4m-hsa"/>
@@ -341,7 +347,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SjE-Da-cbo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="639" y="272"/>
+            <point key="canvasLocation" x="563" y="272"/>
         </scene>
     </scenes>
     <resources>
