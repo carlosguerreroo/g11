@@ -342,9 +342,12 @@
                                         <rect key="frame" x="76" y="90" width="168" height="30"/>
                                         <color key="backgroundColor" red="0.94901967050000002" green="0.84705889229999998" blue="0.21568629149999999" alpha="1" colorSpace="deviceRGB"/>
                                         <color key="tintColor" red="0.99607849120000003" green="0.99215692280000001" blue="0.99215692280000001" alpha="1" colorSpace="deviceRGB"/>
-                                        <state key="normal" title="Pregunstas frecuentes">
+                                        <state key="normal" title="Preguntas frecuentes">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="GzK-t7-oI2" kind="show" id="xY4-63-h0K"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b8n-Wq-CVq">
                                         <rect key="frame" x="76" y="128" width="168" height="30"/>
@@ -353,6 +356,9 @@
                                         <state key="normal" title="Mandar comentario">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="Ha8-0h-Yha" kind="show" id="DnY-HZ-aDF"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3us-bm-w2Q">
                                         <rect key="frame" x="76" y="166" width="168" height="30"/>
@@ -361,6 +367,9 @@
                                         <state key="normal" title="Chat con un asesor">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="0IW-4K-qqg" kind="show" id="GP3-Xl-8bM"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oWc-Gn-PiU">
                                         <rect key="frame" x="76" y="204" width="168" height="30"/>
@@ -420,7 +429,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tyt-v4-Y2C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="919" y="272"/>
+            <point key="canvasLocation" x="979" y="33"/>
         </scene>
         <!--Send Message View Controller-->
         <scene sceneID="XW1-EZ-iMb">
@@ -439,7 +448,26 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DhZ-Nu-CIS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1266" y="272"/>
+            <point key="canvasLocation" x="979" y="669"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Qxi-83-XAd">
+            <objects>
+                <viewController id="0IW-4K-qqg" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="X3k-vk-D5t"/>
+                        <viewControllerLayoutGuide type="bottom" id="SP4-wH-vLx"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="shm-bV-Epi">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TtN-OQ-lls" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="557" y="1018"/>
         </scene>
     </scenes>
     <resources>
