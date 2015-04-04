@@ -524,22 +524,34 @@
                                     <constraint firstItem="u8F-p8-QGD" firstAttribute="leading" secondItem="NU3-pe-80X" secondAttribute="trailing" constant="-7" id="rJB-j0-7Em"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Preguntas Frecuentes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hy4-Gg-ZJ8">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Preguntas Frecuentes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hy4-Gg-ZJ8">
                                 <rect key="frame" x="45" y="146" width="231" height="38"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="231" id="LbA-lM-JRd"/>
+                                    <constraint firstAttribute="height" constant="38" id="O22-Sn-A6H"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yEx-Io-iGI">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yEx-Io-iGI">
                                 <rect key="frame" x="30" y="149" width="7" height="32"/>
                                 <color key="backgroundColor" red="0.99607843137254903" green="0.72156862745098038" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="42K-WN-O0s"/>
+                                    <constraint firstAttribute="width" constant="7" id="GbL-Wo-gY2"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="X21-o1-6wd" firstAttribute="leading" secondItem="ldq-eP-DiU" secondAttribute="leadingMargin" constant="-16" id="4xm-Nb-Ttu"/>
+                            <constraint firstItem="Hy4-Gg-ZJ8" firstAttribute="top" secondItem="X21-o1-6wd" secondAttribute="bottom" constant="8" id="BAC-DS-nLD"/>
+                            <constraint firstItem="yEx-Io-iGI" firstAttribute="leading" secondItem="ldq-eP-DiU" secondAttribute="leadingMargin" constant="14" id="BZ4-hf-W1D"/>
                             <constraint firstAttribute="trailingMargin" secondItem="X21-o1-6wd" secondAttribute="trailing" constant="-16" id="fDV-KV-Hy4"/>
+                            <constraint firstItem="Hy4-Gg-ZJ8" firstAttribute="leading" secondItem="yEx-Io-iGI" secondAttribute="trailing" constant="8" id="o5W-Rh-D7L"/>
                             <constraint firstItem="X21-o1-6wd" firstAttribute="top" secondItem="OkH-8o-s0f" secondAttribute="bottom" constant="-20" id="ojM-BH-Yug"/>
+                            <constraint firstItem="yEx-Io-iGI" firstAttribute="top" secondItem="X21-o1-6wd" secondAttribute="bottom" constant="11" id="ynK-Ic-qci"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
