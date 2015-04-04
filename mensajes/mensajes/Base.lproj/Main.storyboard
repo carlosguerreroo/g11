@@ -403,6 +403,25 @@
             </objects>
             <point key="canvasLocation" x="563" y="272"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="UXY-oe-LI6">
+            <objects>
+                <viewController id="GzK-t7-oI2" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="OkH-8o-s0f"/>
+                        <viewControllerLayoutGuide type="bottom" id="GoK-m7-0FW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ldq-eP-DiU">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Tyt-v4-Y2C" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="919" y="272"/>
+        </scene>
     </scenes>
     <resources>
         <image name="cover" width="1024" height="512"/>

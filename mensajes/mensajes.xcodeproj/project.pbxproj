@@ -15,6 +15,7 @@
 		FA0FD7351ACBB22500A2E82F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA0FD7331ACBB22500A2E82F /* LaunchScreen.xib */; };
 		FA0FD7411ACBB22500A2E82F /* mensajesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0FD7401ACBB22500A2E82F /* mensajesTests.m */; };
 		FAD999B11ACF450D00BE0B8D /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD999B01ACF450D00BE0B8D /* MenuViewController.m */; };
+		FAD999B41ACF6DF400BE0B8D /* QuestionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD999B31ACF6DF400BE0B8D /* QuestionsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,8 @@
 		FA0FD7401ACBB22500A2E82F /* mensajesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = mensajesTests.m; sourceTree = "<group>"; };
 		FAD999AF1ACF450D00BE0B8D /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		FAD999B01ACF450D00BE0B8D /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
+		FAD999B21ACF6DF400BE0B8D /* QuestionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionsViewController.h; sourceTree = "<group>"; };
+		FAD999B31ACF6DF400BE0B8D /* QuestionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +97,8 @@
 				FA0FD7311ACBB22500A2E82F /* Images.xcassets */,
 				FA0FD7331ACBB22500A2E82F /* LaunchScreen.xib */,
 				FA0FD7241ACBB22500A2E82F /* Supporting Files */,
+				FAD999B21ACF6DF400BE0B8D /* QuestionsViewController.h */,
+				FAD999B31ACF6DF400BE0B8D /* QuestionsViewController.m */,
 			);
 			path = mensajes;
 			sourceTree = "<group>";
@@ -225,6 +230,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA0FD72D1ACBB22500A2E82F /* ViewController.m in Sources */,
+				FAD999B41ACF6DF400BE0B8D /* QuestionsViewController.m in Sources */,
 				FA0FD72A1ACBB22500A2E82F /* AppDelegate.m in Sources */,
 				FA0FD7271ACBB22500A2E82F /* main.m in Sources */,
 				FAD999B11ACF450D00BE0B8D /* MenuViewController.m in Sources */,
