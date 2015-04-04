@@ -130,6 +130,7 @@
 - (BOOL)prefersStatusBarHidden {
     return YES;
 }
+
 - (IBAction)loginOrSignup:(id)sender {
     
     // Login
