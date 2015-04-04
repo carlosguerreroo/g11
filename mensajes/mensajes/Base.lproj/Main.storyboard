@@ -542,15 +542,22 @@
                                     <constraint firstAttribute="width" constant="7" id="GbL-Wo-gY2"/>
                                 </constraints>
                             </view>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ANA-XU-PRT">
+                                <rect key="frame" x="0.0" y="192" width="320" height="376"/>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="X21-o1-6wd" firstAttribute="leading" secondItem="ldq-eP-DiU" secondAttribute="leadingMargin" constant="-16" id="4xm-Nb-Ttu"/>
+                            <constraint firstItem="GoK-m7-0FW" firstAttribute="top" secondItem="ANA-XU-PRT" secondAttribute="bottom" id="5e8-up-3Z7"/>
                             <constraint firstItem="Hy4-Gg-ZJ8" firstAttribute="top" secondItem="X21-o1-6wd" secondAttribute="bottom" constant="8" id="BAC-DS-nLD"/>
                             <constraint firstItem="yEx-Io-iGI" firstAttribute="leading" secondItem="ldq-eP-DiU" secondAttribute="leadingMargin" constant="14" id="BZ4-hf-W1D"/>
                             <constraint firstAttribute="trailingMargin" secondItem="X21-o1-6wd" secondAttribute="trailing" constant="-16" id="fDV-KV-Hy4"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ANA-XU-PRT" secondAttribute="trailing" constant="-16" id="fIL-0H-Mma"/>
+                            <constraint firstItem="ANA-XU-PRT" firstAttribute="top" secondItem="Hy4-Gg-ZJ8" secondAttribute="bottom" constant="8" id="kcL-fS-iBy"/>
                             <constraint firstItem="Hy4-Gg-ZJ8" firstAttribute="leading" secondItem="yEx-Io-iGI" secondAttribute="trailing" constant="8" id="o5W-Rh-D7L"/>
                             <constraint firstItem="X21-o1-6wd" firstAttribute="top" secondItem="OkH-8o-s0f" secondAttribute="bottom" constant="-20" id="ojM-BH-Yug"/>
+                            <constraint firstItem="ANA-XU-PRT" firstAttribute="leading" secondItem="ldq-eP-DiU" secondAttribute="leadingMargin" constant="-16" id="vg9-S9-0ah"/>
                             <constraint firstItem="yEx-Io-iGI" firstAttribute="top" secondItem="X21-o1-6wd" secondAttribute="bottom" constant="11" id="ynK-Ic-qci"/>
                         </constraints>
                     </view>
