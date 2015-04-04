@@ -407,6 +407,12 @@
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="logoutButton" destination="oWc-Gn-PiU" id="Wn0-6T-t8W"/>
+                        <outletCollection property="optionsButtons" destination="Xts-6n-a4T" id="aha-4B-VnL"/>
+                        <outletCollection property="optionsButtons" destination="b8n-Wq-CVq" id="eKE-aK-Jye"/>
+                        <outletCollection property="optionsButtons" destination="3us-bm-w2Q" id="pgZ-Cs-2tU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SjE-Da-cbo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
