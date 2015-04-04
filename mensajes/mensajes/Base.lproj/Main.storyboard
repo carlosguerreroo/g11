@@ -323,7 +323,7 @@
                                         <color key="backgroundColor" white="1" alpha="0.5" colorSpace="calibratedWhite"/>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" red="1" green="0.35821101659999999" blue="0.4248970433" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="peP-fb-UVk" firstAttribute="leading" secondItem="9f6-A0-lBp" secondAttribute="trailing" constant="-7" id="6X0-Em-AuA"/>
                                     <constraint firstItem="9f6-A0-lBp" firstAttribute="leading" secondItem="W6c-CL-BMc" secondAttribute="leading" id="I0L-Ce-bTB"/>
