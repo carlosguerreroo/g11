@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "MenuViewController.h"
 
 @interface ViewController () {
     
@@ -130,9 +131,13 @@
     return YES;
 }
 - (IBAction)loginOrSignup:(id)sender {
+    
     // Login
     if (_viewSelector.selectedSegmentIndex == 0) {
-    
+       
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        MenuViewController *menuViewController = (MenuViewController *)[storyboard instantiateViewControllerWithIdentifier:@"MenuViewController"];
+        [self presentViewController:menuViewController animated:YES completion:nil];
     // Sing up
     } else {
     
