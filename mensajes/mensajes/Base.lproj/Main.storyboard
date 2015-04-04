@@ -217,7 +217,7 @@
                                         </connections>
                                     </segmentedControl>
                                 </subviews>
-                                <color key="backgroundColor" red="0.91372555489999996" green="0.40000003579999999" blue="0.2588235438" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="centerX" secondItem="7IA-Tl-MhW" secondAttribute="centerX" id="IBF-My-mPd"/>
                                     <constraint firstAttribute="height" constant="43" id="TpX-8B-gFV"/>
@@ -452,7 +452,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SjE-Da-cbo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="563" y="272"/>
+            <point key="canvasLocation" x="557" y="272"/>
         </scene>
         <!--Questions View Controller-->
         <scene sceneID="UXY-oe-LI6">
@@ -524,8 +524,18 @@
                                     <constraint firstItem="u8F-p8-QGD" firstAttribute="leading" secondItem="NU3-pe-80X" secondAttribute="trailing" constant="-7" id="rJB-j0-7Em"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Preguntas Frecuentes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hy4-Gg-ZJ8">
+                                <rect key="frame" x="45" y="146" width="231" height="38"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yEx-Io-iGI">
+                                <rect key="frame" x="30" y="149" width="7" height="32"/>
+                                <color key="backgroundColor" red="0.99607843137254903" green="0.72156862745098038" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="X21-o1-6wd" firstAttribute="leading" secondItem="ldq-eP-DiU" secondAttribute="leadingMargin" constant="-16" id="4xm-Nb-Ttu"/>
                             <constraint firstAttribute="trailingMargin" secondItem="X21-o1-6wd" secondAttribute="trailing" constant="-16" id="fDV-KV-Hy4"/>
