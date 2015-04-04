@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="bm3-rf-nLI">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -271,43 +271,46 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lw6-g2-ggg" userLabel="header">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W6c-CL-BMc" userLabel="header">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="138"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo2_blanco" translatesAutoresizingMaskIntoConstraints="NO" id="B7v-IU-weK">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo2_blanco" translatesAutoresizingMaskIntoConstraints="NO" id="9f6-A0-lBp">
                                         <rect key="frame" x="0.0" y="20" width="81" height="118"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="81" id="1M4-uw-cGY"/>
+                                        </constraints>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cover" translatesAutoresizingMaskIntoConstraints="NO" id="0oC-v3-f31">
-                                        <rect key="frame" x="74" y="0.0" width="252" height="143"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cover" translatesAutoresizingMaskIntoConstraints="NO" id="peP-fb-UVk">
+                                        <rect key="frame" x="74" y="0.0" width="252" height="138"/>
                                     </imageView>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HX5-XP-D9F">
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8va-I0-ekc">
                                         <rect key="frame" x="74" y="0.0" width="67" height="138"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pFU-pO-GBp">
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Al3-A8-Bt2">
                                                 <rect key="frame" x="22" y="26" width="23" height="27"/>
                                                 <state key="normal" image="facebook">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="displaySocialNetwork:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="juV-ur-xhf"/>
+                                                    <action selector="displaySocialNetwork:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="M7f-ox-1wk"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NWP-qg-vJN">
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R3s-n3-0hC">
                                                 <rect key="frame" x="19" y="58" width="28" height="33"/>
                                                 <state key="normal" title="Button" image="twitter">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="displaySocialNetwork:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="FT1-Ic-kPB"/>
+                                                    <action selector="displaySocialNetwork:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="XvE-F8-Ft5"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RFd-IZ-ER0">
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F7F-Yd-rxK">
                                                 <rect key="frame" x="7" y="98" width="52" height="38"/>
                                                 <state key="normal" title="Button" image="youtube">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="displaySocialNetwork:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="HjU-IQ-Klz"/>
+                                                    <action selector="displaySocialNetwork:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="HdI-Vk-x0I"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -315,9 +318,24 @@
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.35821101659999999" blue="0.4248970433" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="peP-fb-UVk" firstAttribute="leading" secondItem="9f6-A0-lBp" secondAttribute="trailing" constant="-7" id="6X0-Em-AuA"/>
+                                    <constraint firstItem="9f6-A0-lBp" firstAttribute="leading" secondItem="W6c-CL-BMc" secondAttribute="leading" id="I0L-Ce-bTB"/>
+                                    <constraint firstAttribute="trailing" secondItem="peP-fb-UVk" secondAttribute="trailing" constant="-6" id="R4c-Qs-7hR"/>
+                                    <constraint firstAttribute="bottom" secondItem="peP-fb-UVk" secondAttribute="bottom" id="aSh-Ps-D0E"/>
+                                    <constraint firstAttribute="height" constant="138" id="jTx-yJ-QRX"/>
+                                    <constraint firstAttribute="bottom" secondItem="9f6-A0-lBp" secondAttribute="bottom" id="lO8-5a-nvx"/>
+                                    <constraint firstItem="9f6-A0-lBp" firstAttribute="top" secondItem="W6c-CL-BMc" secondAttribute="top" constant="20" id="pDi-7x-Ggv"/>
+                                    <constraint firstItem="peP-fb-UVk" firstAttribute="top" secondItem="W6c-CL-BMc" secondAttribute="top" id="xdd-XA-ipU"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="W6c-CL-BMc" firstAttribute="top" secondItem="zOi-eN-L7s" secondAttribute="bottom" constant="-20" id="27f-Rf-Vga"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="W6c-CL-BMc" secondAttribute="trailing" constant="-16" id="pZe-U0-tCt"/>
+                            <constraint firstItem="W6c-CL-BMc" firstAttribute="leading" secondItem="QQT-dF-kA1" secondAttribute="leadingMargin" constant="-16" id="tYw-oh-AJo"/>
+                        </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </viewController>
