@@ -299,6 +299,7 @@
                                                 </state>
                                                 <connections>
                                                     <action selector="displaySocialNetwork:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="M7f-ox-1wk"/>
+                                                    <action selector="displaySocialNetwork:" destination="bm3-rf-nLI" eventType="touchUpInside" id="gtq-an-EWn"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R3s-n3-0hC">
@@ -307,6 +308,7 @@
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
+                                                    <action selector="displaySocialNetwork:" destination="bm3-rf-nLI" eventType="touchUpInside" id="4xx-cA-PWI"/>
                                                     <action selector="displaySocialNetwork:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="XvE-F8-Ft5"/>
                                                 </connections>
                                             </button>
@@ -316,6 +318,7 @@
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
+                                                    <action selector="displaySocialNetwork:" destination="bm3-rf-nLI" eventType="touchUpInside" id="Gqi-T7-Ba2"/>
                                                     <action selector="displaySocialNetwork:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="HdI-Vk-x0I"/>
                                                 </connections>
                                             </button>
@@ -488,6 +491,7 @@
                                                 </state>
                                                 <connections>
                                                     <action selector="displaySocialNetwork:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="3A5-L5-A1t"/>
+                                                    <action selector="displaySocialNetwork:" destination="GzK-t7-oI2" eventType="touchUpInside" id="UdG-Us-h55"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vXo-b1-yOR">
@@ -496,6 +500,7 @@
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
+                                                    <action selector="displaySocialNetwork:" destination="GzK-t7-oI2" eventType="touchUpInside" id="sWX-wm-4Ej"/>
                                                     <action selector="displaySocialNetwork:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="tGd-Gb-2RG"/>
                                                 </connections>
                                             </button>
@@ -505,6 +510,7 @@
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
+                                                    <action selector="displaySocialNetwork:" destination="GzK-t7-oI2" eventType="touchUpInside" id="aWU-f0-z6z"/>
                                                     <action selector="displaySocialNetwork:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="cyx-Is-YZr"/>
                                                 </connections>
                                             </button>

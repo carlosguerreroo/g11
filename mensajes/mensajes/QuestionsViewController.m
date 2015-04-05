@@ -8,7 +8,10 @@
 
 #import "QuestionsViewController.h"
 
-@interface QuestionsViewController ()
+@interface QuestionsViewController () {
+    
+    NSArray *_socialUrl;
+}
 
 @end
 
@@ -17,6 +20,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    _socialUrl = @[@"https://www.facebook.com/grupoONCE11",
+                   @"https://twitter.com/grupoONCE11",
+                   @"https://www.youtube.com/user/grupo11ONCE"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -26,6 +33,12 @@
 
 - (BOOL)prefersStatusBarHidden {
     return YES;
+}
+
+- (IBAction)displaySocialNetwork:(id)sender {
+    
+    NSInteger index = ((UIButton *)sender).tag;
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:  _socialUrl[index]]];
 }
 
 @end

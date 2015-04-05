@@ -12,6 +12,8 @@
 
     UIColor *grayColor;
     UIColor *yellowColor;
+    NSArray *_socialUrl;
+
 
 
 }
@@ -37,6 +39,11 @@
     _logoutButton.layer.cornerRadius = 4.0f;
     _logoutButton.layer.masksToBounds= YES;
     _logoutButton.layer.borderWidth = 1.5f;
+    
+    _socialUrl = @[@"https://www.facebook.com/grupoONCE11",
+                   @"https://twitter.com/grupoONCE11",
+                   @"https://www.youtube.com/user/grupo11ONCE"];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -47,4 +54,9 @@
     return YES;
 }
 
+- (IBAction)displaySocialNetwork:(id)sender {
+    
+    NSInteger index = ((UIButton *)sender).tag;
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:  _socialUrl[index]]];
+}
 @end
