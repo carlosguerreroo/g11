@@ -14,6 +14,7 @@
 		FA0FD7321ACBB22500A2E82F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA0FD7311ACBB22500A2E82F /* Images.xcassets */; };
 		FA0FD7351ACBB22500A2E82F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA0FD7331ACBB22500A2E82F /* LaunchScreen.xib */; };
 		FA0FD7411ACBB22500A2E82F /* mensajesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0FD7401ACBB22500A2E82F /* mensajesTests.m */; };
+		FAA1051D1AD1BA92009C8B20 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA1051C1AD1BA92009C8B20 /* ChatViewController.m */; };
 		FAD999B11ACF450D00BE0B8D /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD999B01ACF450D00BE0B8D /* MenuViewController.m */; };
 		FAD999B41ACF6DF400BE0B8D /* QuestionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD999B31ACF6DF400BE0B8D /* QuestionsViewController.m */; };
 		FAD999B71ACF6E6400BE0B8D /* SendMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD999B61ACF6E6400BE0B8D /* SendMessageViewController.m */; };
@@ -43,6 +44,8 @@
 		FA0FD73A1ACBB22500A2E82F /* mensajesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = mensajesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA0FD73F1ACBB22500A2E82F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA0FD7401ACBB22500A2E82F /* mensajesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = mensajesTests.m; sourceTree = "<group>"; };
+		FAA1051B1AD1BA92009C8B20 /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
+		FAA1051C1AD1BA92009C8B20 /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
 		FAD999AF1ACF450D00BE0B8D /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		FAD999B01ACF450D00BE0B8D /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		FAD999B21ACF6DF400BE0B8D /* QuestionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionsViewController.h; sourceTree = "<group>"; };
@@ -103,6 +106,8 @@
 				FAD999B21ACF6DF400BE0B8D /* QuestionsViewController.h */,
 				FAD999B31ACF6DF400BE0B8D /* QuestionsViewController.m */,
 				FAD999B51ACF6E6400BE0B8D /* SendMessageViewController.h */,
+				FAA1051B1AD1BA92009C8B20 /* ChatViewController.h */,
+				FAA1051C1AD1BA92009C8B20 /* ChatViewController.m */,
 				FAD999B61ACF6E6400BE0B8D /* SendMessageViewController.m */,
 			);
 			path = mensajes;
@@ -239,6 +244,7 @@
 				FAD999B41ACF6DF400BE0B8D /* QuestionsViewController.m in Sources */,
 				FA0FD72A1ACBB22500A2E82F /* AppDelegate.m in Sources */,
 				FA0FD7271ACBB22500A2E82F /* main.m in Sources */,
+				FAA1051D1AD1BA92009C8B20 /* ChatViewController.m in Sources */,
 				FAD999B11ACF450D00BE0B8D /* MenuViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

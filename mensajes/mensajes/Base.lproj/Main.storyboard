@@ -633,7 +633,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tyt-v4-Y2C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="979" y="33"/>
+            <point key="canvasLocation" x="1135" y="51"/>
         </scene>
         <!--Send Message View Controller-->
         <scene sceneID="XW1-EZ-iMb">
@@ -652,12 +652,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DhZ-Nu-CIS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="979" y="669"/>
+            <point key="canvasLocation" x="1111" y="739"/>
         </scene>
-        <!--View Controller-->
+        <!--Chat View Controller-->
         <scene sceneID="Qxi-83-XAd">
             <objects>
-                <viewController id="0IW-4K-qqg" sceneMemberID="viewController">
+                <viewController id="0IW-4K-qqg" customClass="ChatViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="X3k-vk-D5t"/>
                         <viewControllerLayoutGuide type="bottom" id="SP4-wH-vLx"/>
@@ -665,7 +665,71 @@
                     <view key="view" contentMode="scaleToFill" id="shm-bV-Epi">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0PP-d7-krh" userLabel="header">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="138"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo2_blanco" translatesAutoresizingMaskIntoConstraints="NO" id="sif-CD-Uwm">
+                                        <rect key="frame" x="0.0" y="20" width="81" height="118"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="81" id="H2D-PY-z9u"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cover" translatesAutoresizingMaskIntoConstraints="NO" id="DXM-Jn-Tx2">
+                                        <rect key="frame" x="74" y="0.0" width="252" height="138"/>
+                                    </imageView>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rjc-gn-2W7">
+                                        <rect key="frame" x="74" y="0.0" width="67" height="138"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YYV-kr-3un">
+                                                <rect key="frame" x="22" y="26" width="23" height="27"/>
+                                                <state key="normal" image="facebook">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="displaySocialNetwork:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="XFQ-Oc-GRz"/>
+                                                    <action selector="displaySocialNetwork:" destination="GzK-t7-oI2" eventType="touchUpInside" id="g7D-sX-8rX"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="idx-XH-eGM">
+                                                <rect key="frame" x="19" y="58" width="28" height="33"/>
+                                                <state key="normal" title="Button" image="twitter">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="displaySocialNetwork:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="58I-oV-Ymj"/>
+                                                    <action selector="displaySocialNetwork:" destination="GzK-t7-oI2" eventType="touchUpInside" id="yjC-5s-dbI"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ghr-sW-ONy">
+                                                <rect key="frame" x="7" y="98" width="52" height="38"/>
+                                                <state key="normal" title="Button" image="youtube">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="displaySocialNetwork:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="qZe-Va-0hX"/>
+                                                    <action selector="displaySocialNetwork:" destination="GzK-t7-oI2" eventType="touchUpInside" id="wlA-RL-ZxQ"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="0.5" colorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="sif-CD-Uwm" firstAttribute="top" secondItem="0PP-d7-krh" secondAttribute="top" constant="20" id="0Rf-fN-diz"/>
+                                    <constraint firstAttribute="height" constant="138" id="CQ4-qE-AWp"/>
+                                    <constraint firstAttribute="bottom" secondItem="sif-CD-Uwm" secondAttribute="bottom" id="CUS-Ap-za8"/>
+                                    <constraint firstItem="sif-CD-Uwm" firstAttribute="leading" secondItem="0PP-d7-krh" secondAttribute="leading" id="cwQ-r2-3Qe"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="0PP-d7-krh" firstAttribute="leading" secondItem="shm-bV-Epi" secondAttribute="leadingMargin" constant="-16" id="Cdl-5U-VBM"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="0PP-d7-krh" secondAttribute="trailing" constant="-16" id="KCm-yQ-Tb7"/>
+                            <constraint firstItem="0PP-d7-krh" firstAttribute="top" secondItem="X3k-vk-D5t" secondAttribute="bottom" constant="-20" id="wVw-8z-CPK"/>
+                        </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </viewController>
