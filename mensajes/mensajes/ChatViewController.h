@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JSQMessages.h"
+#import "DemoModelData.h"
 
-@interface ChatViewController : UIViewController
+@interface ChatViewController : JSQMessagesViewController <UIActionSheetDelegate>
+@property (strong, nonatomic) DemoModelData *demoData;
 
 @end

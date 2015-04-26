@@ -16,6 +16,7 @@
 		FA0FD7351ACBB22500A2E82F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA0FD7331ACBB22500A2E82F /* LaunchScreen.xib */; };
 		FA0FD7411ACBB22500A2E82F /* mensajesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0FD7401ACBB22500A2E82F /* mensajesTests.m */; };
 		FAA1051D1AD1BA92009C8B20 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA1051C1AD1BA92009C8B20 /* ChatViewController.m */; };
+		FAAB54BB1AEDA05A006B42EA /* DemoModelData.m in Sources */ = {isa = PBXBuildFile; fileRef = FAAB54BA1AEDA05A006B42EA /* DemoModelData.m */; };
 		FAD023B31AD2018B0014A0A0 /* STBubbleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD023B21AD2018B0014A0A0 /* STBubbleTableViewCell.m */; };
 		FAD999B11ACF450D00BE0B8D /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD999B01ACF450D00BE0B8D /* MenuViewController.m */; };
 		FAD999B41ACF6DF400BE0B8D /* QuestionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD999B31ACF6DF400BE0B8D /* QuestionsViewController.m */; };
@@ -51,6 +52,8 @@
 		FA0FD7401ACBB22500A2E82F /* mensajesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = mensajesTests.m; sourceTree = "<group>"; };
 		FAA1051B1AD1BA92009C8B20 /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
 		FAA1051C1AD1BA92009C8B20 /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
+		FAAB54B91AEDA05A006B42EA /* DemoModelData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoModelData.h; sourceTree = "<group>"; };
+		FAAB54BA1AEDA05A006B42EA /* DemoModelData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoModelData.m; sourceTree = "<group>"; };
 		FAD023B11AD2018B0014A0A0 /* STBubbleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STBubbleTableViewCell.h; sourceTree = "<group>"; };
 		FAD023B21AD2018B0014A0A0 /* STBubbleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STBubbleTableViewCell.m; sourceTree = "<group>"; };
 		FAD999AF1ACF450D00BE0B8D /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
@@ -126,6 +129,8 @@
 				FAD999B01ACF450D00BE0B8D /* MenuViewController.m */,
 				FA0FD7291ACBB22500A2E82F /* AppDelegate.m */,
 				FA0FD72B1ACBB22500A2E82F /* ViewController.h */,
+				FAAB54B91AEDA05A006B42EA /* DemoModelData.h */,
+				FAAB54BA1AEDA05A006B42EA /* DemoModelData.m */,
 				FA0FD72C1ACBB22500A2E82F /* ViewController.m */,
 				FA0FD72E1ACBB22500A2E82F /* Main.storyboard */,
 				FA0FD7311ACBB22500A2E82F /* Images.xcassets */,
@@ -312,6 +317,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAD023B31AD2018B0014A0A0 /* STBubbleTableViewCell.m in Sources */,
+				FAAB54BB1AEDA05A006B42EA /* DemoModelData.m in Sources */,
 				FAD999B71ACF6E6400BE0B8D /* SendMessageViewController.m in Sources */,
 				FA0FD72D1ACBB22500A2E82F /* ViewController.m in Sources */,
 				FAD999B41ACF6DF400BE0B8D /* QuestionsViewController.m in Sources */,
