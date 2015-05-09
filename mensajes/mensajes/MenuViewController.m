@@ -7,13 +7,15 @@
 //
 
 #import "MenuViewController.h"
+#import "ViewController.h"
 
 @interface MenuViewController () {
 
     UIColor *grayColor;
     UIColor *yellowColor;
     NSArray *_socialUrl;
-
+    Firebase *ref;
+    
 
 
 }
@@ -21,6 +23,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *logoutButton;
 
 @end
+
+NSString *const fireURL = @"https://glaring-heat-1751.firebaseio.com";
 
 @implementation MenuViewController
 
@@ -43,6 +47,7 @@
     _socialUrl = @[@"https://www.facebook.com/grupoONCE11",
                    @"https://twitter.com/grupoONCE11",
                    @"https://www.youtube.com/user/grupo11ONCE"];
+    ref = [[Firebase alloc] initWithUrl:fireURL];
 
 }
 
@@ -58,5 +63,12 @@
     
     NSInteger index = ((UIButton *)sender).tag;
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:  _socialUrl[index]]];
+}
+- (IBAction)logOut:(id)sender {
+    [ref unauth];
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    ViewController *menuViewController = (ViewController *)[storyboard instantiateViewControllerWithIdentifier:@"ViewController"];
+    [self presentViewController:menuViewController animated:YES completion:nil];
 }
 @end
