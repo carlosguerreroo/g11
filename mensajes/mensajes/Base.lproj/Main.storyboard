@@ -109,7 +109,7 @@
                                             <action selector="loginOrSignup:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="lBQ-fK-oFr"/>
                                         </connections>
                                     </button>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Correo electronico" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bvz-ZG-ynr">
+                                    <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Correo electronico" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bvz-ZG-ynr">
                                         <rect key="frame" x="20" y="43" width="272" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="272" id="dVB-c4-s7j"/>
@@ -117,7 +117,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Contraseña" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ufG-ud-T08">
+                                    <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Contraseña" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ufG-ud-T08">
                                         <rect key="frame" x="20" y="81" width="272" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="272" id="ZIp-ME-i8z"/>
@@ -125,7 +125,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Contraseña" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8tA-zY-c51">
+                                    <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Contraseña" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8tA-zY-c51">
                                         <rect key="frame" x="20" y="119" width="272" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="272" id="QP7-zY-Y31"/>

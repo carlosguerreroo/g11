@@ -12,10 +12,23 @@
 
 @end
 
+
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    NSString *const firebaseURL = @"https://glaring-heat-1751.firebaseio.com";
+
+    Firebase *ref = [[Firebase alloc] initWithUrl:firebaseURL];
+    
+    if (ref.authData) {
+        NSLog(@"%@", ref.authData);
+    } else {
+        // No user is logged in
+        NSLog(@"Not user logged");
+
+    }
+    
     return YES;
 }
 

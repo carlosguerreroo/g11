@@ -15,6 +15,8 @@
     NSArray *_socialUrl;
     UIColor *grayColor;
     UIColor *yellowColor;
+    NSString *error1;
+    NSString *error2;
 }
 
 @property (weak, nonatomic) IBOutlet UIView *signup;
@@ -33,6 +35,8 @@
 @property (strong, nonatomic) IBOutletCollection(UITextField) NSArray *loginItems;
 
 @end
+
+NSString *const firebaseURL = @"https://glaring-heat-1751.firebaseio.com";
 
 @implementation ViewController
 
@@ -80,6 +84,14 @@
     
     self.loginButton.backgroundColor = yellowColor;
     self.loginButton.layer.cornerRadius = 4.0f;
+    
+    error1 = @"";
+    error2 = @"";
+    
+    ((UITextField*)_loginItems[1]).secureTextEntry = YES;
+    ((UITextField*)_signupItems[2]).secureTextEntry = YES;
+    ((UITextField*)_signupItems[3]).secureTextEntry = YES;
+
     
 }
 - (void)didReceiveMemoryWarning {
@@ -136,13 +148,89 @@
     // Login
     if (_viewSelector.selectedSegmentIndex == 0) {
        
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        MenuViewController *menuViewController = (MenuViewController *)[storyboard instantiateViewControllerWithIdentifier:@"MenuViewController"];
-        [self presentViewController:menuViewController animated:YES completion:nil];
-    // Sing up
+        Firebase *ref = [[Firebase alloc] initWithUrl:firebaseURL];
+        
+        
+        NSString *username = ((UITextField *) _loginItems[0]).text;
+        NSString *password = ((UITextField *) _loginItems[1]).text;
+        
+        [ref authUser:username password:password
+                withCompletionBlock:^(NSError *error, FAuthData *authData) {
+      
+      if (error) {
+          // an error occurred while attempting login
+          NSLog(@"Not logged with credentials %@ %@",username,password);
+
+      } else {
+          // user is logged in, check authData for data
+          NSLog(@"User logged");
+          
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            MenuViewController *menuViewController = (MenuViewController *)[storyboard instantiateViewControllerWithIdentifier:@"MenuViewController"];
+          [self presentViewController:menuViewController animated:YES completion:nil];
+      }
+  }];
     } else {
-    
+     
+        NSString *messageText;
+        NSString *titleText;
+        
+        if ([self validatesSignUp]) {
+            
+            [self.viewSelector  setSelectedSegmentIndex:0];
+            self.signup.hidden = YES;
+            self.login.hidden = NO;
+            titleText = @"Datos registrados.";
+            messageText = @"La cuenta ha sido creada exitosamente.";
+        } else {
+            
+            titleText = @"Verifique sus datos.";
+            messageText = [NSString stringWithFormat:@"%@ \n %@", error1, error2];
+            
+        }
+        
+        UIAlertView *message = [[UIAlertView alloc] initWithTitle:titleText
+                                                          message:messageText
+                                                         delegate:nil
+                                                cancelButtonTitle:@"Aceptar"
+                                                otherButtonTitles:nil];
+        
+        [message show];
     }
+}
+
+- (BOOL) validatesSignUp {
+    
+    NSString *password1;
+    BOOL flag = YES;
+    
+    for (UITextField *object in self.signupItems) {
+        
+        
+        if  ([[object.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]length] == 0) {
+                
+            flag = NO;
+            error1 = @"Ningún campo puede estar vació.";
+        }
+        
+        if (object.tag == 2) {
+            
+            password1 = object.text;
+        }
+        
+        if (object.tag == 3 && password1 != object.text) {
+            
+            flag = NO;
+            error2 = @"Las contraseñas deben de ser iguales.";
+            object.text = @"";
+            UITextField *passfield = self.signupItems[2];
+            passfield.text = @"";
+
+        }
+        
+    }
+    
+    return flag;
 }
 
 @end
