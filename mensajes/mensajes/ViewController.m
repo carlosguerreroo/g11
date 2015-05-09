@@ -17,6 +17,8 @@
     UIColor *yellowColor;
     NSString *error1;
     NSString *error2;
+    Firebase *ref;
+
 }
 
 @property (weak, nonatomic) IBOutlet UIView *signup;
@@ -91,7 +93,7 @@ NSString *const firebaseURL = @"https://glaring-heat-1751.firebaseio.com";
     ((UITextField*)_loginItems[1]).secureTextEntry = YES;
     ((UITextField*)_signupItems[2]).secureTextEntry = YES;
     ((UITextField*)_signupItems[3]).secureTextEntry = YES;
-
+    ref = [[Firebase alloc] initWithUrl:firebaseURL];
     
 }
 - (void)didReceiveMemoryWarning {
@@ -147,22 +149,17 @@ NSString *const firebaseURL = @"https://glaring-heat-1751.firebaseio.com";
     
     // Login
     if (_viewSelector.selectedSegmentIndex == 0) {
-       
-        Firebase *ref = [[Firebase alloc] initWithUrl:firebaseURL];
         
-        
+    
         NSString *username = ((UITextField *) _loginItems[0]).text;
         NSString *password = ((UITextField *) _loginItems[1]).text;
         
         if ([self stringIsEmpty: username] || [self stringIsEmpty: password] ) {
             
-            UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Verifique sus datos."
-                                                              message:@"Ningún campo tiene que estar vació."
-                                                             delegate:nil
-                                                    cancelButtonTitle:@"Aceptar"
-                                                    otherButtonTitles:nil];
-            [message show];
-        
+
+            [self displayAlertWith: @"Verifique sus datos."
+                               And: @"Ningún campo tiene que estar vació."];
+
             return;
         }
         
@@ -184,28 +181,39 @@ NSString *const firebaseURL = @"https://glaring-heat-1751.firebaseio.com";
         }];
     } else {
      
-        NSString *messageText;
-        NSString *titleText;
+        NSString *titleText = @"Datos registrados.";
+        NSString *messageText = @"La cuenta ha sido creada exitosamente.";
+
         
         if ([self validatesSignUp]) {
             
-            [self.viewSelector  setSelectedSegmentIndex:0];
-            self.signup.hidden = YES;
-            self.login.hidden = NO;
-            titleText = @"Datos registrados.";
-            messageText = @"La cuenta ha sido creada exitosamente.";
+            NSString *username = ((UITextField *) _signupItems[1]).text;
+            NSString *password = ((UITextField *) _signupItems[2]).text;
+
+
+            [ref createUser: username password: password
+                withValueCompletionBlock:^(NSError *error, NSDictionary *result) {
+                    if (error) {
+
+                        [self displayAlertWith: @"Error" And: @"Error al crear su cuenta."];
+
+                    } else {
+                        NSString *uid = [result objectForKey:@"uid"];
+                        NSLog(@"Successfully created user account with uid: %@", uid);
+                       
+                        [self.viewSelector  setSelectedSegmentIndex:0];
+                        self.signup.hidden = YES;
+                        self.login.hidden = NO;
+                        [self displayAlertWith: titleText And: messageText];
+                    }
+            }];
         } else {
             
             titleText = @"Verifique sus datos.";
             messageText = [NSString stringWithFormat:@"%@ \n %@", error1, error2];
+            [self displayAlertWith: titleText And: messageText];
         }
-        
-        UIAlertView *message = [[UIAlertView alloc] initWithTitle:titleText
-                                                          message:messageText
-                                                         delegate:nil
-                                                cancelButtonTitle:@"Aceptar"
-                                                otherButtonTitles:nil];
-        [message show];
+       
     }
 }
 
@@ -213,7 +221,9 @@ NSString *const firebaseURL = @"https://glaring-heat-1751.firebaseio.com";
     
     NSString *password1;
     BOOL flag = YES;
-    
+    error1 = @"";
+    error2 = @"";
+ 
     for (UITextField *object in self.signupItems) {
         
         
@@ -228,7 +238,7 @@ NSString *const firebaseURL = @"https://glaring-heat-1751.firebaseio.com";
             password1 = object.text;
         }
         
-        if (object.tag == 3 && password1 != object.text) {
+        if (object.tag == 3 &&  ![object.text isEqualToString:password1]) {
             
             flag = NO;
             error2 = @"Las contraseñas deben de ser iguales.";
@@ -245,5 +255,15 @@ NSString *const firebaseURL = @"https://glaring-heat-1751.firebaseio.com";
 -(BOOL) stringIsEmpty: (NSString*) object {
 
     return ([[object stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]length] == 0);
+}
+
+-(void) displayAlertWith: (NSString*) title And: (NSString*) message {
+    
+    UIAlertView *alertMessage = [[UIAlertView alloc] initWithTitle:title
+                                                      message:message
+                                                     delegate:nil
+                                            cancelButtonTitle:@"Aceptar"
+                                            otherButtonTitles:nil];
+    [alertMessage show];
 }
 @end
