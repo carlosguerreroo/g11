@@ -154,22 +154,34 @@ NSString *const firebaseURL = @"https://glaring-heat-1751.firebaseio.com";
         NSString *username = ((UITextField *) _loginItems[0]).text;
         NSString *password = ((UITextField *) _loginItems[1]).text;
         
+        if ([self stringIsEmpty: username] || [self stringIsEmpty: password] ) {
+            
+            UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Verifique sus datos."
+                                                              message:@"Ningún campo tiene que estar vació."
+                                                             delegate:nil
+                                                    cancelButtonTitle:@"Aceptar"
+                                                    otherButtonTitles:nil];
+            [message show];
+        
+            return;
+        }
+        
         [ref authUser:username password:password
                 withCompletionBlock:^(NSError *error, FAuthData *authData) {
       
-      if (error) {
-          // an error occurred while attempting login
-          NSLog(@"Not logged with credentials %@ %@",username,password);
+            if (error) {
+                // an error occurred while attempting login
+                NSLog(@"Not logged with credentials %@ %@",username,password);
 
-      } else {
-          // user is logged in, check authData for data
-          NSLog(@"User logged");
+            } else {
+                // user is logged in, check authData for data
+                NSLog(@"User logged");
           
-            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-            MenuViewController *menuViewController = (MenuViewController *)[storyboard instantiateViewControllerWithIdentifier:@"MenuViewController"];
-          [self presentViewController:menuViewController animated:YES completion:nil];
-      }
-  }];
+                UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                MenuViewController *menuViewController = (MenuViewController *)[storyboard instantiateViewControllerWithIdentifier:@"MenuViewController"];
+                [self presentViewController:menuViewController animated:YES completion:nil];
+            }
+        }];
     } else {
      
         NSString *messageText;
@@ -186,7 +198,6 @@ NSString *const firebaseURL = @"https://glaring-heat-1751.firebaseio.com";
             
             titleText = @"Verifique sus datos.";
             messageText = [NSString stringWithFormat:@"%@ \n %@", error1, error2];
-            
         }
         
         UIAlertView *message = [[UIAlertView alloc] initWithTitle:titleText
@@ -194,7 +205,6 @@ NSString *const firebaseURL = @"https://glaring-heat-1751.firebaseio.com";
                                                          delegate:nil
                                                 cancelButtonTitle:@"Aceptar"
                                                 otherButtonTitles:nil];
-        
         [message show];
     }
 }
@@ -207,7 +217,7 @@ NSString *const firebaseURL = @"https://glaring-heat-1751.firebaseio.com";
     for (UITextField *object in self.signupItems) {
         
         
-        if  ([[object.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]length] == 0) {
+        if  ([self stringIsEmpty: object.text]) {
                 
             flag = NO;
             error1 = @"Ningún campo puede estar vació.";
@@ -227,10 +237,13 @@ NSString *const firebaseURL = @"https://glaring-heat-1751.firebaseio.com";
             passfield.text = @"";
 
         }
-        
     }
     
     return flag;
 }
 
+-(BOOL) stringIsEmpty: (NSString*) object {
+
+    return ([[object stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]length] == 0);
+}
 @end
