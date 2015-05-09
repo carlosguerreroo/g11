@@ -32,6 +32,7 @@
         [self.window setRootViewController:menuViewController];
         [self.window setBackgroundColor:[UIColor whiteColor]];
         [self.window makeKeyAndVisible];
+        
     } else {
         // No user is logged in
         NSLog(@"Not user logged");

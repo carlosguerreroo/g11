@@ -187,9 +187,9 @@ NSString *const firebaseURL = @"https://glaring-heat-1751.firebaseio.com";
         
         if ([self validatesSignUp]) {
             
+            NSString *company = ((UITextField *) _signupItems[0]).text;
             NSString *username = ((UITextField *) _signupItems[1]).text;
             NSString *password = ((UITextField *) _signupItems[2]).text;
-
 
             [ref createUser: username password: password
                 withValueCompletionBlock:^(NSError *error, NSDictionary *result) {
@@ -200,11 +200,20 @@ NSString *const firebaseURL = @"https://glaring-heat-1751.firebaseio.com";
                     } else {
                         NSString *uid = [result objectForKey:@"uid"];
                         NSLog(@"Successfully created user account with uid: %@", uid);
-                       
+                        
                         [self.viewSelector  setSelectedSegmentIndex:0];
                         self.signup.hidden = YES;
                         self.login.hidden = NO;
                         [self displayAlertWith: titleText And: messageText];
+                        
+                        NSDictionary *newUser = @{
+                                                  @"email": username,
+                                                  @"company": company,
+                                                  @"city": _pickerData[[_cities selectedRowInComponent:0]]
+                                                  };
+                        [[[ref childByAppendingPath:@"users"]
+                          childByAppendingPath:uid] setValue:newUser];
+
                     }
             }];
         } else {
