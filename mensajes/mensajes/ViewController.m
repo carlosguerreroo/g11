@@ -94,6 +94,7 @@ NSString *const firebaseURL = @"https://glaring-heat-1751.firebaseio.com";
     ((UITextField*)_signupItems[2]).secureTextEntry = YES;
     ((UITextField*)_signupItems[3]).secureTextEntry = YES;
     ref = [[Firebase alloc] initWithUrl:firebaseURL];
+    [self.view endEditing:YES];
     
 }
 - (void)didReceiveMemoryWarning {
@@ -274,5 +275,10 @@ NSString *const firebaseURL = @"https://glaring-heat-1751.firebaseio.com";
                                             cancelButtonTitle:@"Aceptar"
                                             otherButtonTitles:nil];
     [alertMessage show];
+}
+
+- (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [[self view] endEditing:YES];
 }
 @end

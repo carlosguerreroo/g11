@@ -9,8 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "JSQMessages.h"
 #import "DemoModelData.h"
+#import <Firebase/Firebase.h>
 
 @interface ChatViewController : JSQMessagesViewController <UIActionSheetDelegate>
+
 @property (strong, nonatomic) DemoModelData *demoData;
 
 @end
+
+Firebase *messageRef;
+NSMutableArray *messages;
