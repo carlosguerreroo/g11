@@ -42,6 +42,11 @@ NSString *const firebaseChatURL = @"https://glaring-heat-1751.firebaseio.com/mes
                                                                text: text];
         [messages addObject:message];
         
+        if (![sender isEqualToString:userType]) {
+            
+            [self updateReadMessage: snapshot.key];
+        }
+        
         [self finishReceivingMessageAnimated:YES];
      }];
 }
@@ -67,6 +72,7 @@ NSString *const firebaseChatURL = @"https://glaring-heat-1751.firebaseio.com/mes
 }
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     messages = [[NSMutableArray alloc] init];
     self.navigationController.interactivePopGestureRecognizer.delegate = nil;
@@ -88,21 +94,16 @@ NSString *const firebaseChatURL = @"https://glaring-heat-1751.firebaseio.com/mes
 - (void) viewDidDisappear:(BOOL)animated {
     
     [super viewDidDisappear:animated];
-    
-    NSLog(@"Bye");
-    
     [messageRef removeObserverWithHandle:handle];
 
 }
 
 -(void) viewWillAppear:(BOOL)animated {
+
     [super viewWillAppear:animated];
-    NSLog(@"Will appaer");
     [messages removeAllObjects];
     [self finishReceivingMessageAnimated:YES];
-
     [self setupFirebase];
-
 }
 
 - (void)didReceiveMemoryWarning {
@@ -213,6 +214,16 @@ NSString *const firebaseChatURL = @"https://glaring-heat-1751.firebaseio.com/mes
 -(void) setUserMessageNode: (NSString*) messageNode {
 
     userMessageNode = messageNode;
+}
+
+-(void) updateReadMessage: (NSString *)node {
+    
+    Firebase *hopperRef = [messageRef childByAppendingPath: node];
+    NSDictionary *nickname = @{
+                               @"read": @YES,
+                               };
+    
+    [hopperRef updateChildValues: nickname];
 }
 
 @end
