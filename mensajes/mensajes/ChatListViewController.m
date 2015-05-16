@@ -18,6 +18,8 @@
     NSString *companysName;
     Firebase *ref;
     NSMutableArray *messages;
+    NSMutableArray *handles;
+
     ChatViewController *chatViewController;
     int messageUnread;
 }
@@ -50,6 +52,7 @@ NSString *const fireURLRoot = @"https://glaring-heat-1751.firebaseio.com/message
     
     messages = [[NSMutableArray alloc] init];
     
+    handles = [[NSMutableArray alloc] init];
     
 }
 
@@ -99,7 +102,7 @@ NSString *const fireURLRoot = @"https://glaring-heat-1751.firebaseio.com/message
         
         [messages addObject: message];
         [_tableView reloadData];
-        [self AddObservertoNode: snapshot.key];
+        [self AddObservertoNode: snapshot.key  index: ([messages count]-1)];
     }];
 
 
@@ -117,7 +120,8 @@ NSString *const fireURLRoot = @"https://glaring-heat-1751.firebaseio.com/message
     ChatListTableViewCell *cell = (ChatListTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     cell.companysName.text = ((ChatListMessage*)[messages objectAtIndex:indexPath.row]).company;
     cell.userName.text = ((ChatListMessage*)[messages objectAtIndex:indexPath.row]).userName;
-    
+    cell.time.text = ((ChatListMessage*)[messages objectAtIndex:indexPath.row]).time;
+
     return cell;
 }
 
@@ -141,16 +145,25 @@ NSString *const fireURLRoot = @"https://glaring-heat-1751.firebaseio.com/message
     }
 }
 
-- (void) AddObservertoNode: (NSString*) node {
+- (void) AddObservertoNode: (NSString*) node index: (unsigned long)position {
     
-    [[[ref childByAppendingPath: city] childByAppendingPath:node] observeEventType:FEventTypeChildAdded withBlock:^(FDataSnapshot *snapshot) {
+    Firebase* tmpRef = [[ref childByAppendingPath: city] childByAppendingPath:node];
+    
+    [tmpRef observeEventType:FEventTypeChildAdded withBlock:^(FDataSnapshot *snapshot) {
         
         if ([snapshot.value[@"read"] boolValue] == 0) {
             messageUnread++;
             _messageCounterLabel.text = [NSString stringWithFormat:@"%d", messageUnread];
 
         }
+        
+        [((ChatListMessage *)messages[position]) setTime: snapshot.value[@"time"]];
+//        NSLog(@"%@", ((ChatListMessage *)messages[position]).time);
+        NSLog(@"New Message Arrive");
+        [_tableView reloadData];
     }];
+    
+    [handles addObject:tmpRef];
 }
 
 - (void) viewDidDisappear:(BOOL)animated {
@@ -160,14 +173,20 @@ NSString *const fireURLRoot = @"https://glaring-heat-1751.firebaseio.com/message
     messageUnread = 0;
     _messageCounterLabel.text = @"0";
     [ref removeAllObservers];
+    
+    for(Firebase *st in handles) {
+        [st removeAllObservers];
+    }
+    
+    NSLog(@"viewDidDisappear");
 }
 
 -(void) viewWillAppear:(BOOL)animated {
     
+    NSLog(@"viewWillAppear");
     [super viewWillAppear: animated];
     [messages removeAllObjects];
     [self setupFirebase];
-
 }
 
 @end
