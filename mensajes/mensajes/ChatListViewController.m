@@ -10,6 +10,7 @@
 #import "ViewController.h"
 #import "ChatListTableViewCell.h"
 #import "ChatListMessage.h"
+#import "ChatViewController.h"
 
 @interface ChatListViewController () <UITableViewDelegate, UITableViewDataSource> {
     NSString *city;
@@ -17,6 +18,8 @@
     NSString *companysName;
     Firebase *ref;
     NSMutableArray *messages;
+    ChatViewController *chatViewController;
+    
 }
 
 @property (weak, nonatomic) IBOutlet UIButton *logOutButton;
@@ -118,4 +121,17 @@ NSString *const fireURLRoot = @"https://glaring-heat-1751.firebaseio.com/message
     
     return cell;
 }
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (chatViewController == nil) {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        chatViewController = (ChatViewController *)[storyboard instantiateViewControllerWithIdentifier:@"chatViewController"];
+        [self presentViewController:chatViewController animated:YES completion:nil];
+
+    } else {
+        [self presentViewController:chatViewController animated:YES completion:nil];
+    }
+}
+
 @end
