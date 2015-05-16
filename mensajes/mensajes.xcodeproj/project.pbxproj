@@ -21,6 +21,7 @@
 		FAD999B11ACF450D00BE0B8D /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD999B01ACF450D00BE0B8D /* MenuViewController.m */; };
 		FAD999B41ACF6DF400BE0B8D /* QuestionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD999B31ACF6DF400BE0B8D /* QuestionsViewController.m */; };
 		FAD999B71ACF6E6400BE0B8D /* SendMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD999B61ACF6E6400BE0B8D /* SendMessageViewController.m */; };
+		FAE273F01B06CECB0005BCF1 /* ChatListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAE273EF1B06CECB0005BCF1 /* ChatListViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,8 @@
 		FAD999B31ACF6DF400BE0B8D /* QuestionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionsViewController.m; sourceTree = "<group>"; };
 		FAD999B51ACF6E6400BE0B8D /* SendMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendMessageViewController.h; sourceTree = "<group>"; };
 		FAD999B61ACF6E6400BE0B8D /* SendMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendMessageViewController.m; sourceTree = "<group>"; };
+		FAE273EE1B06CECB0005BCF1 /* ChatListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatListViewController.h; sourceTree = "<group>"; };
+		FAE273EF1B06CECB0005BCF1 /* ChatListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatListViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +136,8 @@
 				FAAB54BA1AEDA05A006B42EA /* DemoModelData.m */,
 				FA0FD72C1ACBB22500A2E82F /* ViewController.m */,
 				FA0FD72E1ACBB22500A2E82F /* Main.storyboard */,
+				FAE273EE1B06CECB0005BCF1 /* ChatListViewController.h */,
+				FAE273EF1B06CECB0005BCF1 /* ChatListViewController.m */,
 				FA0FD7311ACBB22500A2E82F /* Images.xcassets */,
 				FA0FD7331ACBB22500A2E82F /* LaunchScreen.xib */,
 				FA0FD7241ACBB22500A2E82F /* Supporting Files */,
@@ -320,6 +325,7 @@
 				FAAB54BB1AEDA05A006B42EA /* DemoModelData.m in Sources */,
 				FAD999B71ACF6E6400BE0B8D /* SendMessageViewController.m in Sources */,
 				FA0FD72D1ACBB22500A2E82F /* ViewController.m in Sources */,
+				FAE273F01B06CECB0005BCF1 /* ChatListViewController.m in Sources */,
 				FAD999B41ACF6DF400BE0B8D /* QuestionsViewController.m in Sources */,
 				FA0FD72A1ACBB22500A2E82F /* AppDelegate.m in Sources */,
 				FA0FD7271ACBB22500A2E82F /* main.m in Sources */,

@@ -657,10 +657,10 @@
             </objects>
             <point key="canvasLocation" x="1111" y="739"/>
         </scene>
-        <!--View Controller-->
+        <!--Chat List View Controller-->
         <scene sceneID="qVl-fv-dSI">
             <objects>
-                <viewController id="kG0-qd-44X" sceneMemberID="viewController">
+                <viewController id="kG0-qd-44X" customClass="ChatListViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3yQ-ku-d7M"/>
                         <viewControllerLayoutGuide type="bottom" id="cSj-Ou-uqu"/>
