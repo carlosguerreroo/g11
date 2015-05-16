@@ -19,9 +19,11 @@
     Firebase *ref;
     NSMutableArray *messages;
     NSMutableArray *handles;
-
+    
     ChatViewController *chatViewController;
     int messageUnread;
+    NSAttributedString *statusEmpty;
+    NSAttributedString *statusFill;
 }
 
 @property (weak, nonatomic) IBOutlet UIButton *logOutButton;
@@ -37,7 +39,6 @@ NSString *const fireURLRoot = @"https://glaring-heat-1751.firebaseio.com/message
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
     _logOutButton.layer.cornerRadius = 4.0f;
     _logOutButton.layer.masksToBounds= YES;
@@ -51,9 +52,18 @@ NSString *const fireURLRoot = @"https://glaring-heat-1751.firebaseio.com/message
     ref = [[Firebase alloc] initWithUrl:fireURLRoot];
     
     messages = [[NSMutableArray alloc] init];
-    
     handles = [[NSMutableArray alloc] init];
+    statusEmpty = [[NSAttributedString alloc]
+                   initWithData: [@"&#9898;" dataUsingEncoding:NSUTF8StringEncoding]
+                   options: @{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType }
+                   documentAttributes: nil
+                   error: nil];
     
+    statusFill = [[NSAttributedString alloc]
+                  initWithData: [@"&#9679;" dataUsingEncoding:NSUTF8StringEncoding]
+                  options: @{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType }
+                  documentAttributes: nil
+                  error: nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -121,7 +131,14 @@ NSString *const fireURLRoot = @"https://glaring-heat-1751.firebaseio.com/message
     cell.companysName.text = ((ChatListMessage*)[messages objectAtIndex:indexPath.row]).company;
     cell.userName.text = ((ChatListMessage*)[messages objectAtIndex:indexPath.row]).userName;
     cell.time.text = ((ChatListMessage*)[messages objectAtIndex:indexPath.row]).time;
-
+    
+    if(((ChatListMessage*)[messages objectAtIndex:indexPath.row]).status) {
+        cell.status.attributedText = statusFill;
+    } else {
+    
+        cell.status.attributedText = statusEmpty;
+    }
+    
     return cell;
 }
 
@@ -154,12 +171,11 @@ NSString *const fireURLRoot = @"https://glaring-heat-1751.firebaseio.com/message
         if ([snapshot.value[@"read"] boolValue] == 0) {
             messageUnread++;
             _messageCounterLabel.text = [NSString stringWithFormat:@"%d", messageUnread];
+            [((ChatListMessage *)messages[position]) setStatus:YES];
 
         }
         
         [((ChatListMessage *)messages[position]) setTime: snapshot.value[@"time"]];
-//        NSLog(@"%@", ((ChatListMessage *)messages[position]).time);
-        NSLog(@"New Message Arrive");
         [_tableView reloadData];
     }];
     
