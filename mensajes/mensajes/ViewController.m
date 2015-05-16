@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "MenuViewController.h"
+#import "ChatListViewController.h"
 
 @interface ViewController () {
     
@@ -174,10 +175,39 @@ NSString *const firebaseURL = @"https://glaring-heat-1751.firebaseio.com";
             } else {
                 // user is logged in, check authData for data
                 NSLog(@"User logged");
-          
-                UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-                MenuViewController *menuViewController = (MenuViewController *)[storyboard instantiateViewControllerWithIdentifier:@"MenuViewController"];
-                [self presentViewController:menuViewController animated:YES completion:nil];
+                
+                NSString *userPath = [NSString stringWithFormat:@"/users/%@", authData.uid];
+                [[ref childByAppendingPath:userPath]observeSingleEventOfType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
+                    
+                    NSString *companysName = snapshot.value[@"companysName"];
+                    NSString *city = snapshot.value[@"city"];
+                    NSString *userName = snapshot.value[@"userName"];
+                    
+                    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+                    
+                    [prefs setObject: companysName forKey:@"companysName"];
+                    [prefs setObject: city forKey:@"city"];
+                    [prefs setObject: userName forKey:@"userName"];
+                    
+                    [prefs synchronize];
+
+                    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+
+                    if ([companysName isEqualToString:@"grupoonce"]) {
+                    
+                        ChatListViewController *menuViewController = (ChatListViewController *)[storyboard instantiateViewControllerWithIdentifier:@"ChatListViewController"];
+                        [self presentViewController:menuViewController animated:YES completion:nil];
+                    
+                    } else {
+                        
+                        MenuViewController *menuViewController = (MenuViewController *)[storyboard instantiateViewControllerWithIdentifier:@"MenuViewController"];
+                        [self presentViewController:menuViewController animated:YES completion:nil];
+                    
+                    }
+
+                }];
+                
+
             }
         }];
     } else {

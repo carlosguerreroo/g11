@@ -660,7 +660,7 @@
         <!--Chat List View Controller-->
         <scene sceneID="qVl-fv-dSI">
             <objects>
-                <viewController id="kG0-qd-44X" customClass="ChatListViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChatListViewController" id="kG0-qd-44X" customClass="ChatListViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3yQ-ku-d7M"/>
                         <viewControllerLayoutGuide type="bottom" id="cSj-Ou-uqu"/>

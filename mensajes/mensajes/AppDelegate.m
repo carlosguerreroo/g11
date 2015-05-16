@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "MenuViewController.h"
+#import "ChatListViewController.h"
 
 @interface AppDelegate ()
 
@@ -16,29 +17,41 @@
 
 @implementation AppDelegate
 
+NSString *const firebaseURLRoot = @"https://glaring-heat-1751.firebaseio.com/";
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
-    NSString *const firebaseURL = @"https://glaring-heat-1751.firebaseio.com";
 
-    Firebase *ref = [[Firebase alloc] initWithUrl:firebaseURL];
-    
-    if (ref.authData) {
-        NSLog(@"%@", ref.authData);
         
+        Firebase *userInfo;
+        NSString *url = @"https://glaring-heat-1751.firebaseio.com/";
+        userInfo = [[Firebase alloc] initWithUrl: url];
         
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        MenuViewController *menuViewController = (MenuViewController *)[storyboard instantiateViewControllerWithIdentifier:@"MenuViewController"];
-        self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-        [self.window setRootViewController:menuViewController];
-        [self.window setBackgroundColor:[UIColor whiteColor]];
-        [self.window makeKeyAndVisible];
-        
-    } else {
-        // No user is logged in
-        NSLog(@"Not user logged");
+        if (userInfo.authData) {
+            
+            NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+            NSString *companysName = [prefs stringForKey:@"companysName"];
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+            [self.window setBackgroundColor:[UIColor whiteColor]];
+            [self.window makeKeyAndVisible];
+                           
+            if ([companysName isEqualToString:@"grupoonce"]) {
+            
+                ChatListViewController *chatListViewController = (ChatListViewController *)[storyboard instantiateViewControllerWithIdentifier:@"ChatListViewController"];
+                [self.window setRootViewController:chatListViewController];
+                
+            } else {
+                
+                MenuViewController *menuViewController = (MenuViewController *)[storyboard instantiateViewControllerWithIdentifier:@"MenuViewController"];
+                [self.window setRootViewController:menuViewController];
 
-    }
-    
+            }
+            
+        } else {
+            
+            NSLog(@"Not user logged");
+
+        }
     return YES;
 }
 
