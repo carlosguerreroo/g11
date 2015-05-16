@@ -8,7 +8,14 @@
 
 #import "ChatListViewController.h"
 
-@interface ChatListViewController ()
+@interface ChatListViewController () {
+    NSString *city;
+
+}
+
+@property (weak, nonatomic) IBOutlet UIButton *logOutButton;
+@property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *messageCounterLabel;
 
 @end
 
@@ -17,6 +24,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    _logOutButton.layer.cornerRadius = 4.0f;
+    _logOutButton.layer.masksToBounds= YES;
+    
+    _messageCounterLabel.text = @"0";
+
+    [self configureUser];
+
+    _usernameLabel.text = city;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -26,5 +42,13 @@
 - (BOOL)prefersStatusBarHidden {
     return YES;
 }
+- (IBAction)logOut:(id)sender {
+}
 
+-(void)configureUser {
+
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    
+     city = [prefs stringForKey:@"city"];
+}
 @end
