@@ -10,10 +10,10 @@
 
 @interface ChatListMessage : NSObject
 
-@property(nonatomic, readwrite) NSString *date;
+@property(nonatomic, readwrite) NSString *company;
 @property(nonatomic, readwrite) NSString *time;
 @property(nonatomic, readwrite) NSString *userName;
 @property(nonatomic, readwrite) BOOL status;
 
--(id)initWithDate:(NSString*)initDate withTime:(NSString*)time withUsername: (NSString*)username andStatus:(BOOL) status;
+-(id)initWithCompany:(NSString*)initCompany withTime:(NSString*)time withUsername: (NSString*)username andStatus:(BOOL) status;
 @end

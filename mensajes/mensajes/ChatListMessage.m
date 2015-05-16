@@ -10,12 +10,12 @@
 
 @implementation ChatListMessage
 
--(id)initWithDate:(NSString*)initDate withTime:(NSString*)time withUsername: (NSString*)username andStatus:(BOOL) status
+-(id)initWithCompany:(NSString*)initCompany withTime:(NSString*)time withUsername: (NSString*)username andStatus:(BOOL) status
 {
     self = [super init];
     if (self)
     {
-        _date = initDate;
+        _company = initCompany;
         _time = time;
         _userName = username;
         _status = status;

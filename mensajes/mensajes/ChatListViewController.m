@@ -86,18 +86,16 @@ NSString *const fireURLRoot = @"https://glaring-heat-1751.firebaseio.com/message
     
     [[ref childByAppendingPath: city] observeEventType:FEventTypeChildAdded withBlock:^(FDataSnapshot *snapshot) {
         
-//        NSString *text = snapshot.value[@"text"];
-//        NSString *sender = snapshot.value[@"sender"];
-//        NSDate *date = [[NSDate alloc] init];
-        
+        NSArray *userData = [snapshot.key componentsSeparatedByString:@"%"];
+
         ChatListMessage* message =
-            [[ChatListMessage alloc] initWithDate:@"foo"
+            [[ChatListMessage alloc] initWithCompany: userData[1]
                                          withTime:@"foo"
-                                    withUsername:@"as"
+                                    withUsername: userData[0]
                                         andStatus:NO];
         
         [messages addObject: message];
-        NSLog(@"%@",snapshot.key);
+        NSLog(@"%@",userData[0]);
         [_tableView reloadData];
         
     }];
@@ -115,7 +113,9 @@ NSString *const fireURLRoot = @"https://glaring-heat-1751.firebaseio.com/message
     static NSString *CellIdentifier = @"ListCell";
     
     ChatListTableViewCell *cell = (ChatListTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
- 
+    cell.companysName.text = ((ChatListMessage*)[messages objectAtIndex:indexPath.row]).company;
+    cell.userName.text = ((ChatListMessage*)[messages objectAtIndex:indexPath.row]).userName;
+    
     return cell;
 }
 @end

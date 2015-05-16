@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface ChatListTableViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *userName;
+@property (weak, nonatomic) IBOutlet UILabel *time;
+@property (weak, nonatomic) IBOutlet UILabel *companysName;
 
 @end
