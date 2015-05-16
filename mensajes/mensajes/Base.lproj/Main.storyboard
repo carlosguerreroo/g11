@@ -855,11 +855,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="bTJ-Zh-wv0"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ncc-Ic-BjS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="573" y="1658"/>
+            <point key="canvasLocation" x="1385" y="1658"/>
         </scene>
         <!--Chat View Controller-->
         <scene sceneID="Qxi-83-XAd">
@@ -1003,6 +1004,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FIe-ga-oGV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1021" y="300"/>
+        </scene>
+        <!--Admin Nav View Controller-->
+        <scene sceneID="PIZ-06-Vvo">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="rRl-vS-EBg" customClass="AdminNavViewController" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="myO-MD-RHa">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="dar-U4-zA5" kind="relationship" relationship="rootViewController" id="nqL-g3-hSS"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jcq-9K-NCy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="573" y="1658"/>
         </scene>
     </scenes>
     <resources>
