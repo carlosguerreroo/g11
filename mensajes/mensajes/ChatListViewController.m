@@ -19,7 +19,7 @@
     Firebase *ref;
     NSMutableArray *messages;
     ChatViewController *chatViewController;
-    
+    int messageUnread;
 }
 
 @property (weak, nonatomic) IBOutlet UIButton *logOutButton;
@@ -41,6 +41,7 @@ NSString *const fireURLRoot = @"https://glaring-heat-1751.firebaseio.com/message
     _logOutButton.layer.masksToBounds= YES;
     
     _messageCounterLabel.text = @"0";
+    messageUnread = 0;
 
     [self configureUser];
 
@@ -49,7 +50,6 @@ NSString *const fireURLRoot = @"https://glaring-heat-1751.firebaseio.com/message
     
     messages = [[NSMutableArray alloc] init];
     
-    [self setupFirebase];
     
 }
 
@@ -98,9 +98,8 @@ NSString *const fireURLRoot = @"https://glaring-heat-1751.firebaseio.com/message
                                         andStatus:NO];
         
         [messages addObject: message];
-        NSLog(@"%@",userData[0]);
         [_tableView reloadData];
-        
+        [self AddObservertoNode: snapshot.key];
     }];
 
 
@@ -122,9 +121,8 @@ NSString *const fireURLRoot = @"https://glaring-heat-1751.firebaseio.com/message
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
     
     NSString *localCompany = ((ChatListMessage*)[messages objectAtIndex:indexPath.row]).company;
     NSString *localUsername = ((ChatListMessage*)[messages objectAtIndex:indexPath.row]).userName;
@@ -141,6 +139,35 @@ NSString *const fireURLRoot = @"https://glaring-heat-1751.firebaseio.com/message
         [chatViewController setUserMessageNode: [NSString stringWithFormat:@"%@/%@%%%@",city, localUsername, localCompany]];
         [self.navigationController pushViewController:chatViewController animated: YES];
     }
+}
+
+- (void) AddObservertoNode: (NSString*) node {
+    
+    [[[ref childByAppendingPath: city] childByAppendingPath:node] observeEventType:FEventTypeChildAdded withBlock:^(FDataSnapshot *snapshot) {
+        
+        if ([snapshot.value[@"read"] boolValue] == 0) {
+            messageUnread++;
+            _messageCounterLabel.text = [NSString stringWithFormat:@"%d", messageUnread];
+
+        }
+    }];
+}
+
+- (void) viewDidDisappear:(BOOL)animated {
+    
+    [super viewDidDisappear: animated];
+    
+    messageUnread = 0;
+    _messageCounterLabel.text = @"0";
+    [ref removeAllObservers];
+}
+
+-(void) viewWillAppear:(BOOL)animated {
+    
+    [super viewWillAppear: animated];
+    [messages removeAllObjects];
+    [self setupFirebase];
+
 }
 
 @end
