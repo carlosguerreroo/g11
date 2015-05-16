@@ -63,12 +63,15 @@ NSString *const firebaseChatURL = @"https://glaring-heat-1751.firebaseio.com/mes
                               };
     Firebase *sendMessage = [messageRef childByAutoId];
     [sendMessage setValue: message];
+    self.navigationController.interactivePopGestureRecognizer.enabled = YES;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     messages = [[NSMutableArray alloc] init];
+    
+    self.navigationController.interactivePopGestureRecognizer.delegate = nil;
     
     self.collectionView.collectionViewLayout.incomingAvatarViewSize = CGSizeZero;
     self.collectionView.collectionViewLayout.outgoingAvatarViewSize = CGSizeZero;
@@ -86,6 +89,7 @@ NSString *const firebaseChatURL = @"https://glaring-heat-1751.firebaseio.com/mes
     self.senderDisplayName = userName;
     
     [self setupFirebase];
+
 }
 
 - (void)didReceiveMemoryWarning {

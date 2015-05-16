@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 #import "MenuViewController.h"
 #import "ChatListViewController.h"
+#import "ChatListNavViewController.h"
+#import "MenuChatNavViewController.h"
 
 @interface AppDelegate ()
 
@@ -36,13 +38,13 @@ NSString *const firebaseURLRoot = @"https://glaring-heat-1751.firebaseio.com/";
             [self.window makeKeyAndVisible];
                            
             if ([companysName isEqualToString:@"grupoonce"]) {
-            
-                ChatListViewController *chatListViewController = (ChatListViewController *)[storyboard instantiateViewControllerWithIdentifier:@"ChatListViewController"];
+                        
+                ChatListNavViewController *chatListViewController = (ChatListNavViewController *)[storyboard instantiateViewControllerWithIdentifier:@"ChatListNavViewController"];
                 [self.window setRootViewController:chatListViewController];
                 
             } else {
                 
-                MenuViewController *menuViewController = (MenuViewController *)[storyboard instantiateViewControllerWithIdentifier:@"MenuViewController"];
+                MenuChatNavViewController *menuViewController = (MenuChatNavViewController *)[storyboard instantiateViewControllerWithIdentifier:@"MenuChatNavViewController"];
                 [self.window setRootViewController:menuViewController];
 
             }

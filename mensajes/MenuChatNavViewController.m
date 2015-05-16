@@ -1,24 +1,22 @@
 //
-//  SendMessageViewController.m
+//  MenuChatNavViewController.m
 //  mensajes
 //
-//  Created by Carlos Guerrero on 4/3/15.
+//  Created by Carlos Guerrero on 5/16/15.
 //  Copyright (c) 2015 grupoonce. All rights reserved.
 //
 
-#import "SendMessageViewController.h"
+#import "MenuChatNavViewController.h"
 
-@interface SendMessageViewController ()
+@interface MenuChatNavViewController ()
 
 @end
 
-@implementation SendMessageViewController
+@implementation MenuChatNavViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.navigationController.interactivePopGestureRecognizer.delegate = nil;
-
 }
 
 - (void)didReceiveMemoryWarning {

@@ -24,6 +24,9 @@
     _socialUrl = @[@"https://www.facebook.com/grupoONCE11",
                    @"https://twitter.com/grupoONCE11",
                    @"https://www.youtube.com/user/grupo11ONCE"];
+    
+    self.navigationController.interactivePopGestureRecognizer.delegate = nil;
+
 }
 
 - (void)didReceiveMemoryWarning {

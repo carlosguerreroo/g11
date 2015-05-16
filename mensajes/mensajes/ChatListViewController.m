@@ -127,10 +127,14 @@ NSString *const fireURLRoot = @"https://glaring-heat-1751.firebaseio.com/message
     if (chatViewController == nil) {
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         chatViewController = (ChatViewController *)[storyboard instantiateViewControllerWithIdentifier:@"chatViewController"];
-        [self presentViewController:chatViewController animated:YES completion:nil];
+//        [self presentViewController:chatViewController animated:YES completion:nil];
+        [self.navigationController pushViewController:chatViewController animated: YES];
+        NSLog(@"%@", self.navigationController);
 
     } else {
-        [self presentViewController:chatViewController animated:YES completion:nil];
+//        [self presentViewController:chatViewController animated:YES completion:nil];
+        [self.navigationController pushViewController:chatViewController animated: YES];
+
     }
 }
 

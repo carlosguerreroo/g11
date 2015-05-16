@@ -9,6 +9,8 @@
 #import "ViewController.h"
 #import "MenuViewController.h"
 #import "ChatListViewController.h"
+#import "ChatListNavViewController.h"
+#import "MenuChatNavViewController.h"
 
 @interface ViewController () {
     
@@ -194,15 +196,16 @@ NSString *const firebaseURL = @"https://glaring-heat-1751.firebaseio.com";
                     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
 
                     if ([companysName isEqualToString:@"grupoonce"]) {
-                    
-                        ChatListViewController *menuViewController = (ChatListViewController *)[storyboard instantiateViewControllerWithIdentifier:@"ChatListViewController"];
-                        [self presentViewController:menuViewController animated:YES completion:nil];
+                       
+                        ChatListNavViewController *chatListViewController = (ChatListNavViewController *)[storyboard instantiateViewControllerWithIdentifier:@"ChatListNavViewController"];
+                        [self presentViewController:chatListViewController animated:YES completion:nil];
+
                     
                     } else {
                         
-                        MenuViewController *menuViewController = (MenuViewController *)[storyboard instantiateViewControllerWithIdentifier:@"MenuViewController"];
-                        [self presentViewController:menuViewController animated:YES completion:nil];
                     
+                        MenuChatNavViewController *menuViewController = (MenuChatNavViewController *)[storyboard instantiateViewControllerWithIdentifier:@"MenuChatNavViewController"];
+                        [self presentViewController:menuViewController animated:YES completion:nil];
                     }
 
                 }];
