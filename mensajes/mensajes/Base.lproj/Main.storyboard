@@ -894,7 +894,7 @@
         <!--Chat List Nav View Controller-->
         <scene sceneID="PQa-aR-XdE">
             <objects>
-                <navigationController storyboardIdentifier="ChatListNavViewController" automaticallyAdjustsScrollViewInsets="NO" id="3bO-Fy-L1t" customClass="ChatListNavViewController" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="ChatListNavViewController" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="3bO-Fy-L1t" customClass="ChatListNavViewController" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="lML-ey-vgX">

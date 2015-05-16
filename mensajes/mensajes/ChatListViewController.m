@@ -122,19 +122,24 @@ NSString *const fireURLRoot = @"https://glaring-heat-1751.firebaseio.com/message
     return cell;
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+    
+    NSString *localCompany = ((ChatListMessage*)[messages objectAtIndex:indexPath.row]).company;
+    NSString *localUsername = ((ChatListMessage*)[messages objectAtIndex:indexPath.row]).userName;
+    
     if (chatViewController == nil) {
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         chatViewController = (ChatViewController *)[storyboard instantiateViewControllerWithIdentifier:@"chatViewController"];
-//        [self presentViewController:chatViewController animated:YES completion:nil];
+       
+        [chatViewController setUserMessageNode: [NSString stringWithFormat:@"%@/%@%%%@",city, localUsername, localCompany]];
         [self.navigationController pushViewController:chatViewController animated: YES];
-        NSLog(@"%@", self.navigationController);
 
     } else {
-//        [self presentViewController:chatViewController animated:YES completion:nil];
+        
+        [chatViewController setUserMessageNode: [NSString stringWithFormat:@"%@/%@%%%@",city, localUsername, localCompany]];
         [self.navigationController pushViewController:chatViewController animated: YES];
-
     }
 }
 

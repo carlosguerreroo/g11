@@ -30,7 +30,7 @@ NSString *const firebaseChatURL = @"https://glaring-heat-1751.firebaseio.com/mes
     
     messageRef = [[Firebase alloc] initWithUrl: firebaseNode];
 
-    [messageRef observeEventType:FEventTypeChildAdded withBlock:^(FDataSnapshot *snapshot) {
+    handle = [messageRef observeEventType:FEventTypeChildAdded withBlock:^(FDataSnapshot *snapshot) {
          
         NSString *text = snapshot.value[@"text"];
         NSString *sender = snapshot.value[@"sender"];
@@ -68,9 +68,7 @@ NSString *const firebaseChatURL = @"https://glaring-heat-1751.firebaseio.com/mes
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     messages = [[NSMutableArray alloc] init];
-    
     self.navigationController.interactivePopGestureRecognizer.delegate = nil;
     
     self.collectionView.collectionViewLayout.incomingAvatarViewSize = CGSizeZero;
@@ -82,12 +80,27 @@ NSString *const firebaseChatURL = @"https://glaring-heat-1751.firebaseio.com/mes
     
     [self configureUser];
     
-    NSString *cleanUserName = [userName stringByReplacingOccurrencesOfString:@"." withString: @""];
-    userMessageNode = [NSString stringWithFormat:@"%@/%@%%%@",city, cleanUserName, companysName];
-
     self.senderId = userType;
     self.senderDisplayName = userName;
+
+}
+
+- (void) viewDidDisappear:(BOOL)animated {
     
+    [super viewDidDisappear:animated];
+    
+    NSLog(@"Bye");
+    
+    [messageRef removeObserverWithHandle:handle];
+
+}
+
+-(void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    NSLog(@"Will appaer");
+    [messages removeAllObjects];
+    [self finishReceivingMessageAnimated:YES];
+
     [self setupFirebase];
 
 }
@@ -112,13 +125,6 @@ NSString *const firebaseChatURL = @"https://glaring-heat-1751.firebaseio.com/mes
     
     [JSQSystemSoundPlayer jsq_playMessageSentSound];
     
-//    JSQMessage *message = [[JSQMessage alloc] initWithSenderId:senderId
-//                                             senderDisplayName:senderDisplayName
-//                                                          date:date
-//                                                          text:text];
-//    
-//    [self.demoData.messages addObject:message];
-    
     [self sendMessageWithText:text sender:senderId];
     [self finishSendingMessageAnimated:YES];
 }
@@ -135,7 +141,16 @@ NSString *const firebaseChatURL = @"https://glaring-heat-1751.firebaseio.com/mes
     
     JSQMessagesBubbleImageFactory *bubbleFactory = [[JSQMessagesBubbleImageFactory alloc] init];
     
-    return [bubbleFactory outgoingMessagesBubbleImageWithColor:[UIColor jsq_messageBubbleGreenColor]];
+    UIColor *bubbleColor;
+    
+    if ([((JSQMessage*)[messages objectAtIndex:indexPath.item]).senderId isEqualToString:@"client"]) {
+        bubbleColor = [UIColor jsq_messageBubbleGreenColor];
+        
+    } else {
+        bubbleColor = [UIColor jsq_messageBubbleLightGrayColor];
+    }
+    
+    return [bubbleFactory outgoingMessagesBubbleImageWithColor: bubbleColor];
 }
 
 - (id<JSQMessageAvatarImageDataSource>)collectionView:(JSQMessagesCollectionView *)collectionView avatarImageDataForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -160,12 +175,13 @@ NSString *const firebaseChatURL = @"https://glaring-heat-1751.firebaseio.com/mes
     
     if (!msg.isMediaMessage) {
         
-        if ([msg.senderId isEqualToString:self.senderId]) {
+        if ([msg.senderId isEqualToString: @"adviser"]) {
             cell.textView.textColor = [UIColor blackColor];
         }
         else {
             cell.textView.textColor = [UIColor whiteColor];
         }
+        
         
         cell.textView.linkTextAttributes = @{ NSForegroundColorAttributeName : cell.textView.textColor,
                                               NSUnderlineStyleAttributeName : @(NSUnderlineStyleSingle | NSUnderlinePatternSolid) };
@@ -184,9 +200,19 @@ NSString *const firebaseChatURL = @"https://glaring-heat-1751.firebaseio.com/mes
     
     if ([companysName isEqualToString:@"grupoonce"]) {
         userType = @"adviser";
+        NSLog(@"configurig");
+        NSLog(@"%@", userMessageNode);
     } else {
         userType = @"client";
+        
+        NSString *cleanUserName = [userName stringByReplacingOccurrencesOfString:@"." withString: @""];
+        userMessageNode = [NSString stringWithFormat:@"%@/%@%%%@",city, cleanUserName, companysName];
     }
+}
+
+-(void) setUserMessageNode: (NSString*) messageNode {
+
+    userMessageNode = messageNode;
 }
 
 @end

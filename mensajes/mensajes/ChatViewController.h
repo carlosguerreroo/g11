@@ -13,8 +13,10 @@
 
 @interface ChatViewController : JSQMessagesViewController <UIActionSheetDelegate>
 
+-(void) setUserMessageNode: (NSString*) userMesageNode;
 
 @end
 
 Firebase *messageRef;
+FirebaseHandle handle;
 NSMutableArray *messages;
