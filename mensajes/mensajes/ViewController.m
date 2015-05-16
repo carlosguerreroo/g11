@@ -11,6 +11,7 @@
 #import "ChatListViewController.h"
 #import "ChatListNavViewController.h"
 #import "MenuChatNavViewController.h"
+#import "AdminNavViewController.h"
 
 @interface ViewController () {
     
@@ -197,13 +198,18 @@ NSString *const firebaseURL = @"https://glaring-heat-1751.firebaseio.com";
 
                     if ([companysName isEqualToString:@"grupoonce"]) {
                        
-                        ChatListNavViewController *chatListViewController = (ChatListNavViewController *)[storyboard instantiateViewControllerWithIdentifier:@"ChatListNavViewController"];
-                        [self presentViewController:chatListViewController animated:YES completion:nil];
+                        if ([city isEqualToString:@"admin"]) {
+                            
+                            AdminNavViewController *adminNavViewController = (AdminNavViewController *)[storyboard instantiateViewControllerWithIdentifier:@"AdminNavViewController"];
+                            [self presentViewController:adminNavViewController animated:YES completion:nil];
+                            
+                        } else {
+                            ChatListNavViewController *chatListViewController = (ChatListNavViewController *)[storyboard instantiateViewControllerWithIdentifier:@"ChatListNavViewController"];
+                            [self presentViewController:chatListViewController animated:YES completion:nil];
+                            
+                        }
 
-                    
                     } else {
-                        
-                    
                         MenuChatNavViewController *menuViewController = (MenuChatNavViewController *)[storyboard instantiateViewControllerWithIdentifier:@"MenuChatNavViewController"];
                         [self presentViewController:menuViewController animated:YES completion:nil];
                     }

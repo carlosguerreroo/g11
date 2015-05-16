@@ -11,6 +11,7 @@
 #import "ChatListViewController.h"
 #import "ChatListNavViewController.h"
 #import "MenuChatNavViewController.h"
+#import "AdminNavViewController.h"
 
 @interface AppDelegate ()
 
@@ -32,15 +33,25 @@ NSString *const firebaseURLRoot = @"https://glaring-heat-1751.firebaseio.com/";
             
             NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
             NSString *companysName = [prefs stringForKey:@"companysName"];
+            NSString *city = [prefs stringForKey:@"city"];
+
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
             self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
             [self.window setBackgroundColor:[UIColor whiteColor]];
             [self.window makeKeyAndVisible];
                            
             if ([companysName isEqualToString:@"grupoonce"]) {
-                        
-                ChatListNavViewController *chatListViewController = (ChatListNavViewController *)[storyboard instantiateViewControllerWithIdentifier:@"ChatListNavViewController"];
-                [self.window setRootViewController:chatListViewController];
+                
+                if ([city isEqualToString:@"admin"]) {
+                    
+                    AdminNavViewController *adminNavViewController = (AdminNavViewController *)[storyboard instantiateViewControllerWithIdentifier:@"AdminNavViewController"];
+                    [self.window setRootViewController :adminNavViewController];
+
+                } else {
+                    ChatListNavViewController *chatListViewController = (ChatListNavViewController *)[storyboard instantiateViewControllerWithIdentifier:@"ChatListNavViewController"];
+                    [self.window setRootViewController:chatListViewController];
+                    
+                }
                 
             } else {
                 

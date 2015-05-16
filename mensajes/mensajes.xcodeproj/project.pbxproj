@@ -19,6 +19,7 @@
 		FA9CE6FD1B07950A00D3FB5A /* MenuChatNavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9CE6FC1B07950A00D3FB5A /* MenuChatNavViewController.m */; };
 		FA9CE7001B07F08B00D3FB5A /* AdminViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9CE6FF1B07F08B00D3FB5A /* AdminViewController.m */; };
 		FA9CE7031B07F14B00D3FB5A /* AdminNavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9CE7021B07F14B00D3FB5A /* AdminNavViewController.m */; };
+		FA9CE7061B07F74900D3FB5A /* AdminTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9CE7051B07F74900D3FB5A /* AdminTableViewCell.m */; };
 		FAA1051D1AD1BA92009C8B20 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA1051C1AD1BA92009C8B20 /* ChatViewController.m */; };
 		FAAB54BB1AEDA05A006B42EA /* DemoModelData.m in Sources */ = {isa = PBXBuildFile; fileRef = FAAB54BA1AEDA05A006B42EA /* DemoModelData.m */; };
 		FAD999B11ACF450D00BE0B8D /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD999B01ACF450D00BE0B8D /* MenuViewController.m */; };
@@ -64,6 +65,8 @@
 		FA9CE6FF1B07F08B00D3FB5A /* AdminViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdminViewController.m; sourceTree = "<group>"; };
 		FA9CE7011B07F14B00D3FB5A /* AdminNavViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdminNavViewController.h; sourceTree = "<group>"; };
 		FA9CE7021B07F14B00D3FB5A /* AdminNavViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdminNavViewController.m; sourceTree = "<group>"; };
+		FA9CE7041B07F74900D3FB5A /* AdminTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdminTableViewCell.h; sourceTree = "<group>"; };
+		FA9CE7051B07F74900D3FB5A /* AdminTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdminTableViewCell.m; sourceTree = "<group>"; };
 		FAA1051B1AD1BA92009C8B20 /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
 		FAA1051C1AD1BA92009C8B20 /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
 		FAAB54B91AEDA05A006B42EA /* DemoModelData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoModelData.h; sourceTree = "<group>"; };
@@ -206,6 +209,8 @@
 			isa = PBXGroup;
 			children = (
 				FAE273F11B06FED20005BCF1 /* ChatListTableViewCell.h */,
+				FA9CE7041B07F74900D3FB5A /* AdminTableViewCell.h */,
+				FA9CE7051B07F74900D3FB5A /* AdminTableViewCell.m */,
 				FAE273F21B06FED20005BCF1 /* ChatListTableViewCell.m */,
 			);
 			path = STBubbleTableViewCell;
@@ -357,6 +362,7 @@
 				FAD999B41ACF6DF400BE0B8D /* QuestionsViewController.m in Sources */,
 				FA9CE7001B07F08B00D3FB5A /* AdminViewController.m in Sources */,
 				FA0FD72A1ACBB22500A2E82F /* AppDelegate.m in Sources */,
+				FA9CE7061B07F74900D3FB5A /* AdminTableViewCell.m in Sources */,
 				FA0FD7271ACBB22500A2E82F /* main.m in Sources */,
 				FAE273F31B06FED20005BCF1 /* ChatListTableViewCell.m in Sources */,
 				FAA1051D1AD1BA92009C8B20 /* ChatViewController.m in Sources */,
