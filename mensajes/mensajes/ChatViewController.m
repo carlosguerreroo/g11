@@ -10,42 +10,56 @@
 
 @interface ChatViewController() {
     
-    NSString *City;
+    NSString *city;
+    NSString *userName;
+    NSString *companysName;
+    NSString *userMessageNode;
+    NSString *userType;
 }
 
 @end
 
-NSString *const firebaseChatURL = @"https://glaring-heat-1751.firebaseio.com/messages";
+NSString *const firebaseChatURL = @"https://glaring-heat-1751.firebaseio.com/messages/";
 
 @implementation ChatViewController
 
 
 -(void)setupFirebase {
     
-    messageRef = [[Firebase alloc] initWithUrl: firebaseChatURL];
+    NSString *firebaseNode = [NSString stringWithFormat:@"%@%@", firebaseChatURL, userMessageNode];
+    
+    messageRef = [[Firebase alloc] initWithUrl: firebaseNode];
 
-    [[messageRef queryLimitedToFirst:2]
-     observeEventType:FEventTypeChildAdded withBlock:^(FDataSnapshot *snapshot) {
+    [messageRef observeEventType:FEventTypeChildAdded withBlock:^(FDataSnapshot *snapshot) {
          
-//         NSString *text = snapshot.value[@"text"];
-//         NSString *sender = snapshot.value[@"sender"];
-//         NSDate *date = [[NSDate alloc] init];
-//         JSQMessage *message = [[JSQMessage alloc] initWithSenderId: sender
-//                                                  senderDisplayName: sender
-//                                                               date: date
-//                                                               text: text];
-//         [messages addObject:message];
-         
-         
-         [self finishReceivingMessageAnimated:YES];
+        NSString *text = snapshot.value[@"text"];
+        NSString *sender = snapshot.value[@"sender"];
+        NSDate *date = [[NSDate alloc] init];
+        
+        JSQMessage *message = [[JSQMessage alloc] initWithSenderId: sender
+                                                  senderDisplayName: sender
+                                                               date: date
+                                                               text: text];
+        [messages addObject:message];
+        
+        [self finishReceivingMessageAnimated:YES];
      }];
 }
 
 -(void)sendMessageWithText: (NSString*)text sender: (NSString*)sender {
     
+    NSDateFormatter *DateFormatter=[[NSDateFormatter alloc] init];
+    [DateFormatter setDateFormat:@"LLLL dd"];
+    NSString *date = [DateFormatter stringFromDate:[NSDate date]];
+    [DateFormatter setDateFormat:@"HH:mm"];
+    NSString *time = [DateFormatter stringFromDate:[NSDate date]];
+
     NSDictionary *message = @{
                               @"text": text,
-                              @"sender": sender
+                              @"sender": userType,
+                              @"date": date,
+                              @"read": @NO,
+                              @"time": time
                               };
     Firebase *sendMessage = [messageRef childByAutoId];
     [sendMessage setValue: message];
@@ -53,9 +67,6 @@ NSString *const firebaseChatURL = @"https://glaring-heat-1751.firebaseio.com/mes
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    self.senderId = @"Chat";
-    self.senderDisplayName = @"Chat";
     
     messages = [[NSMutableArray alloc] init];
     
@@ -66,25 +77,15 @@ NSString *const firebaseChatURL = @"https://glaring-heat-1751.firebaseio.com/mes
     [self.inputToolbar.contentView.rightBarButtonItem setTitle:@"Envio" forState: UIControlStateNormal];
     self.inputToolbar.contentView.textView.placeHolder = @"Mensaje";
     
-    Firebase *userInfo;
-    NSString *url = @"https://glaring-heat-1751.firebaseio.com/";
-    userInfo = [[Firebase alloc] initWithUrl: url];
-
-    if (userInfo.authData) {
-        NSLog(@"%@", userInfo.authData);
-        
-        NSString *userPath = [NSString stringWithFormat:@"users/%@", userInfo.authData.uid];
-        NSLog(@"%@",userPath);
-        [[userInfo childByAppendingPath:userPath]observeSingleEventOfType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
-            NSLog(@"%@",snapshot.value[@"city"] );
-            [self setupFirebase];
-
-        }];
-    } else {
-        
+    [self configureUser];
     
-    }
+    NSString *cleanUserName = [userName stringByReplacingOccurrencesOfString:@"." withString: @""];
+    userMessageNode = [NSString stringWithFormat:@"%@/%@%%%@",city, cleanUserName, companysName];
+
+    self.senderId = userType;
+    self.senderDisplayName = userName;
     
+    [self setupFirebase];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -168,4 +169,20 @@ NSString *const firebaseChatURL = @"https://glaring-heat-1751.firebaseio.com/mes
     
     return cell;
 }
+
+-(void) configureUser {
+    
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    
+    city = [prefs stringForKey:@"city"];
+    userName = [prefs stringForKey:@"userName"];
+    companysName = [prefs stringForKey:@"companysName"];
+    
+    if ([companysName isEqualToString:@"grupoonce"]) {
+        userType = @"adviser";
+    } else {
+        userType = @"client";
+    }
+}
+
 @end

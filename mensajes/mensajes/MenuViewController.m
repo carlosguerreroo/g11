@@ -65,16 +65,18 @@ NSString *const fireURL = @"https://glaring-heat-1751.firebaseio.com";
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:  _socialUrl[index]]];
 }
 - (IBAction)logOut:(id)sender {
+    
     [ref unauth];
-    
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    ViewController *menuViewController = (ViewController *)[storyboard instantiateViewControllerWithIdentifier:@"ViewController"];
-    [self presentViewController:menuViewController animated:YES completion:nil];
-    
+
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     [prefs setObject: @"" forKey:@"companysName"];
     [prefs setObject: @"" forKey:@"city"];
     [prefs setObject: @"" forKey:@"userName"];
     [prefs synchronize];
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    ViewController *menuViewController = (ViewController *)[storyboard instantiateViewControllerWithIdentifier:@"ViewController"];
+    [self presentViewController:menuViewController animated:YES completion:nil];
+
 }
 @end

@@ -17,11 +17,12 @@
 		FA0FD7411ACBB22500A2E82F /* mensajesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0FD7401ACBB22500A2E82F /* mensajesTests.m */; };
 		FAA1051D1AD1BA92009C8B20 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA1051C1AD1BA92009C8B20 /* ChatViewController.m */; };
 		FAAB54BB1AEDA05A006B42EA /* DemoModelData.m in Sources */ = {isa = PBXBuildFile; fileRef = FAAB54BA1AEDA05A006B42EA /* DemoModelData.m */; };
-		FAD023B31AD2018B0014A0A0 /* STBubbleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD023B21AD2018B0014A0A0 /* STBubbleTableViewCell.m */; };
 		FAD999B11ACF450D00BE0B8D /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD999B01ACF450D00BE0B8D /* MenuViewController.m */; };
 		FAD999B41ACF6DF400BE0B8D /* QuestionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD999B31ACF6DF400BE0B8D /* QuestionsViewController.m */; };
 		FAD999B71ACF6E6400BE0B8D /* SendMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD999B61ACF6E6400BE0B8D /* SendMessageViewController.m */; };
 		FAE273F01B06CECB0005BCF1 /* ChatListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAE273EF1B06CECB0005BCF1 /* ChatListViewController.m */; };
+		FAE273F31B06FED20005BCF1 /* ChatListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FAE273F21B06FED20005BCF1 /* ChatListTableViewCell.m */; };
+		FAE273F61B0704200005BCF1 /* ChatListMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = FAE273F51B0704200005BCF1 /* ChatListMessage.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,8 +56,6 @@
 		FAA1051C1AD1BA92009C8B20 /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
 		FAAB54B91AEDA05A006B42EA /* DemoModelData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoModelData.h; sourceTree = "<group>"; };
 		FAAB54BA1AEDA05A006B42EA /* DemoModelData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoModelData.m; sourceTree = "<group>"; };
-		FAD023B11AD2018B0014A0A0 /* STBubbleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STBubbleTableViewCell.h; sourceTree = "<group>"; };
-		FAD023B21AD2018B0014A0A0 /* STBubbleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STBubbleTableViewCell.m; sourceTree = "<group>"; };
 		FAD999AF1ACF450D00BE0B8D /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		FAD999B01ACF450D00BE0B8D /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		FAD999B21ACF6DF400BE0B8D /* QuestionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionsViewController.h; sourceTree = "<group>"; };
@@ -65,6 +64,10 @@
 		FAD999B61ACF6E6400BE0B8D /* SendMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendMessageViewController.m; sourceTree = "<group>"; };
 		FAE273EE1B06CECB0005BCF1 /* ChatListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatListViewController.h; sourceTree = "<group>"; };
 		FAE273EF1B06CECB0005BCF1 /* ChatListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatListViewController.m; sourceTree = "<group>"; };
+		FAE273F11B06FED20005BCF1 /* ChatListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatListTableViewCell.h; sourceTree = "<group>"; };
+		FAE273F21B06FED20005BCF1 /* ChatListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatListTableViewCell.m; sourceTree = "<group>"; };
+		FAE273F41B0704200005BCF1 /* ChatListMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatListMessage.h; sourceTree = "<group>"; };
+		FAE273F51B0704200005BCF1 /* ChatListMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatListMessage.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +150,8 @@
 				FAA1051B1AD1BA92009C8B20 /* ChatViewController.h */,
 				FAA1051C1AD1BA92009C8B20 /* ChatViewController.m */,
 				FAD999B61ACF6E6400BE0B8D /* SendMessageViewController.m */,
+				FAE273F41B0704200005BCF1 /* ChatListMessage.h */,
+				FAE273F51B0704200005BCF1 /* ChatListMessage.m */,
 			);
 			path = mensajes;
 			sourceTree = "<group>";
@@ -180,8 +185,8 @@
 		FAD023B01AD2018B0014A0A0 /* STBubbleTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				FAD023B11AD2018B0014A0A0 /* STBubbleTableViewCell.h */,
-				FAD023B21AD2018B0014A0A0 /* STBubbleTableViewCell.m */,
+				FAE273F11B06FED20005BCF1 /* ChatListTableViewCell.h */,
+				FAE273F21B06FED20005BCF1 /* ChatListTableViewCell.m */,
 			);
 			path = STBubbleTableViewCell;
 			sourceTree = "<group>";
@@ -321,14 +326,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAD023B31AD2018B0014A0A0 /* STBubbleTableViewCell.m in Sources */,
 				FAAB54BB1AEDA05A006B42EA /* DemoModelData.m in Sources */,
+				FAE273F61B0704200005BCF1 /* ChatListMessage.m in Sources */,
 				FAD999B71ACF6E6400BE0B8D /* SendMessageViewController.m in Sources */,
 				FA0FD72D1ACBB22500A2E82F /* ViewController.m in Sources */,
 				FAE273F01B06CECB0005BCF1 /* ChatListViewController.m in Sources */,
 				FAD999B41ACF6DF400BE0B8D /* QuestionsViewController.m in Sources */,
 				FA0FD72A1ACBB22500A2E82F /* AppDelegate.m in Sources */,
 				FA0FD7271ACBB22500A2E82F /* main.m in Sources */,
+				FAE273F31B06FED20005BCF1 /* ChatListTableViewCell.m in Sources */,
 				FAA1051D1AD1BA92009C8B20 /* ChatViewController.m in Sources */,
 				FAD999B11ACF450D00BE0B8D /* MenuViewController.m in Sources */,
 			);
