@@ -752,11 +752,18 @@
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="14D-lK-4nb">
+                                                    <rect key="frame" x="270" y="37" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" red="0.83921568627450982" green="0.83921568627450982" blue="0.83921568627450982" alpha="1" colorSpace="calibratedRGB"/>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="companysName" destination="iDv-l4-Rnn" id="4LC-jn-hE4"/>
+                                            <outlet property="status" destination="14D-lK-4nb" id="U9U-Yu-Xpz"/>
                                             <outlet property="time" destination="Ovy-7X-uiE" id="wat-FS-C1I"/>
                                             <outlet property="userName" destination="lab-lJ-UEK" id="otv-qU-Xyz"/>
                                         </connections>
@@ -988,7 +995,7 @@
         <!--Chat List Nav View Controller-->
         <scene sceneID="PQa-aR-XdE">
             <objects>
-                <navigationController storyboardIdentifier="ChatListNavViewController" automaticallyAdjustsScrollViewInsets="NO" id="3bO-Fy-L1t" customClass="ChatListNavViewController" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="ChatListNavViewController" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="3bO-Fy-L1t" customClass="ChatListNavViewController" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="lML-ey-vgX">

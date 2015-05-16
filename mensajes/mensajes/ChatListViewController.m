@@ -134,8 +134,10 @@ NSString *const fireURLRoot = @"https://glaring-heat-1751.firebaseio.com/message
     
     if(((ChatListMessage*)[messages objectAtIndex:indexPath.row]).status) {
         cell.status.attributedText = statusFill;
+        NSLog(@"as");
     } else {
-    
+        NSLog(@"as");
+
         cell.status.attributedText = statusEmpty;
     }
     
@@ -168,7 +170,7 @@ NSString *const fireURLRoot = @"https://glaring-heat-1751.firebaseio.com/message
     
     [tmpRef observeEventType:FEventTypeChildAdded withBlock:^(FDataSnapshot *snapshot) {
         
-        if ([snapshot.value[@"read"] boolValue] == 0) {
+        if ([snapshot.value[@"read"] boolValue] == 0 && ![snapshot.value[@"sender"] isEqualToString:@"adviser"]) {
             messageUnread++;
             _messageCounterLabel.text = [NSString stringWithFormat:@"%d", messageUnread];
             [((ChatListMessage *)messages[position]) setStatus:YES];
@@ -182,9 +184,9 @@ NSString *const fireURLRoot = @"https://glaring-heat-1751.firebaseio.com/message
     [handles addObject:tmpRef];
 }
 
-- (void) viewDidDisappear:(BOOL)animated {
+- (void) viewWillDisappear:(BOOL)animated {
     
-    [super viewDidDisappear: animated];
+    [super viewWillDisappear: animated];
     
     messageUnread = 0;
     _messageCounterLabel.text = @"0";
