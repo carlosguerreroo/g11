@@ -263,7 +263,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="221" y="272"/>
+            <point key="canvasLocation" x="-107" y="272"/>
         </scene>
         <!--Menu View Controller-->
         <scene sceneID="u0y-c8-9Ge">
@@ -656,6 +656,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DhZ-Nu-CIS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1111" y="739"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="qVl-fv-dSI">
+            <objects>
+                <viewController id="kG0-qd-44X" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3yQ-ku-d7M"/>
+                        <viewControllerLayoutGuide type="bottom" id="cSj-Ou-uqu"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9wN-iR-VxA">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bzH-Ah-lW7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="193" y="1018"/>
         </scene>
         <!--Chat View Controller-->
         <scene sceneID="Qxi-83-XAd">

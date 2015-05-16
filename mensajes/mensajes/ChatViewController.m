@@ -8,8 +8,10 @@
 
 #import "ChatViewController.h"
 
-@interface ChatViewController()
-
+@interface ChatViewController() {
+    
+    NSString *City;
+}
 
 @end
 
@@ -22,20 +24,19 @@ NSString *const firebaseChatURL = @"https://glaring-heat-1751.firebaseio.com/mes
     
     messageRef = [[Firebase alloc] initWithUrl: firebaseChatURL];
 
-    [[messageRef queryLimitedToFirst:15]
+    [[messageRef queryLimitedToFirst:2]
      observeEventType:FEventTypeChildAdded withBlock:^(FDataSnapshot *snapshot) {
          
-         NSString *text = snapshot.value[@"text"];
-         NSString *sender = snapshot.value[@"sender"];
-         NSDate *date = [[NSDate alloc] init];
+//         NSString *text = snapshot.value[@"text"];
+//         NSString *sender = snapshot.value[@"sender"];
+//         NSDate *date = [[NSDate alloc] init];
+//         JSQMessage *message = [[JSQMessage alloc] initWithSenderId: sender
+//                                                  senderDisplayName: sender
+//                                                               date: date
+//                                                               text: text];
+//         [messages addObject:message];
          
-         JSQMessage *message = [[JSQMessage alloc] initWithSenderId: sender
-                                                  senderDisplayName: sender
-                                                               date: date
-                                                               text: text];
          
-         [messages addObject:message];
-         NSLog(@"%d", [messages count]);
          [self finishReceivingMessageAnimated:YES];
      }];
 }
@@ -61,8 +62,29 @@ NSString *const firebaseChatURL = @"https://glaring-heat-1751.firebaseio.com/mes
     self.collectionView.collectionViewLayout.incomingAvatarViewSize = CGSizeZero;
     self.collectionView.collectionViewLayout.outgoingAvatarViewSize = CGSizeZero;
     self.automaticallyScrollsToMostRecentMessage = YES;
+    self.inputToolbar.contentView.leftBarButtonItem = nil;
+    [self.inputToolbar.contentView.rightBarButtonItem setTitle:@"Envio" forState: UIControlStateNormal];
+    self.inputToolbar.contentView.textView.placeHolder = @"Mensaje";
     
-    [self setupFirebase];
+    Firebase *userInfo;
+    NSString *url = @"https://glaring-heat-1751.firebaseio.com/";
+    userInfo = [[Firebase alloc] initWithUrl: url];
+
+    if (userInfo.authData) {
+        NSLog(@"%@", userInfo.authData);
+        
+        NSString *userPath = [NSString stringWithFormat:@"users/%@", userInfo.authData.uid];
+        NSLog(@"%@",userPath);
+        [[userInfo childByAppendingPath:userPath]observeSingleEventOfType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
+            NSLog(@"%@",snapshot.value[@"city"] );
+            [self setupFirebase];
+
+        }];
+    } else {
+        
+    
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -105,7 +127,10 @@ NSString *const firebaseChatURL = @"https://glaring-heat-1751.firebaseio.com/mes
 
 - (id<JSQMessageBubbleImageDataSource>)collectionView:(JSQMessagesCollectionView *)collectionView messageBubbleImageDataForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return nil;
+    
+    JSQMessagesBubbleImageFactory *bubbleFactory = [[JSQMessagesBubbleImageFactory alloc] init];
+    
+    return [bubbleFactory outgoingMessagesBubbleImageWithColor:[UIColor jsq_messageBubbleGreenColor]];
 }
 
 - (id<JSQMessageAvatarImageDataSource>)collectionView:(JSQMessagesCollectionView *)collectionView avatarImageDataForItemAtIndexPath:(NSIndexPath *)indexPath

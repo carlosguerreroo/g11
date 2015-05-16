@@ -13,7 +13,6 @@
 
 @interface ChatViewController : JSQMessagesViewController <UIActionSheetDelegate>
 
-@property (strong, nonatomic) DemoModelData *demoData;
 
 @end
 

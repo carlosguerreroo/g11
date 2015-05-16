@@ -208,9 +208,10 @@ NSString *const firebaseURL = @"https://glaring-heat-1751.firebaseio.com";
                         [self displayAlertWith: titleText And: messageText];
                         
                         NSDictionary *newUser = @{
-                                                  @"email": username,
-                                                  @"company": company,
-                                                  @"city": _pickerData[[_cities selectedRowInComponent:0]]
+                                                  @"userName": username,
+                                                  @"companysName": company,
+                                                  @"city": _pickerData[[_cities selectedRowInComponent:0]],
+                                                  @"password": password
                                                   };
                         [[[ref childByAppendingPath:@"users"]
                           childByAppendingPath:uid] setValue:newUser];
