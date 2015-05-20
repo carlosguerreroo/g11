@@ -44,7 +44,7 @@
 		3D6F72BF9EEBE5C49627554A /* Pods-mensajes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mensajes.debug.xcconfig"; path = "Pods/Target Support Files/Pods-mensajes/Pods-mensajes.debug.xcconfig"; sourceTree = "<group>"; };
 		512420F13B50F58EA4D8C5F9 /* libPods-mensajes.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-mensajes.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9186C25F55A3899CFFB0D52A /* Pods-mensajes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mensajes.release.xcconfig"; path = "Pods/Target Support Files/Pods-mensajes/Pods-mensajes.release.xcconfig"; sourceTree = "<group>"; };
-		FA0FD7211ACBB22500A2E82F /* mensajes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mensajes.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA0FD7211ACBB22500A2E82F /* Grupo Once.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Grupo Once.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA0FD7251ACBB22500A2E82F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA0FD7261ACBB22500A2E82F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FA0FD7281ACBB22500A2E82F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -54,7 +54,7 @@
 		FA0FD72F1ACBB22500A2E82F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FA0FD7311ACBB22500A2E82F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		FA0FD7341ACBB22500A2E82F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		FA0FD73A1ACBB22500A2E82F /* mensajesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = mensajesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA0FD73A1ACBB22500A2E82F /* Grupo OnceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Grupo OnceTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA0FD73F1ACBB22500A2E82F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA0FD7401ACBB22500A2E82F /* mensajesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = mensajesTests.m; sourceTree = "<group>"; };
 		FA9CE6F81B0792EC00D3FB5A /* ChatListNavViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatListNavViewController.h; sourceTree = "<group>"; };
@@ -137,8 +137,8 @@
 		FA0FD7221ACBB22500A2E82F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FA0FD7211ACBB22500A2E82F /* mensajes.app */,
-				FA0FD73A1ACBB22500A2E82F /* mensajesTests.xctest */,
+				FA0FD7211ACBB22500A2E82F /* Grupo Once.app */,
+				FA0FD73A1ACBB22500A2E82F /* Grupo OnceTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -219,9 +219,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		FA0FD7201ACBB22500A2E82F /* mensajes */ = {
+		FA0FD7201ACBB22500A2E82F /* Grupo Once */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FA0FD7441ACBB22500A2E82F /* Build configuration list for PBXNativeTarget "mensajes" */;
+			buildConfigurationList = FA0FD7441ACBB22500A2E82F /* Build configuration list for PBXNativeTarget "Grupo Once" */;
 			buildPhases = (
 				0604BB0E5F7C3D612B54E119 /* Check Pods Manifest.lock */,
 				FA0FD71D1ACBB22500A2E82F /* Sources */,
@@ -233,14 +233,14 @@
 			);
 			dependencies = (
 			);
-			name = mensajes;
+			name = "Grupo Once";
 			productName = mensajes;
-			productReference = FA0FD7211ACBB22500A2E82F /* mensajes.app */;
+			productReference = FA0FD7211ACBB22500A2E82F /* Grupo Once.app */;
 			productType = "com.apple.product-type.application";
 		};
-		FA0FD7391ACBB22500A2E82F /* mensajesTests */ = {
+		FA0FD7391ACBB22500A2E82F /* Grupo OnceTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FA0FD7471ACBB22500A2E82F /* Build configuration list for PBXNativeTarget "mensajesTests" */;
+			buildConfigurationList = FA0FD7471ACBB22500A2E82F /* Build configuration list for PBXNativeTarget "Grupo OnceTests" */;
 			buildPhases = (
 				FA0FD7361ACBB22500A2E82F /* Sources */,
 				FA0FD7371ACBB22500A2E82F /* Frameworks */,
@@ -251,9 +251,9 @@
 			dependencies = (
 				FA0FD73C1ACBB22500A2E82F /* PBXTargetDependency */,
 			);
-			name = mensajesTests;
+			name = "Grupo OnceTests";
 			productName = mensajesTests;
-			productReference = FA0FD73A1ACBB22500A2E82F /* mensajesTests.xctest */;
+			productReference = FA0FD73A1ACBB22500A2E82F /* Grupo OnceTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -274,7 +274,7 @@
 					};
 				};
 			};
-			buildConfigurationList = FA0FD71C1ACBB22500A2E82F /* Build configuration list for PBXProject "mensajes" */;
+			buildConfigurationList = FA0FD71C1ACBB22500A2E82F /* Build configuration list for PBXProject "Grupo Once" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -287,8 +287,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				FA0FD7201ACBB22500A2E82F /* mensajes */,
-				FA0FD7391ACBB22500A2E82F /* mensajesTests */,
+				FA0FD7201ACBB22500A2E82F /* Grupo Once */,
+				FA0FD7391ACBB22500A2E82F /* Grupo OnceTests */,
 			);
 		};
 /* End PBXProject section */
@@ -383,7 +383,7 @@
 /* Begin PBXTargetDependency section */
 		FA0FD73C1ACBB22500A2E82F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = FA0FD7201ACBB22500A2E82F /* mensajes */;
+			target = FA0FD7201ACBB22500A2E82F /* Grupo Once */;
 			targetProxy = FA0FD73B1ACBB22500A2E82F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -491,7 +491,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = mensajes/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Grupo Once";
 			};
 			name = Debug;
 		};
@@ -502,7 +502,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = mensajes/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Grupo Once";
 			};
 			name = Release;
 		};
@@ -520,7 +520,7 @@
 				);
 				INFOPLIST_FILE = mensajesTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Grupo OnceTests";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/mensajes.app/mensajes";
 			};
 			name = Debug;
@@ -535,7 +535,7 @@
 				);
 				INFOPLIST_FILE = mensajesTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Grupo OnceTests";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/mensajes.app/mensajes";
 			};
 			name = Release;
@@ -543,7 +543,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		FA0FD71C1ACBB22500A2E82F /* Build configuration list for PBXProject "mensajes" */ = {
+		FA0FD71C1ACBB22500A2E82F /* Build configuration list for PBXProject "Grupo Once" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FA0FD7421ACBB22500A2E82F /* Debug */,
@@ -552,7 +552,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FA0FD7441ACBB22500A2E82F /* Build configuration list for PBXNativeTarget "mensajes" */ = {
+		FA0FD7441ACBB22500A2E82F /* Build configuration list for PBXNativeTarget "Grupo Once" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FA0FD7451ACBB22500A2E82F /* Debug */,
@@ -561,7 +561,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FA0FD7471ACBB22500A2E82F /* Build configuration list for PBXNativeTarget "mensajesTests" */ = {
+		FA0FD7471ACBB22500A2E82F /* Build configuration list for PBXNativeTarget "Grupo OnceTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FA0FD7481ACBB22500A2E82F /* Debug */,
