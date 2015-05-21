@@ -14,6 +14,9 @@
 @interface AdminViewController ()  <UITableViewDelegate, UITableViewDataSource> {
 
     NSArray *cities;
+    NSMutableArray *citiesImages;
+    UIImage *cityImage1 ;
+
 
 }
 
@@ -31,8 +34,21 @@
     _logOutButton.layer.cornerRadius = 4.0f;
     _logOutButton.layer.masksToBounds= YES;
     _usernameLabel.text = @"Admministrador";
-    cities = @[@"Aguascalientes", @"Celaya", @"León", @"Culiacán", @"DF Lomas altas",
-               @"Guadalajara", @"Querétaro", @"SLP", @"Tijuana", @"Torreón", @"Zacatecas"];
+    
+    cityImage1 = [UIImage imageNamed: @"1"];
+    citiesImages = [[NSMutableArray alloc] init];
+
+    cities = @[@"Aguascalientes", @"Celaya", @"Culiacán", @"DF",
+               @"Guadalajara",  @"León", @"Querétaro", @"San Luis Potosí",
+               @"Tijuana", @"Torreón", @"Zacatecas"];
+    
+    for (int i = 1; i <= cities.count; i++)
+    {
+  
+        [citiesImages addObject:[UIImage imageNamed: [NSString stringWithFormat: @"%d", i]]];
+    }
+    
+  
 
 }
 
@@ -58,7 +74,8 @@
     static NSString *CellIdentifier = @"AdminCell";
     
     AdminTableViewCell *cell = (AdminTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    cell.city.text = @"a";
+    cell.city.text = cities[indexPath.row];
+    [cell.image setImage:[citiesImages objectAtIndex:indexPath.row]];
     return cell;
 }
 
