@@ -488,7 +488,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3D6F72BF9EEBE5C49627554A /* Pods-mensajes.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				INFOPLIST_FILE = mensajes/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "Grupo Once";
@@ -499,7 +499,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9186C25F55A3899CFFB0D52A /* Pods-mensajes.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				INFOPLIST_FILE = mensajes/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "Grupo Once";
@@ -521,7 +521,6 @@
 				INFOPLIST_FILE = mensajesTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "Grupo OnceTests";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/mensajes.app/mensajes";
 			};
 			name = Debug;
 		};
@@ -536,7 +535,6 @@
 				INFOPLIST_FILE = mensajesTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "Grupo OnceTests";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/mensajes.app/mensajes";
 			};
 			name = Release;
 		};
