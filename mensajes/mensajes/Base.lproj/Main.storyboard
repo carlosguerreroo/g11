@@ -843,7 +843,6 @@
                                                 </state>
                                                 <connections>
                                                     <action selector="logOut:" destination="dar-U4-zA5" eventType="touchUpInside" id="bKG-j3-WpH"/>
-                                                    <action selector="logOut:" destination="kG0-qd-44X" eventType="touchUpInside" id="dYc-iI-COT"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -894,7 +893,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="graphsButton" destination="7v7-dk-UH3" id="tYh-7V-Ujd"/>
-                        <outlet property="logOutButton" destination="eMf-js-83e" id="bhF-XE-Xgq"/>
+                        <outlet property="logOutButtonAdmin" destination="eMf-js-83e" id="Dci-A5-6kh"/>
                         <outlet property="tableView" destination="wsN-vv-bwp" id="N13-Ln-8Mf"/>
                         <outlet property="usernameLabel" destination="lvU-i9-MQF" id="UfT-qk-Qkm"/>
                     </connections>

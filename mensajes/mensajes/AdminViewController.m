@@ -9,19 +9,20 @@
 #import "AdminViewController.h"
 #import "ViewController.h"
 #import "AdminTableViewCell.h"
-
+#import "ChatListViewController.h"
 
 @interface AdminViewController ()  <UITableViewDelegate, UITableViewDataSource> {
 
     NSArray *cities;
     NSMutableArray *citiesImages;
     UIImage *cityImage1 ;
+    ChatListViewController * chatListViewController;
 
 
 }
 
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
-@property (weak, nonatomic) IBOutlet UIButton *logOutButton;
+@property (weak, nonatomic) IBOutlet UIButton *logOutButtonAdmin;
 @property (weak, nonatomic) IBOutlet UIButton *graphsButton;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -32,8 +33,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _logOutButton.layer.cornerRadius = 4.0f;
-    _logOutButton.layer.masksToBounds = YES;
+    _logOutButtonAdmin.layer.cornerRadius = 4.0f;
+    _logOutButtonAdmin.layer.masksToBounds = YES;
     _graphsButton.layer.cornerRadius = 4.0f;
     _graphsButton.layer.masksToBounds = YES;
     
@@ -85,22 +86,22 @@
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    
+    
 //    NSString *localCompany = ((ChatListMessage*)[messages objectAtIndex:indexPath.row]).company;
 //    NSString *localUsername = ((ChatListMessage*)[messages objectAtIndex:indexPath.row]).userName;
-//    
-//    if (chatViewController == nil) {
-//        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-//        chatViewController = (ChatViewController *)[storyboard instantiateViewControllerWithIdentifier:@"chatViewController"];
-//        
+    
+    if (chatListViewController == nil) {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        chatListViewController = (ChatListViewController *)[storyboard instantiateViewControllerWithIdentifier:@"ChatListViewController"];
+        
 //        [chatViewController setUserMessageNode: [NSString stringWithFormat:@"%@/%@%%%@",city, localUsername, localCompany]];
-//        [self.navigationController pushViewController:chatViewController animated: YES];
-//        
-//    } else {
-//        
+        [self.navigationController pushViewController: chatListViewController animated: YES];
+        
+    } else {
+        
 //        [chatViewController setUserMessageNode: [NSString stringWithFormat:@"%@/%@%%%@",city, localUsername, localCompany]];
-//        [self.navigationController pushViewController:chatViewController animated: YES];
-//    }
+        [self.navigationController pushViewController: chatListViewController animated: YES];
+    }
 }
 
 

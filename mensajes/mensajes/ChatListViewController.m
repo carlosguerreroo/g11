@@ -64,6 +64,9 @@ NSString *const fireURLRoot = @"https://glaring-heat-1751.firebaseio.com/message
                   options: @{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType }
                   documentAttributes: nil
                   error: nil];
+    
+    self.navigationController.interactivePopGestureRecognizer.delegate = nil;
+
 }
 
 - (void)didReceiveMemoryWarning {
