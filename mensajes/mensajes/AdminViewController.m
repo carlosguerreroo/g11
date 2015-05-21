@@ -22,6 +22,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
 @property (weak, nonatomic) IBOutlet UIButton *logOutButton;
+@property (weak, nonatomic) IBOutlet UIButton *graphsButton;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
     
@@ -32,7 +33,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _logOutButton.layer.cornerRadius = 4.0f;
-    _logOutButton.layer.masksToBounds= YES;
+    _logOutButton.layer.masksToBounds = YES;
+    _graphsButton.layer.cornerRadius = 4.0f;
+    _graphsButton.layer.masksToBounds = YES;
+    
     _usernameLabel.text = @"Admministrador";
     
     cityImage1 = [UIImage imageNamed: @"1"];
@@ -114,5 +118,7 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     ViewController *viewController = (ViewController *)[storyboard instantiateViewControllerWithIdentifier:@"ViewController"];
     [self presentViewController:viewController animated:YES completion:nil];
+}
+- (IBAction)ShowGraphs:(id)sender {
 }
 @end

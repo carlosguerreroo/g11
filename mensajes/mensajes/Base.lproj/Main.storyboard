@@ -830,6 +830,9 @@
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="ShowGraphs:" destination="dar-U4-zA5" eventType="touchUpInside" id="5jO-Gx-EEX"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eMf-js-83e">
                                                 <rect key="frame" x="110" y="55" width="110" height="34"/>
@@ -890,6 +893,7 @@
                     <navigationItem key="navigationItem" id="bTJ-Zh-wv0"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="graphsButton" destination="7v7-dk-UH3" id="tYh-7V-Ujd"/>
                         <outlet property="logOutButton" destination="eMf-js-83e" id="bhF-XE-Xgq"/>
                         <outlet property="tableView" destination="wsN-vv-bwp" id="N13-Ln-8Mf"/>
                         <outlet property="usernameLabel" destination="lvU-i9-MQF" id="UfT-qk-Qkm"/>
