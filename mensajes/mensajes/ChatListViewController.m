@@ -11,6 +11,7 @@
 #import "ChatListTableViewCell.h"
 #import "ChatListMessage.h"
 #import "ChatViewController.h"
+#import "ResetPasswordViewController.h"
 
 @interface ChatListViewController () <UITableViewDelegate, UITableViewDataSource> {
     NSString *city;
@@ -24,6 +25,7 @@
     int messageUnread;
     NSAttributedString *statusEmpty;
     NSAttributedString *statusFill;
+    BOOL isAdmin;
 }
 
 @property (weak, nonatomic) IBOutlet UIButton *logOutButton;
@@ -47,8 +49,8 @@ NSString *const fireURLRoot = @"https://glaring-heat-1751.firebaseio.com/message
     messageUnread = 0;
 
     [self configureUser];
-
     _usernameLabel.text = city;
+
     ref = [[Firebase alloc] initWithUrl:fireURLRoot];
     
     messages = [[NSMutableArray alloc] init];
@@ -66,7 +68,13 @@ NSString *const fireURLRoot = @"https://glaring-heat-1751.firebaseio.com/message
                   error: nil];
     
     self.navigationController.interactivePopGestureRecognizer.delegate = nil;
-
+    
+    if (isAdmin) {
+        
+        [_logOutButton setTitle: @"Configuración" forState: UIControlStateNormal];
+    } else {
+        [_logOutButton setTitle: @"Cerrar Sesión" forState: UIControlStateNormal];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -78,17 +86,25 @@ NSString *const fireURLRoot = @"https://glaring-heat-1751.firebaseio.com/message
 }
 - (IBAction)logOut:(id)sender {
     
-    [ref unauth];
     
-    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-    [prefs setObject: @"" forKey:@"companysName"];
-    [prefs setObject: @"" forKey:@"city"];
-    [prefs setObject: @"" forKey:@"userName"];
-    [prefs synchronize];
+    if (isAdmin) {
     
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    ViewController *viewController = (ViewController *)[storyboard instantiateViewControllerWithIdentifier:@"ViewController"];
-    [self presentViewController:viewController animated:YES completion:nil];
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        ResetPasswordViewController *resetPasswordViewController = (ResetPasswordViewController *)[storyboard instantiateViewControllerWithIdentifier:@"ResetPasswordViewController"];
+        [self.navigationController pushViewController: resetPasswordViewController animated: YES];
+
+    } else {
+        
+        [ref unauth];
+        NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+        [prefs setObject: @"" forKey:@"companysName"];
+        [prefs setObject: @"" forKey:@"city"];
+        [prefs setObject: @"" forKey:@"userName"];
+        [prefs synchronize];
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        ViewController *viewController = (ViewController *)[storyboard instantiateViewControllerWithIdentifier:@"ViewController"];
+        [self presentViewController:viewController animated:YES completion:nil];
+    }
 
 }
 
@@ -96,13 +112,20 @@ NSString *const fireURLRoot = @"https://glaring-heat-1751.firebaseio.com/message
     
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     
-    city = [prefs stringForKey:@"city"];
     userName = [prefs stringForKey:@"userName"];
     companysName = [prefs stringForKey:@"companysName"];
+    
+    if (!isAdmin) {
+        city = [prefs stringForKey:@"city"];
+    } else {
+    
+        
+    }
 }
 
 -(void) setupFirebase {
     
+    NSLog(@"%@", city);
     [[ref childByAppendingPath: city] observeEventType:FEventTypeChildAdded withBlock:^(FDataSnapshot *snapshot) {
         
         NSArray *userData = [snapshot.key componentsSeparatedByString:@"%"];
@@ -210,4 +233,13 @@ NSString *const fireURLRoot = @"https://glaring-heat-1751.firebaseio.com/message
     [self setupFirebase];
 }
 
+- (void) setCity:(NSString*)cityName {
+    
+    city = cityName;
+    _usernameLabel.text = city;
+}
+
+- (void) setAdmin:(BOOL)adminMode {
+    isAdmin = adminMode;
+}
 @end

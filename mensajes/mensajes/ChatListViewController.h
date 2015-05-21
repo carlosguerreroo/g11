@@ -10,4 +10,6 @@
 
 @interface ChatListViewController : UIViewController
 
+- (void) setCity:(NSString*)cityName;
+- (void) setAdmin:(BOOL)adminMode;
 @end

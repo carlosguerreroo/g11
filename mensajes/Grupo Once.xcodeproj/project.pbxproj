@@ -28,6 +28,7 @@
 		FAE273F01B06CECB0005BCF1 /* ChatListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAE273EF1B06CECB0005BCF1 /* ChatListViewController.m */; };
 		FAE273F31B06FED20005BCF1 /* ChatListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FAE273F21B06FED20005BCF1 /* ChatListTableViewCell.m */; };
 		FAE273F61B0704200005BCF1 /* ChatListMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = FAE273F51B0704200005BCF1 /* ChatListMessage.m */; };
+		FAEC2C001B0D8B11002E0207 /* ResetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAEC2BFF1B0D8B11002E0207 /* ResetPasswordViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,8 @@
 		FAE273F21B06FED20005BCF1 /* ChatListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatListTableViewCell.m; sourceTree = "<group>"; };
 		FAE273F41B0704200005BCF1 /* ChatListMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatListMessage.h; sourceTree = "<group>"; };
 		FAE273F51B0704200005BCF1 /* ChatListMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatListMessage.m; sourceTree = "<group>"; };
+		FAEC2BFE1B0D8B11002E0207 /* ResetPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResetPasswordViewController.h; sourceTree = "<group>"; };
+		FAEC2BFF1B0D8B11002E0207 /* ResetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResetPasswordViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +160,8 @@
 				FA9CE6FE1B07F08B00D3FB5A /* AdminViewController.h */,
 				FA9CE6FF1B07F08B00D3FB5A /* AdminViewController.m */,
 				FA0FD72E1ACBB22500A2E82F /* Main.storyboard */,
+				FAEC2BFE1B0D8B11002E0207 /* ResetPasswordViewController.h */,
+				FAEC2BFF1B0D8B11002E0207 /* ResetPasswordViewController.m */,
 				FA9CE7011B07F14B00D3FB5A /* AdminNavViewController.h */,
 				FA9CE7021B07F14B00D3FB5A /* AdminNavViewController.m */,
 				FA9CE6F81B0792EC00D3FB5A /* ChatListNavViewController.h */,
@@ -358,6 +363,7 @@
 				FAD999B71ACF6E6400BE0B8D /* SendMessageViewController.m in Sources */,
 				FA0FD72D1ACBB22500A2E82F /* ViewController.m in Sources */,
 				FA9CE7031B07F14B00D3FB5A /* AdminNavViewController.m in Sources */,
+				FAEC2C001B0D8B11002E0207 /* ResetPasswordViewController.m in Sources */,
 				FAE273F01B06CECB0005BCF1 /* ChatListViewController.m in Sources */,
 				FAD999B41ACF6DF400BE0B8D /* QuestionsViewController.m in Sources */,
 				FA9CE7001B07F08B00D3FB5A /* AdminViewController.m in Sources */,

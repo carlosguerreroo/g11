@@ -15,7 +15,6 @@
 
     NSArray *cities;
     NSMutableArray *citiesImages;
-    UIImage *cityImage1 ;
     ChatListViewController * chatListViewController;
 
 
@@ -40,7 +39,6 @@
     
     _usernameLabel.text = @"Admministrador";
     
-    cityImage1 = [UIImage imageNamed: @"1"];
     citiesImages = [[NSMutableArray alloc] init];
 
     cities = @[@"Aguascalientes", @"Celaya", @"Culiacán", @"DF",
@@ -86,20 +84,19 @@
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-//    NSString *localCompany = ((ChatListMessage*)[messages objectAtIndex:indexPath.row]).company;
-//    NSString *localUsername = ((ChatListMessage*)[messages objectAtIndex:indexPath.row]).userName;
-    
     if (chatListViewController == nil) {
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         chatListViewController = (ChatListViewController *)[storyboard instantiateViewControllerWithIdentifier:@"ChatListViewController"];
         
-//        [chatViewController setUserMessageNode: [NSString stringWithFormat:@"%@/%@%%%@",city, localUsername, localCompany]];
+        [chatListViewController setAdmin: YES];
+        [chatListViewController setCity: cities[indexPath.row]];
         [self.navigationController pushViewController: chatListViewController animated: YES];
         
     } else {
         
-//        [chatViewController setUserMessageNode: [NSString stringWithFormat:@"%@/%@%%%@",city, localUsername, localCompany]];
+        [chatListViewController setAdmin: YES];
+        [chatListViewController setCity: cities[indexPath.row]];
+
         [self.navigationController pushViewController: chatListViewController animated: YES];
     }
 }
@@ -121,5 +118,7 @@
     [self presentViewController:viewController animated:YES completion:nil];
 }
 - (IBAction)ShowGraphs:(id)sender {
+
 }
+
 @end
