@@ -10,4 +10,6 @@
 
 @interface ResetPasswordViewController : ViewController
 
+- (void) setUsernameText: (NSString*) city;
+
 @end

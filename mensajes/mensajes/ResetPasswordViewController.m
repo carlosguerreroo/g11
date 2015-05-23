@@ -8,13 +8,15 @@
 
 #import "ResetPasswordViewController.h"
 
-@interface ResetPasswordViewController ()
+@interface ResetPasswordViewController () {
+    NSString * userNameText;
+
+}
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *emailLabel;
 @property (weak, nonatomic) IBOutlet UILabel *passwordLabel;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (weak, nonatomic) IBOutlet UIButton *updatePasswordButton;
-
 @end
 
 @implementation ResetPasswordViewController
@@ -28,9 +30,20 @@
 
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear: animated];
+    _usernameLabel.text = userNameText;
+
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)setUsernameText: (NSString*) city {
+    
+    userNameText = city;
 }
 
 /*

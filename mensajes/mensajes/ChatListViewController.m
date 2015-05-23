@@ -22,6 +22,7 @@
     NSMutableArray *handles;
     
     ChatViewController *chatViewController;
+    ResetPasswordViewController *resetPasswordViewController;
     int messageUnread;
     NSAttributedString *statusEmpty;
     NSAttributedString *statusFill;
@@ -89,10 +90,20 @@ NSString *const fireURLRoot = @"https://glaring-heat-1751.firebaseio.com/message
     
     if (isAdmin) {
     
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        ResetPasswordViewController *resetPasswordViewController = (ResetPasswordViewController *)[storyboard instantiateViewControllerWithIdentifier:@"ResetPasswordViewController"];
-        [self.navigationController pushViewController: resetPasswordViewController animated: YES];
+        
+        if (resetPasswordViewController == nil) {
+        
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            resetPasswordViewController = (ResetPasswordViewController *)[storyboard instantiateViewControllerWithIdentifier:@"ResetPasswordViewController"];
+            [resetPasswordViewController setUsernameText: city];
+            [self.navigationController pushViewController: resetPasswordViewController animated: YES];
 
+        } else {
+            [resetPasswordViewController setUsernameText: city];
+            [self.navigationController pushViewController: resetPasswordViewController animated: YES];
+
+        }
+    
     } else {
         
         [ref unauth];
