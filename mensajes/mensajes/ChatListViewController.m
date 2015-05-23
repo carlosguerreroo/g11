@@ -27,6 +27,8 @@
     NSAttributedString *statusEmpty;
     NSAttributedString *statusFill;
     BOOL isAdmin;
+    NSString *areaSelected;
+    NSArray *areas;
 }
 
 @property (weak, nonatomic) IBOutlet UIButton *logOutButton;
@@ -76,6 +78,10 @@ NSString *const fireURLRoot = @"https://glaring-heat-1751.firebaseio.com/message
     } else {
         [_logOutButton setTitle: @"Cerrar Sesión" forState: UIControlStateNormal];
     }
+    
+    areas = @[@"Recibos", @"Facturas", @"IMSS", @"Jurídico",
+              @"Requerimiento especial", @"Tesorería",
+              @"Operativo", @"Contabilidad", @"Auditoría", @"Cancelar"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -168,13 +174,11 @@ NSString *const fireURLRoot = @"https://glaring-heat-1751.firebaseio.com/message
     cell.companysName.text = ((ChatListMessage*)[messages objectAtIndex:indexPath.row]).company;
     cell.userName.text = ((ChatListMessage*)[messages objectAtIndex:indexPath.row]).userName;
     cell.time.text = ((ChatListMessage*)[messages objectAtIndex:indexPath.row]).time;
+    [cell.closeConv addTarget:self action:@selector(closeConvAction:) forControlEvents:UIControlEventTouchUpInside];
     
     if(((ChatListMessage*)[messages objectAtIndex:indexPath.row]).status) {
         cell.status.attributedText = statusFill;
-        NSLog(@"as");
     } else {
-        NSLog(@"as");
-
         cell.status.attributedText = statusEmpty;
     }
     
@@ -252,5 +256,91 @@ NSString *const fireURLRoot = @"https://glaring-heat-1751.firebaseio.com/message
 
 - (void) setAdmin:(BOOL)adminMode {
     isAdmin = adminMode;
+}
+- (void) closeConvAction:(UIButton *) sender {
+
+    
+    UIAlertController * view=   [UIAlertController
+                                 alertControllerWithTitle:@"Elige una area."
+                                 message:nil
+                                 preferredStyle:UIAlertControllerStyleActionSheet];
+
+    
+    
+    for (NSString *area in areas) {
+    
+        [view addAction:[self createActionwithView:view andTitle:area andArea:area]];
+
+    }
+
+
+    [self presentViewController:view animated:YES completion:nil];
+
+}
+
+- (void) createAlertWithComment {
+    UIAlertController *alertController = [UIAlertController
+                                          alertControllerWithTitle:@"Pon tu comentario"
+                                          message:nil
+                                          preferredStyle:UIAlertControllerStyleAlert];
+    
+    [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField)
+     {
+         textField.placeholder = NSLocalizedString(@"Comentario", @"Comentario");
+     }];
+    
+    UIAlertAction* ok = [UIAlertAction
+                         actionWithTitle:@"Enviar"
+                         style:UIAlertActionStyleDefault
+                         handler:^(UIAlertAction * action)
+                         {
+                             [alertController dismissViewControllerAnimated:YES completion:nil];
+                             
+                             UITextField *comments = alertController.textFields.firstObject;
+                             NSLog(@"%@", comments.text);
+                             NSLog(@"%@", areaSelected);
+
+                             
+                         }];
+    UIAlertAction* cancel = [UIAlertAction
+                             actionWithTitle:@"Cancelar"
+                             style:UIAlertActionStyleDefault
+                             handler:^(UIAlertAction * action)
+                             {
+                                 [alertController dismissViewControllerAnimated:YES completion:nil];
+                                 
+                             }];
+    
+    [alertController addAction:ok];
+    [alertController addAction:cancel];
+
+    [self presentViewController:alertController animated:YES completion:nil];
+
+}
+
+- (UIAlertAction*) createActionwithView:(UIAlertController*)view  andTitle:(NSString*)title andArea:(NSString*) area {
+    
+    UIAlertActionStyle style;
+    
+    if (![area isEqualToString:@"Cancelar"]) {
+        style = UIAlertActionStyleDefault;
+    } else {
+        style = UIAlertActionStyleCancel;
+    }
+    
+    UIAlertAction* cancel = [UIAlertAction
+                             actionWithTitle:title
+                             style:style
+                             handler:^(UIAlertAction * action)
+                             {
+                                 [view dismissViewControllerAnimated:YES completion:nil];
+                                 
+                                 if (![area isEqualToString:@"Cancelar"]) {
+                                     areaSelected = area;
+                                     [self createAlertWithComment];
+                                 }
+                             }];
+    
+    return cancel;
 }
 @end

@@ -768,6 +768,7 @@
                                             <color key="backgroundColor" red="0.83921568627450982" green="0.83921568627450982" blue="0.83921568627450982" alpha="1" colorSpace="calibratedRGB"/>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="closeConv" destination="m1P-7q-Jkd" id="xUf-dY-9JR"/>
                                             <outlet property="companysName" destination="iDv-l4-Rnn" id="4LC-jn-hE4"/>
                                             <outlet property="status" destination="14D-lK-4nb" id="U9U-Yu-Xpz"/>
                                             <outlet property="time" destination="Ovy-7X-uiE" id="wat-FS-C1I"/>
