@@ -61,7 +61,6 @@ NSString *const fireUserURL = @"https://glaring-heat-1751.firebaseio.com/users/"
              
              if ([snapshot.value[key][@"companysName"] isEqualToString: @"grupoonce"]) {
              
-                 NSLog(@"%@",snapshot.value[key]);
                     _emailLabel.text = snapshot.value[key][@"userName"];
                     _passwordLabel.text = snapshot.value[key][@"password"];
                  return ;
