@@ -10,6 +10,7 @@
 
 @interface ResetPasswordViewController () {
     NSString * userNameText;
+    Firebase *ref;
 
 }
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
@@ -18,6 +19,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (weak, nonatomic) IBOutlet UIButton *updatePasswordButton;
 @end
+
+NSString *const fireUserURL = @"https://glaring-heat-1751.firebaseio.com/users/";
 
 @implementation ResetPasswordViewController
 
@@ -33,6 +36,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear: animated];
     _usernameLabel.text = userNameText;
+    [self setFirebase];
 
 }
 
@@ -44,6 +48,29 @@
 - (void)setUsernameText: (NSString*) city {
     
     userNameText = city;
+}
+
+- (void)setFirebase {
+    ref = [[Firebase alloc] initWithUrl:fireUserURL];
+
+    [[[ref queryOrderedByChild:@"city"] queryEqualToValue:userNameText]
+     observeSingleEventOfType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
+         
+         
+         for (NSString* key in snapshot.value) {
+             
+             if ([snapshot.value[key][@"companysName"] isEqualToString: @"grupoonce"]) {
+             
+                 NSLog(@"%@",snapshot.value[key]);
+                    _emailLabel.text = snapshot.value[key][@"userName"];
+                    _passwordLabel.text = snapshot.value[key][@"password"];
+                 return ;
+             }
+
+         }
+
+        
+    }];
 }
 
 /*
