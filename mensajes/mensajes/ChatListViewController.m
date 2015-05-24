@@ -20,7 +20,8 @@
     Firebase *ref;
     NSMutableArray *messages;
     NSMutableArray *handles;
-    
+    NSMutableArray *handlesNode;
+
     ChatViewController *chatViewController;
     ResetPasswordViewController *resetPasswordViewController;
     int messageUnread;
@@ -58,6 +59,8 @@ NSString *const fireURLRoot = @"https://glaring-heat-1751.firebaseio.com/message
     
     messages = [[NSMutableArray alloc] init];
     handles = [[NSMutableArray alloc] init];
+    handlesNode = [[NSMutableArray alloc] init];
+    
     statusEmpty = [[NSAttributedString alloc]
                    initWithData: [@"&#9898;" dataUsingEncoding:NSUTF8StringEncoding]
                    options: @{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType }
@@ -142,7 +145,6 @@ NSString *const fireURLRoot = @"https://glaring-heat-1751.firebaseio.com/message
 
 -(void) setupFirebase {
     
-    NSLog(@"%@", city);
     Firebase *mainObserVer = [ref childByAppendingPath: city];
     
        [mainObserVer observeEventType:FEventTypeChildAdded withBlock:^(FDataSnapshot *snapshot) {
@@ -157,7 +159,6 @@ NSString *const fireURLRoot = @"https://glaring-heat-1751.firebaseio.com/message
         
         [messages addObject: message];
         [_tableView reloadData];
-        NSLog(@"adding %@", userData[1]);
         [self AddObservertoNode: snapshot.key  index: ([messages count]-1)];
     }];
     
@@ -216,19 +217,21 @@ NSString *const fireURLRoot = @"https://glaring-heat-1751.firebaseio.com/message
     
     [tmpRef observeEventType:FEventTypeChildAdded withBlock:^(FDataSnapshot *snapshot) {
         
+        NSLog(@"%lu", position);
+
         if ([snapshot.value[@"read"] boolValue] == 0 && ![snapshot.value[@"sender"] isEqualToString:@"adviser"]) {
             messageUnread++;
             _messageCounterLabel.text = [NSString stringWithFormat:@"%d", messageUnread];
             [((ChatListMessage *)messages[position]) setStatus:YES];
-
         }
         
         [((ChatListMessage *)messages[position]) setTime: snapshot.value[@"time"]];
+        
+        
         [_tableView reloadData];
-        NSLog(@"asssa");
     }];
     
-    [handles addObject:tmpRef];
+    [handlesNode addObject:tmpRef];
 }
 
 - (void) viewWillDisappear:(BOOL)animated {
@@ -243,6 +246,10 @@ NSString *const fireURLRoot = @"https://glaring-heat-1751.firebaseio.com/message
         [st removeAllObservers];
     }
     
+    for(Firebase *st in handlesNode) {
+        [st removeAllObservers];
+    }
+    
 }
 
 -(void) viewWillAppear:(BOOL)animated {
@@ -251,6 +258,9 @@ NSString *const fireURLRoot = @"https://glaring-heat-1751.firebaseio.com/message
     
     [ref removeAllObservers];
     for(Firebase *st in handles) {
+        [st removeAllObservers];
+    }
+    for(Firebase *st in handlesNode) {
         [st removeAllObservers];
     }
     
@@ -413,6 +423,9 @@ NSString *const fireURLRoot = @"https://glaring-heat-1751.firebaseio.com/message
                     
                     [self displayGenericAlertWithTitle:@"Tu comentario fue guardado exitosamente!"];
                     [messages removeObjectAtIndex:index];
+                    
+                    Firebase *tmp = [handlesNode objectAtIndex:index];
+                    [tmp removeAllObservers];
                     [_tableView reloadData];
                     NSLog(@"Data saved successfully.");
                 }
