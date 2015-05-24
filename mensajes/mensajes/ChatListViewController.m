@@ -312,7 +312,7 @@ NSString *const fireURLRoot = @"https://glaring-heat-1751.firebaseio.com/message
                              NSString *localUsername = ((ChatListMessage*)[messages objectAtIndex:index]).userName;
                              
                              NSString *pathToDelete = [NSString stringWithFormat:@"%@/%@%%%@",city, localUsername, localCompany];
-                             [self closeMessageWithPath:pathToDelete andComment:comments.text];
+                             [self closeMessageWithPath:pathToDelete withComment:comments.text andIndex: index];
                              
                          }];
     UIAlertAction* cancel = [UIAlertAction
@@ -357,7 +357,7 @@ NSString *const fireURLRoot = @"https://glaring-heat-1751.firebaseio.com/message
     return cancel;
 }
 
-- (void) closeMessageWithPath:(NSString *)path andComment:(NSString*)comment {
+- (void) closeMessageWithPath:(NSString *)path withComment:(NSString*)comment andIndex:(NSInteger)index {
     
     
     [[ref childByAppendingPath: path] removeValueWithCompletionBlock:^(NSError *error, Firebase *ref) {
@@ -374,6 +374,9 @@ NSString *const fireURLRoot = @"https://glaring-heat-1751.firebaseio.com/message
                                     @"comment": comment
                                     };
             [setCloseConv setValue: closedConDiv];
+            
+            [messages removeObjectAtIndex:index];
+            [_tableView reloadData];
         }
         
     }];
