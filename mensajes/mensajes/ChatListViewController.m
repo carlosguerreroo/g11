@@ -143,7 +143,9 @@ NSString *const fireURLRoot = @"https://glaring-heat-1751.firebaseio.com/message
 -(void) setupFirebase {
     
     NSLog(@"%@", city);
-    [[ref childByAppendingPath: city] observeEventType:FEventTypeChildAdded withBlock:^(FDataSnapshot *snapshot) {
+    Firebase *mainObserVer = [ref childByAppendingPath: city];
+    
+       [mainObserVer observeEventType:FEventTypeChildAdded withBlock:^(FDataSnapshot *snapshot) {
         
         NSArray *userData = [snapshot.key componentsSeparatedByString:@"%"];
 
@@ -155,9 +157,11 @@ NSString *const fireURLRoot = @"https://glaring-heat-1751.firebaseio.com/message
         
         [messages addObject: message];
         [_tableView reloadData];
+        NSLog(@"adding %@", userData[1]);
         [self AddObservertoNode: snapshot.key  index: ([messages count]-1)];
     }];
-
+    
+    [handles addObject: mainObserVer];
 
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -174,6 +178,7 @@ NSString *const fireURLRoot = @"https://glaring-heat-1751.firebaseio.com/message
     cell.companysName.text = ((ChatListMessage*)[messages objectAtIndex:indexPath.row]).company;
     cell.userName.text = ((ChatListMessage*)[messages objectAtIndex:indexPath.row]).userName;
     cell.time.text = ((ChatListMessage*)[messages objectAtIndex:indexPath.row]).time;
+    cell.closeConv.tag = indexPath.row;
     [cell.closeConv addTarget:self action:@selector(closeConvAction:) forControlEvents:UIControlEventTouchUpInside];
     
     if(((ChatListMessage*)[messages objectAtIndex:indexPath.row]).status) {
@@ -220,6 +225,7 @@ NSString *const fireURLRoot = @"https://glaring-heat-1751.firebaseio.com/message
         
         [((ChatListMessage *)messages[position]) setTime: snapshot.value[@"time"]];
         [_tableView reloadData];
+        NSLog(@"asssa");
     }];
     
     [handles addObject:tmpRef];
@@ -237,13 +243,19 @@ NSString *const fireURLRoot = @"https://glaring-heat-1751.firebaseio.com/message
         [st removeAllObservers];
     }
     
-    NSLog(@"viewDidDisappear");
+//    NSLog(@"viewDidDisappear");
 }
 
 -(void) viewWillAppear:(BOOL)animated {
     
-    NSLog(@"viewWillAppear");
+//    NSLog(@"viewWillAppear");
     [super viewWillAppear: animated];
+    
+    [ref removeAllObservers];
+    for(Firebase *st in handles) {
+        [st removeAllObservers];
+    }
+    
     [messages removeAllObjects];
     [self setupFirebase];
 }
@@ -269,7 +281,7 @@ NSString *const fireURLRoot = @"https://glaring-heat-1751.firebaseio.com/message
     
     for (NSString *area in areas) {
     
-        [view addAction:[self createActionwithView:view andTitle:area andArea:area]];
+        [view addAction:[self createActionwithView:view withTitle:area withArea:area andIndex:sender.tag]];
 
     }
 
@@ -278,7 +290,7 @@ NSString *const fireURLRoot = @"https://glaring-heat-1751.firebaseio.com/message
 
 }
 
-- (void) createAlertWithComment {
+- (void) createAlertWithCommentAndIndex:(long) index {
     UIAlertController *alertController = [UIAlertController
                                           alertControllerWithTitle:@"Pon tu comentario"
                                           message:nil
@@ -297,9 +309,12 @@ NSString *const fireURLRoot = @"https://glaring-heat-1751.firebaseio.com/message
                              [alertController dismissViewControllerAnimated:YES completion:nil];
                              
                              UITextField *comments = alertController.textFields.firstObject;
-                             NSLog(@"%@", comments.text);
-                             NSLog(@"%@", areaSelected);
 
+                             NSString *localCompany = ((ChatListMessage*)[messages objectAtIndex:index]).company;
+                             NSString *localUsername = ((ChatListMessage*)[messages objectAtIndex:index]).userName;
+                             
+                             NSString *pathToDelete = [NSString stringWithFormat:@"%@/%@%%%@",city, localUsername, localCompany];
+                             [self closeMessageWithPath:pathToDelete andComment:comments.text];
                              
                          }];
     UIAlertAction* cancel = [UIAlertAction
@@ -318,7 +333,7 @@ NSString *const fireURLRoot = @"https://glaring-heat-1751.firebaseio.com/message
 
 }
 
-- (UIAlertAction*) createActionwithView:(UIAlertController*)view  andTitle:(NSString*)title andArea:(NSString*) area {
+- (UIAlertAction*) createActionwithView:(UIAlertController*)view  withTitle:(NSString*)title withArea:(NSString*)area  andIndex:(long)index {
     
     UIAlertActionStyle style;
     
@@ -337,10 +352,33 @@ NSString *const fireURLRoot = @"https://glaring-heat-1751.firebaseio.com/message
                                  
                                  if (![area isEqualToString:@"Cancelar"]) {
                                      areaSelected = area;
-                                     [self createAlertWithComment];
+                                     [self createAlertWithCommentAndIndex:index];
                                  }
                              }];
     
     return cancel;
 }
+
+- (void) closeMessageWithPath:(NSString *)path andComment:(NSString*)comment {
+    
+    
+    [[ref childByAppendingPath: path] removeValueWithCompletionBlock:^(NSError *error, Firebase *ref) {
+        
+        if (error == nil) {
+            
+            Firebase *postRef = [[Firebase alloc] initWithUrl:@"https://glaring-heat-1751.firebaseio.com/"];
+            
+            Firebase *setCloseConv =
+                [[postRef childByAppendingPath: [NSString stringWithFormat:@"closed_conversations/%@",path]] childByAutoId];
+            
+            NSDictionary *closedConDiv = @{
+                                    @"area": areaSelected,
+                                    @"comment": comment
+                                    };
+            [setCloseConv setValue: closedConDiv];
+        }
+        
+    }];
+}
+
 @end

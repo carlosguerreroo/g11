@@ -96,7 +96,7 @@ NSString *const firebaseChatURL = @"https://glaring-heat-1751.firebaseio.com/mes
 - (void) viewDidDisappear:(BOOL)animated {
     
     [super viewDidDisappear:animated];
-//    [messageRef removeObserverWithHandle:handle];
+    [messageRef removeObserverWithHandle:handle];
 
 }
 
