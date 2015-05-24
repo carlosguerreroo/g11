@@ -373,13 +373,73 @@ NSString *const fireURLRoot = @"https://glaring-heat-1751.firebaseio.com/message
                                     @"area": areaSelected,
                                     @"comment": comment
                                     };
-            [setCloseConv setValue: closedConDiv];
-            
-            [messages removeObjectAtIndex:index];
-            [_tableView reloadData];
+            [setCloseConv setValue: closedConDiv withCompletionBlock:^(NSError *error, Firebase *ref) {
+                if (error) {
+                    NSLog(@"Data could not be saved.");
+                } else {
+                    
+                    Firebase *graphRef = [[Firebase alloc] initWithUrl:@"https://glaring-heat-1751.firebaseio.com/charts/"];
+
+                    [[graphRef childByAppendingPath: [NSString stringWithFormat:@"%@/%@",city,areaSelected]] observeSingleEventOfType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
+                        
+                        
+                        if (snapshot.exists) {
+                            
+                            Firebase *hopperRef =
+                                [graphRef childByAppendingPath: [NSString stringWithFormat:@"%@",city]];
+                            
+                            NSInteger value = [snapshot.value integerValue];
+                            
+                            NSNumber *currentValue = [NSNumber numberWithInteger:value + 1];
+                            
+                            NSDictionary *nickname = @{
+                                                       areaSelected: currentValue,
+                                                       };
+                            
+                            [hopperRef updateChildValues: nickname];
+                            
+                        } else {
+                            
+                            Firebase *hopperRef =
+                            [graphRef childByAppendingPath: [NSString stringWithFormat:@"%@",city]];
+                            
+                            NSDictionary *nickname = @{
+                                                       areaSelected: @1,
+                                                    };                            
+                            [hopperRef updateChildValues: nickname];
+                        }
+                    
+                    }];
+                    
+                    [self displayGenericAlertWithTitle:@"Tu comentario fue guardado exitosamente!"];
+                    [messages removeObjectAtIndex:index];
+                    [_tableView reloadData];
+                    NSLog(@"Data saved successfully.");
+                }
+            }];
         }
         
     }];
+}
+
+- (void) displayGenericAlertWithTitle:(NSString*) title {
+
+    UIAlertController *alertController = [UIAlertController
+                                          alertControllerWithTitle:title
+                                          message:nil
+                                          preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction* accept = [UIAlertAction
+                             actionWithTitle:@"Aceptar"
+                             style:UIAlertActionStyleDefault
+                             handler:^(UIAlertAction * action)
+                             {
+                                 [alertController dismissViewControllerAnimated:YES completion:nil];
+                                 
+                             }];
+    
+    [alertController addAction:accept];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 @end
