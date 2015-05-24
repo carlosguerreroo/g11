@@ -86,17 +86,16 @@ NSString *const fireURLRoot = @"https://glaring-heat-1751.firebaseio.com/message
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
+
 - (BOOL)prefersStatusBarHidden {
     return YES;
 }
+
 - (IBAction)logOut:(id)sender {
-    
     
     if (isAdmin) {
     
-        
         if (resetPasswordViewController == nil) {
         
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
@@ -109,7 +108,6 @@ NSString *const fireURLRoot = @"https://glaring-heat-1751.firebaseio.com/message
             [self.navigationController pushViewController: resetPasswordViewController animated: YES];
 
         }
-    
     } else {
         
         [ref unauth];
@@ -118,8 +116,10 @@ NSString *const fireURLRoot = @"https://glaring-heat-1751.firebaseio.com/message
         [prefs setObject: @"" forKey:@"city"];
         [prefs setObject: @"" forKey:@"userName"];
         [prefs synchronize];
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        ViewController *viewController = (ViewController *)[storyboard instantiateViewControllerWithIdentifier:@"ViewController"];
+        UIStoryboard *storyboard =
+            [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        ViewController *viewController =
+            (ViewController *)[storyboard instantiateViewControllerWithIdentifier:@"ViewController"];
         [self presentViewController:viewController animated:YES completion:nil];
     }
 
@@ -243,12 +243,10 @@ NSString *const fireURLRoot = @"https://glaring-heat-1751.firebaseio.com/message
         [st removeAllObservers];
     }
     
-//    NSLog(@"viewDidDisappear");
 }
 
 -(void) viewWillAppear:(BOOL)animated {
     
-//    NSLog(@"viewWillAppear");
     [super viewWillAppear: animated];
     
     [ref removeAllObservers];

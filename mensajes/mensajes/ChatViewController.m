@@ -44,10 +44,8 @@ NSString *const firebaseChatURL = @"https://glaring-heat-1751.firebaseio.com/mes
         
         if (![sender isEqualToString:userType]) {
             
-            NSLog(@"different");
             [self updateReadMessage: snapshot.key];
         }
-        NSLog(@"sas");
         
         [self finishReceivingMessageAnimated:YES];
      }];
@@ -203,11 +201,8 @@ NSString *const firebaseChatURL = @"https://glaring-heat-1751.firebaseio.com/mes
     
     if ([companysName isEqualToString:@"grupoonce"]) {
         userType = @"adviser";
-        NSLog(@"configurig");
-        NSLog(@"%@", userMessageNode);
     } else {
         userType = @"client";
-        
         NSString *cleanUserName = [userName stringByReplacingOccurrencesOfString:@"." withString: @""];
         userMessageNode = [NSString stringWithFormat:@"%@/%@%%%@",city, cleanUserName, companysName];
     }
@@ -224,7 +219,6 @@ NSString *const firebaseChatURL = @"https://glaring-heat-1751.firebaseio.com/mes
     NSDictionary *nickname = @{
                                @"read": @YES,
                                };
-    
     [hopperRef updateChildValues: nickname];
 }
 
