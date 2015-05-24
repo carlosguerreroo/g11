@@ -17,16 +17,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RXP-LS-G5Y" userLabel="header">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RXP-LS-G5Y" userLabel="header">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="138"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo2_blanco" translatesAutoresizingMaskIntoConstraints="NO" id="6wl-dT-vsH">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo2_blanco" translatesAutoresizingMaskIntoConstraints="NO" id="6wl-dT-vsH">
                                         <rect key="frame" x="0.0" y="20" width="81" height="118"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="81" id="RwD-cR-vSB"/>
-                                        </constraints>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cover" translatesAutoresizingMaskIntoConstraints="NO" id="Dc9-Z5-KRK">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cover" translatesAutoresizingMaskIntoConstraints="NO" id="Dc9-Z5-KRK">
                                         <rect key="frame" x="74" y="0.0" width="252" height="143"/>
                                     </imageView>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BlI-oB-IpW">
@@ -64,33 +61,12 @@
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstItem="Dc9-Z5-KRK" firstAttribute="leading" secondItem="6wl-dT-vsH" secondAttribute="trailing" constant="-7" id="HiL-ax-mPi"/>
-                                    <constraint firstItem="Dc9-Z5-KRK" firstAttribute="top" secondItem="RXP-LS-G5Y" secondAttribute="top" id="LiG-Ik-ze6"/>
-                                    <constraint firstAttribute="bottom" secondItem="Dc9-Z5-KRK" secondAttribute="bottom" constant="-5" id="QGM-ce-UpV"/>
-                                    <constraint firstItem="6wl-dT-vsH" firstAttribute="top" secondItem="RXP-LS-G5Y" secondAttribute="top" constant="20" id="YgW-wd-bc7"/>
-                                    <constraint firstAttribute="trailing" secondItem="Dc9-Z5-KRK" secondAttribute="trailing" constant="-6" id="ae0-xE-axE"/>
-                                    <constraint firstAttribute="height" constant="138" id="bfI-nv-nUB"/>
-                                    <constraint firstItem="6wl-dT-vsH" firstAttribute="leading" secondItem="RXP-LS-G5Y" secondAttribute="leading" id="ggK-cx-FOu"/>
-                                    <constraint firstAttribute="bottom" secondItem="6wl-dT-vsH" secondAttribute="bottom" id="jyP-q5-e1N"/>
-                                    <constraint firstItem="Dc9-Z5-KRK" firstAttribute="leading" secondItem="RXP-LS-G5Y" secondAttribute="leading" constant="74" id="nGR-B8-7F8"/>
-                                    <constraint firstItem="Dc9-Z5-KRK" firstAttribute="top" secondItem="RXP-LS-G5Y" secondAttribute="top" id="siP-aF-dFz"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="nGR-B8-7F8"/>
-                                        <exclude reference="siP-aF-dFz"/>
-                                    </mask>
-                                </variation>
                             </view>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="COo-P6-lOZ" userLabel="login">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="COo-P6-lOZ" userLabel="login">
                                 <rect key="frame" x="0.0" y="181" width="320" height="387"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vyc-bM-NBR">
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vyc-bM-NBR">
                                         <rect key="frame" x="205" y="339" width="97" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="97" id="bdw-45-bj2"/>
-                                        </constraints>
                                         <state key="normal" title="Entrar">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -99,44 +75,21 @@
                                             <action selector="loginOrSignup:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="0NY-7V-7h5"/>
                                         </connections>
                                     </button>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Correo electrónico" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OHF-Ds-WCI">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Correo electrónico" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OHF-Ds-WCI">
                                         <rect key="frame" x="20" y="5" width="272" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="272" id="Tqb-Ik-djE"/>
-                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Contraseña" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rP9-ZA-da9">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Contraseña" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rP9-ZA-da9">
                                         <rect key="frame" x="20" y="43" width="272" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="272" id="vVG-iD-vXt"/>
-                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="Vyc-bM-NBR" secondAttribute="bottom" constant="18" id="6aE-5e-UJG"/>
-                                    <constraint firstAttribute="centerX" secondItem="OHF-Ds-WCI" secondAttribute="centerX" constant="4" id="8c5-P5-izR"/>
-                                    <constraint firstItem="OHF-Ds-WCI" firstAttribute="top" secondItem="COo-P6-lOZ" secondAttribute="top" constant="5" id="JZE-Fs-aAu"/>
-                                    <constraint firstItem="rP9-ZA-da9" firstAttribute="top" secondItem="OHF-Ds-WCI" secondAttribute="bottom" constant="8" id="k4s-r3-nNh"/>
-                                    <constraint firstAttribute="centerX" secondItem="rP9-ZA-da9" secondAttribute="centerX" constant="4" id="nOm-fu-Xi2"/>
-                                    <constraint firstAttribute="trailing" secondItem="Vyc-bM-NBR" secondAttribute="trailing" constant="18" id="oyD-4f-sqx"/>
-                                    <constraint firstItem="rP9-ZA-da9" firstAttribute="width" secondItem="OHF-Ds-WCI" secondAttribute="width" id="tcx-Ih-fa0"/>
-                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="RXP-LS-G5Y" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="-20" id="3zt-ZV-zYf"/>
-                            <constraint firstItem="RXP-LS-G5Y" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="BBV-sJ-NKP"/>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="COo-P6-lOZ" secondAttribute="bottom" id="H2C-LS-aYv"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="RXP-LS-G5Y" secondAttribute="trailing" constant="-16" id="LpL-sS-nSX"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="COo-P6-lOZ" secondAttribute="trailing" constant="-16" id="c88-4k-HY3"/>
-                            <constraint firstItem="COo-P6-lOZ" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="kmJ-nb-00A"/>
-                        </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
