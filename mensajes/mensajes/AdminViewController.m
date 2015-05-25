@@ -10,13 +10,14 @@
 #import "ViewController.h"
 #import "AdminTableViewCell.h"
 #import "ChatListViewController.h"
+#import "SelectGraphViewController.h"
 
 @interface AdminViewController ()  <UITableViewDelegate, UITableViewDataSource> {
 
     NSArray *cities;
     NSMutableArray *citiesImages;
     ChatListViewController * chatListViewController;
-
+    SelectGraphViewController *selectGraphViewController;
 
 }
 
@@ -119,6 +120,14 @@
 }
 - (IBAction)ShowGraphs:(id)sender {
 
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    if (selectGraphViewController == nil) {
+        selectGraphViewController = (SelectGraphViewController *)[storyboard instantiateViewControllerWithIdentifier:@"SelectGraphViewController"];
+
+    }
+
+    [self.navigationController pushViewController: selectGraphViewController animated: YES];
 }
 
 @end

@@ -4,4 +4,5 @@
 target 'Grupo Once' do
 	pod 'JSQMessagesViewController'
 	pod 'Firebase', '>= 2.2.2'
+	pod 'PNChart'
 end

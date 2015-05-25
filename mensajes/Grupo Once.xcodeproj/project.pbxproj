@@ -15,6 +15,8 @@
 		FA0FD7321ACBB22500A2E82F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA0FD7311ACBB22500A2E82F /* Images.xcassets */; };
 		FA0FD7351ACBB22500A2E82F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA0FD7331ACBB22500A2E82F /* LaunchScreen.xib */; };
 		FA0FD7411ACBB22500A2E82F /* mensajesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0FD7401ACBB22500A2E82F /* mensajesTests.m */; };
+		FA332B6C1B12BB6B00BDAC05 /* SelectGraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA332B6B1B12BB6B00BDAC05 /* SelectGraphViewController.m */; };
+		FA588AF11B12B6BD007B18A9 /* ChartDisplayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA588AF01B12B6BD007B18A9 /* ChartDisplayerViewController.m */; };
 		FA9CE6FA1B0792EC00D3FB5A /* ChatListNavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9CE6F91B0792EC00D3FB5A /* ChatListNavViewController.m */; };
 		FA9CE6FD1B07950A00D3FB5A /* MenuChatNavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9CE6FC1B07950A00D3FB5A /* MenuChatNavViewController.m */; };
 		FA9CE7001B07F08B00D3FB5A /* AdminViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9CE6FF1B07F08B00D3FB5A /* AdminViewController.m */; };
@@ -61,10 +63,14 @@
 		FA0FD73A1ACBB22500A2E82F /* Grupo OnceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Grupo OnceTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA0FD73F1ACBB22500A2E82F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA0FD7401ACBB22500A2E82F /* mensajesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = mensajesTests.m; sourceTree = "<group>"; };
+		FA332B6A1B12BB6B00BDAC05 /* SelectGraphViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectGraphViewController.h; sourceTree = "<group>"; };
+		FA332B6B1B12BB6B00BDAC05 /* SelectGraphViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectGraphViewController.m; sourceTree = "<group>"; };
+		FA588AEF1B12B6BD007B18A9 /* ChartDisplayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChartDisplayerViewController.h; sourceTree = "<group>"; };
+		FA588AF01B12B6BD007B18A9 /* ChartDisplayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChartDisplayerViewController.m; sourceTree = "<group>"; };
 		FA9CE6F81B0792EC00D3FB5A /* ChatListNavViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatListNavViewController.h; sourceTree = "<group>"; };
 		FA9CE6F91B0792EC00D3FB5A /* ChatListNavViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatListNavViewController.m; sourceTree = "<group>"; };
-		FA9CE6FB1B07950A00D3FB5A /* MenuChatNavViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuChatNavViewController.h; sourceTree = "<group>"; };
-		FA9CE6FC1B07950A00D3FB5A /* MenuChatNavViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuChatNavViewController.m; sourceTree = "<group>"; };
+		FA9CE6FB1B07950A00D3FB5A /* MenuChatNavViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuChatNavViewController.h; path = ../MenuChatNavViewController.h; sourceTree = "<group>"; };
+		FA9CE6FC1B07950A00D3FB5A /* MenuChatNavViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuChatNavViewController.m; path = ../MenuChatNavViewController.m; sourceTree = "<group>"; };
 		FA9CE6FE1B07F08B00D3FB5A /* AdminViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdminViewController.h; sourceTree = "<group>"; };
 		FA9CE6FF1B07F08B00D3FB5A /* AdminViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdminViewController.m; sourceTree = "<group>"; };
 		FA9CE7011B07F14B00D3FB5A /* AdminNavViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdminNavViewController.h; sourceTree = "<group>"; };
@@ -133,8 +139,6 @@
 		FA0FD7181ACBB22500A2E82F = {
 			isa = PBXGroup;
 			children = (
-				FA9CE6FB1B07950A00D3FB5A /* MenuChatNavViewController.h */,
-				FA9CE6FC1B07950A00D3FB5A /* MenuChatNavViewController.m */,
 				FA0FD7231ACBB22500A2E82F /* mensajes */,
 				FA0FD73D1ACBB22500A2E82F /* mensajesTests */,
 				FA0FD7221ACBB22500A2E82F /* Products */,
@@ -155,6 +159,8 @@
 		FA0FD7231ACBB22500A2E82F /* mensajes */ = {
 			isa = PBXGroup;
 			children = (
+				FA9CE6FB1B07950A00D3FB5A /* MenuChatNavViewController.h */,
+				FA9CE6FC1B07950A00D3FB5A /* MenuChatNavViewController.m */,
 				FAD023B01AD2018B0014A0A0 /* STBubbleTableViewCell */,
 				FA0FD7281ACBB22500A2E82F /* AppDelegate.h */,
 				FAD999AF1ACF450D00BE0B8D /* MenuViewController.h */,
@@ -166,6 +172,8 @@
 				FA9CE6FE1B07F08B00D3FB5A /* AdminViewController.h */,
 				FA9CE6FF1B07F08B00D3FB5A /* AdminViewController.m */,
 				FA0FD72E1ACBB22500A2E82F /* Main.storyboard */,
+				FA332B6A1B12BB6B00BDAC05 /* SelectGraphViewController.h */,
+				FA332B6B1B12BB6B00BDAC05 /* SelectGraphViewController.m */,
 				FAEC2BFE1B0D8B11002E0207 /* ResetPasswordViewController.h */,
 				FAEC2BFF1B0D8B11002E0207 /* ResetPasswordViewController.m */,
 				FA9CE7011B07F14B00D3FB5A /* AdminNavViewController.h */,
@@ -186,6 +194,8 @@
 				FAD999B61ACF6E6400BE0B8D /* SendMessageViewController.m */,
 				FAE273F41B0704200005BCF1 /* ChatListMessage.h */,
 				FAE273F51B0704200005BCF1 /* ChatListMessage.m */,
+				FA588AEF1B12B6BD007B18A9 /* ChartDisplayerViewController.h */,
+				FA588AF01B12B6BD007B18A9 /* ChartDisplayerViewController.m */,
 			);
 			path = mensajes;
 			sourceTree = "<group>";
@@ -366,6 +376,7 @@
 				FAAB54BB1AEDA05A006B42EA /* DemoModelData.m in Sources */,
 				FAE273F61B0704200005BCF1 /* ChatListMessage.m in Sources */,
 				FA9CE6FA1B0792EC00D3FB5A /* ChatListNavViewController.m in Sources */,
+				FA332B6C1B12BB6B00BDAC05 /* SelectGraphViewController.m in Sources */,
 				FAD999B71ACF6E6400BE0B8D /* SendMessageViewController.m in Sources */,
 				FA0FD72D1ACBB22500A2E82F /* ViewController.m in Sources */,
 				FA9CE7031B07F14B00D3FB5A /* AdminNavViewController.m in Sources */,
@@ -379,6 +390,7 @@
 				FAE273F31B06FED20005BCF1 /* ChatListTableViewCell.m in Sources */,
 				FAA1051D1AD1BA92009C8B20 /* ChatViewController.m in Sources */,
 				FAD999B11ACF450D00BE0B8D /* MenuViewController.m in Sources */,
+				FA588AF11B12B6BD007B18A9 /* ChartDisplayerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

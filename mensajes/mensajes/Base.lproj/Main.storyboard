@@ -818,10 +818,10 @@
             </objects>
             <point key="canvasLocation" x="1005" y="1658"/>
         </scene>
-        <!--View Controller-->
+        <!--Chart Displayer View Controller-->
         <scene sceneID="Xtb-9X-OTO">
             <objects>
-                <viewController id="G5l-Ot-vX8" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChartDisplayerViewController" id="G5l-Ot-vX8" customClass="ChartDisplayerViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="EjF-95-qG8"/>
                         <viewControllerLayoutGuide type="bottom" id="Lp0-f4-xfG"/>
@@ -835,7 +835,48 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ulw-8l-DhX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1797" y="1658"/>
+            <point key="canvasLocation" x="1005" y="2295"/>
+        </scene>
+        <!--Select Graph View Controller-->
+        <scene sceneID="cMn-E8-Uql">
+            <objects>
+                <viewController storyboardIdentifier="SelectGraphViewController" id="p36-oh-Atq" customClass="SelectGraphViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4cz-i8-5mm"/>
+                        <viewControllerLayoutGuide type="bottom" id="qqW-Vs-s43"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Jh1-AG-RUX">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="68" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ojS-mZ-eOJ">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CityCell" rowHeight="68" id="kAE-s0-gjQ">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kAE-s0-gjQ" id="9Hm-Oy-s5w">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="p36-oh-Atq" id="6ez-ce-S4G"/>
+                                    <outlet property="delegate" destination="p36-oh-Atq" id="tNk-BV-0QE"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="table" destination="ojS-mZ-eOJ" id="W6d-FG-fGu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5OO-u0-6bz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1369" y="2295"/>
         </scene>
         <!--Reset Password View Controller-->
         <scene sceneID="bIi-rI-Tbu">
