@@ -16,6 +16,7 @@
 		FA0FD7351ACBB22500A2E82F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA0FD7331ACBB22500A2E82F /* LaunchScreen.xib */; };
 		FA0FD7411ACBB22500A2E82F /* mensajesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0FD7401ACBB22500A2E82F /* mensajesTests.m */; };
 		FA332B6C1B12BB6B00BDAC05 /* SelectGraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA332B6B1B12BB6B00BDAC05 /* SelectGraphViewController.m */; };
+		FA332B6F1B12CBA900BDAC05 /* UIColor+Expanded.m in Sources */ = {isa = PBXBuildFile; fileRef = FA332B6D1B12CBA900BDAC05 /* UIColor+Expanded.m */; };
 		FA588AF11B12B6BD007B18A9 /* ChartDisplayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA588AF01B12B6BD007B18A9 /* ChartDisplayerViewController.m */; };
 		FA9CE6FA1B0792EC00D3FB5A /* ChatListNavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9CE6F91B0792EC00D3FB5A /* ChatListNavViewController.m */; };
 		FA9CE6FD1B07950A00D3FB5A /* MenuChatNavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9CE6FC1B07950A00D3FB5A /* MenuChatNavViewController.m */; };
@@ -65,6 +66,8 @@
 		FA0FD7401ACBB22500A2E82F /* mensajesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = mensajesTests.m; sourceTree = "<group>"; };
 		FA332B6A1B12BB6B00BDAC05 /* SelectGraphViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectGraphViewController.h; sourceTree = "<group>"; };
 		FA332B6B1B12BB6B00BDAC05 /* SelectGraphViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectGraphViewController.m; sourceTree = "<group>"; };
+		FA332B6D1B12CBA900BDAC05 /* UIColor+Expanded.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Expanded.m"; sourceTree = "<group>"; };
+		FA332B6E1B12CBA900BDAC05 /* UIColor+Expanded.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Expanded.h"; sourceTree = "<group>"; };
 		FA588AEF1B12B6BD007B18A9 /* ChartDisplayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChartDisplayerViewController.h; sourceTree = "<group>"; };
 		FA588AF01B12B6BD007B18A9 /* ChartDisplayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChartDisplayerViewController.m; sourceTree = "<group>"; };
 		FA9CE6F81B0792EC00D3FB5A /* ChatListNavViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatListNavViewController.h; sourceTree = "<group>"; };
@@ -169,13 +172,15 @@
 				FA0FD72B1ACBB22500A2E82F /* ViewController.h */,
 				FAAB54B91AEDA05A006B42EA /* DemoModelData.h */,
 				FAAB54BA1AEDA05A006B42EA /* DemoModelData.m */,
-				FA9CE6FE1B07F08B00D3FB5A /* AdminViewController.h */,
 				FA9CE6FF1B07F08B00D3FB5A /* AdminViewController.m */,
+				FA9CE6FE1B07F08B00D3FB5A /* AdminViewController.h */,
 				FA0FD72E1ACBB22500A2E82F /* Main.storyboard */,
 				FA332B6A1B12BB6B00BDAC05 /* SelectGraphViewController.h */,
 				FA332B6B1B12BB6B00BDAC05 /* SelectGraphViewController.m */,
 				FAEC2BFE1B0D8B11002E0207 /* ResetPasswordViewController.h */,
 				FAEC2BFF1B0D8B11002E0207 /* ResetPasswordViewController.m */,
+				FA332B6D1B12CBA900BDAC05 /* UIColor+Expanded.m */,
+				FA332B6E1B12CBA900BDAC05 /* UIColor+Expanded.h */,
 				FA9CE7011B07F14B00D3FB5A /* AdminNavViewController.h */,
 				FA9CE7021B07F14B00D3FB5A /* AdminNavViewController.m */,
 				FA9CE6F81B0792EC00D3FB5A /* ChatListNavViewController.h */,
@@ -386,6 +391,7 @@
 				FA9CE7001B07F08B00D3FB5A /* AdminViewController.m in Sources */,
 				FA0FD72A1ACBB22500A2E82F /* AppDelegate.m in Sources */,
 				FA9CE7061B07F74900D3FB5A /* AdminTableViewCell.m in Sources */,
+				FA332B6F1B12CBA900BDAC05 /* UIColor+Expanded.m in Sources */,
 				FA0FD7271ACBB22500A2E82F /* main.m in Sources */,
 				FAE273F31B06FED20005BCF1 /* ChatListTableViewCell.m in Sources */,
 				FAA1051D1AD1BA92009C8B20 /* ChatViewController.m in Sources */,

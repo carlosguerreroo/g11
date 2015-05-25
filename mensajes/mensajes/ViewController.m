@@ -53,7 +53,6 @@ NSString *const firebaseURL = @"https://glaring-heat-1751.firebaseio.com";
 
     
     //Setting background color
-    self.login.backgroundColor = grayColor;
     self.header.backgroundColor = [UIColor blackColor];
     
     

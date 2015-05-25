@@ -12,8 +12,10 @@
 @interface SelectGraphViewController () <UITableViewDelegate, UITableViewDataSource> {
 
     NSMutableArray *cities;
+    NSMutableArray *citiesChart;
     Firebase *ref;
     ChartDisplayerViewController *chartDisplayerViewController;
+    NSMutableDictionary *globalChart;
 
 }
 @property (weak, nonatomic) IBOutlet UITableView *table;
@@ -27,7 +29,10 @@ NSString *const fireURLChart = @"https://glaring-heat-1751.firebaseio.com/charts
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationController.interactivePopGestureRecognizer.delegate = nil;
     cities = [[NSMutableArray alloc] init];
+    citiesChart = [[NSMutableArray alloc] init];
+    globalChart = [[NSMutableDictionary alloc] init];
     [cities addObject:@"Gráfica General"];
     ref = [[Firebase alloc] initWithUrl: fireURLChart];
     [self setupFirebase];
@@ -44,8 +49,23 @@ NSString *const fireURLChart = @"https://glaring-heat-1751.firebaseio.com/charts
     [ref observeSingleEventOfType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
         
         for (NSString *key in snapshot.value){
-        
-            NSLog(@"%@",key);
+            
+            for (NSString *dataChart in snapshot.value[key]){
+                
+                [citiesChart addObject:snapshot.value[key]];
+                if ([globalChart objectForKey:dataChart]){
+                    
+                    NSNumber *newValue =  snapshot.value[key][dataChart];
+                    NSNumber *value = [globalChart objectForKey:dataChart];
+                    NSNumber *sum = [NSNumber numberWithInt:([newValue intValue] + [value intValue])];
+
+                    [globalChart setObject:sum forKey:dataChart];
+
+                } else {
+                    NSNumber *newValue =  snapshot.value[key][dataChart];
+                    [globalChart setObject:newValue forKey:dataChart];
+                }
+            }
             
             [cities addObject:key];
             [_table reloadData];
@@ -78,6 +98,13 @@ NSString *const fireURLChart = @"https://glaring-heat-1751.firebaseio.com/charts
     if (chartDisplayerViewController == nil) {
         chartDisplayerViewController = (ChartDisplayerViewController *)[storyboard instantiateViewControllerWithIdentifier:@"ChartDisplayerViewController"];
         
+    }
+    
+    if (indexPath.row == 0) {
+        [chartDisplayerViewController drawPieChart:globalChart];
+
+    } else {
+        [chartDisplayerViewController drawBarsChart:citiesChart[indexPath.row-1]];
     }
     
     [self.navigationController pushViewController: chartDisplayerViewController animated: YES];

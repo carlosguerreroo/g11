@@ -10,4 +10,7 @@
 
 @interface ChartDisplayerViewController : ViewController
 
+
+- (void)drawPieChart:(NSMutableDictionary*)chartData;
+- (void)drawBarsChart:(NSMutableDictionary*)chartData;
 @end
