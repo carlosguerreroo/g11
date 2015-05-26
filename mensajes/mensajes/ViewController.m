@@ -129,6 +129,23 @@ NSString *const firebaseURL = @"https://glaring-heat-1751.firebaseio.com";
             if (error) {
                 // an error occurred while attempting login
                 NSLog(@"Not logged with credentials %@ %@",username,password);
+                
+                UIAlertController *alertController = [UIAlertController
+                                                      alertControllerWithTitle:@"Ocurrió un error."
+                                                      message:@"Verifica tu usario y contraseña"
+                                                      preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertAction* accept = [UIAlertAction
+                                         actionWithTitle:@"Aceptar"
+                                         style:UIAlertActionStyleDefault
+                                         handler:^(UIAlertAction * action)
+                                         {
+                                             [alertController dismissViewControllerAnimated:YES completion:nil];
+                                             
+                                         }];
+                
+                [alertController addAction:accept];
+                
+                [self presentViewController:alertController animated:YES completion:nil];
 
             } else {
                 // user is logged in, check authData for data
