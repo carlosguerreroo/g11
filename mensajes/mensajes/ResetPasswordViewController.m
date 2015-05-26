@@ -11,6 +11,7 @@
 @interface ResetPasswordViewController () {
     NSString * userNameText;
     Firebase *ref;
+    NSString *userId;
 
 }
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
@@ -30,6 +31,7 @@ NSString *const fireUserURL = @"https://glaring-heat-1751.firebaseio.com/users/"
 
     _updatePasswordButton.layer.cornerRadius = 4.0f;
     _updatePasswordButton.layer.masksToBounds= YES;
+    NSLog(@"%@",userNameText);
 
 }
 
@@ -37,6 +39,7 @@ NSString *const fireUserURL = @"https://glaring-heat-1751.firebaseio.com/users/"
     [super viewWillAppear: animated];
     _usernameLabel.text = userNameText;
     [self setFirebase];
+    _passwordTextField.text = @"";
 
 }
 
@@ -58,9 +61,9 @@ NSString *const fireUserURL = @"https://glaring-heat-1751.firebaseio.com/users/"
          
          
          for (NSString* key in snapshot.value) {
-             
              if ([snapshot.value[key][@"companysName"] isEqualToString: @"grupoonce"]) {
-             
+                 
+                    userId = key;
                     _emailLabel.text = snapshot.value[key][@"userName"];
                     _passwordLabel.text = snapshot.value[key][@"password"];
                  return ;
@@ -71,15 +74,69 @@ NSString *const fireUserURL = @"https://glaring-heat-1751.firebaseio.com/users/"
         
     }];
 }
+- (IBAction)changePassword:(id)sender {
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    Firebase *refPa = [[Firebase alloc] initWithUrl:@"https://glaring-heat-1751.firebaseio.com"];
+    
+    [refPa changePasswordForUser:_emailLabel.text fromOld:_passwordLabel.text
+                         toNew:_passwordTextField.text withCompletionBlock:^(NSError *error) {
+                             if (error) {
+                                 // There was an error processing the request
+                                 
+                                 UIAlertController *alertController = [UIAlertController
+                                                                       alertControllerWithTitle:@"Ocurrió un error."
+                                                                       message:@"Intente mas tarde"
+                                                                       preferredStyle:UIAlertControllerStyleAlert];
+                                 UIAlertAction* accept = [UIAlertAction
+                                                          actionWithTitle:@"Aceptar"
+                                                          style:UIAlertActionStyleDefault
+                                                          handler:^(UIAlertAction * action)
+                                                          {
+                                                              [alertController dismissViewControllerAnimated:YES completion:nil];
+                                                              
+                                                          }];
+                                 
+                                 [alertController addAction:accept];
+                                 
+                                 [self presentViewController:alertController animated:YES completion:nil];
+                                 
+                             } else {
+                                 // Password changed successfully
+                                 
+                                 Firebase *hopperRef = [ref childByAppendingPath: userId];
+                                 
+                                 NSDictionary *userPassword = @{
+                                                            @"password": _passwordTextField.text,
+                                                            };
+                                 
+                                 [hopperRef updateChildValues: userPassword withCompletionBlock:^(NSError *error, Firebase *ref) {
+                                     
+                                     if (error == nil) {
+                                         
+                                         UIAlertController *alertController = [UIAlertController
+                                                                               alertControllerWithTitle:@"El password se ha cambiado con exitó."
+                                                                               message:@""
+                                                                               preferredStyle:UIAlertControllerStyleAlert];
+                                         UIAlertAction* accept = [UIAlertAction
+                                                                  actionWithTitle:@"Aceptar"
+                                                                  style:UIAlertActionStyleDefault
+                                                                  handler:^(UIAlertAction * action)
+                                                                  {
+                                                                      [alertController dismissViewControllerAnimated:YES completion:nil];
+                                                                      
+                                                                  }];
+                                         
+                                         [alertController addAction:accept];
+                                         
+                                         [self presentViewController:alertController animated:YES completion:nil];
+                                         _passwordLabel.text = _passwordTextField.text;
+                                         _passwordTextField.text = @"";
+                                     }
+                                 }];
+                             }
+                         }];
 }
-*/
+
 
 @end
