@@ -61,6 +61,7 @@ NSString *const firebaseURL = @"https://glaring-heat-1751.firebaseio.com";
         object.layer.masksToBounds= YES;
         object.layer.borderColor = [yellowColor CGColor];
         object.layer.borderWidth = 1.5f;
+        [object setDelegate:self];
     }
     
     
@@ -71,6 +72,7 @@ NSString *const firebaseURL = @"https://glaring-heat-1751.firebaseio.com";
     error2 = @"";
     
     ((UITextField*)_loginItems[1]).secureTextEntry = YES;
+
     ref = [[Firebase alloc] initWithUrl:firebaseURL];
     [self.view endEditing:YES];
     
@@ -212,5 +214,11 @@ NSString *const firebaseURL = @"https://glaring-heat-1751.firebaseio.com";
 - (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     [[self view] endEditing:YES];
+}
+
+-(BOOL) textFieldShouldReturn:(UITextField *)textField{
+    
+    [textField resignFirstResponder];
+    return YES;
 }
 @end
