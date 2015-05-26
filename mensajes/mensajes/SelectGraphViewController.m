@@ -106,7 +106,7 @@ NSString *const fireURLChart = @"https://glaring-heat-1751.firebaseio.com/charts
     } else {
         [chartDisplayerViewController drawBarsChart:citiesChart[indexPath.row-1]];
     }
-    
+    [chartDisplayerViewController setCity:[cities objectAtIndex:indexPath.row]];
     [self.navigationController pushViewController: chartDisplayerViewController animated: YES];
 }
 

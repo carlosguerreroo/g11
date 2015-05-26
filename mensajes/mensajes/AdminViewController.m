@@ -104,9 +104,9 @@
 
 
 - (IBAction)logOut:(id)sender {
-
     
-//    [ref unauth];
+    Firebase *ref = [[Firebase alloc] initWithUrl:@"https://glaring-heat-1751.firebaseio.com/"];
+    [ref unauth];
     
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     [prefs setObject: @"" forKey:@"companysName"];

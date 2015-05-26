@@ -13,4 +13,5 @@
 
 - (void)drawPieChart:(NSMutableDictionary*)chartData;
 - (void)drawBarsChart:(NSMutableDictionary*)chartData;
+- (void) setCity:(NSString*)city;
 @end
