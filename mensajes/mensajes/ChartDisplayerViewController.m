@@ -16,6 +16,9 @@ colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 \
 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
+
+#define DegreesToRadians(x) ((x) * M_PI / 180.0)
+
 @interface ChartDisplayerViewController () <MFMailComposeViewControllerDelegate> {
 
     PNPieChart *pieChart;
@@ -86,7 +89,10 @@ NSString *const fireURLClosed = @"https://glaring-heat-1751.firebaseio.com/close
 - (void)drawBarsChart:(NSMutableDictionary*)chartData{
     
     charDisplayed = 2;
-    barChart = [[PNBarChart alloc] initWithFrame:CGRectMake(0, 135.0, SCREEN_WIDTH, 200.0)];
+    CGFloat height = [[UIScreen mainScreen] bounds].size.height;
+    CGFloat width = [[UIScreen mainScreen] bounds].size.width;
+
+    barChart = [[PNBarChart alloc] initWithFrame:CGRectMake(-width*.18, height*.3, height*.80, width*.80)];
     barChart.backgroundColor = [UIColor clearColor];
     barChart.yLabelFormatter = ^(CGFloat yValue){
         CGFloat yValueParsed = yValue;
@@ -107,6 +113,7 @@ NSString *const fireURLClosed = @"https://glaring-heat-1751.firebaseio.com/close
         }
         [xValues addObject:key];
         [yValues addObject:chartData[key]];
+        
     }
     
     [barChart setXLabels:xValues];
@@ -119,8 +126,14 @@ NSString *const fireURLClosed = @"https://glaring-heat-1751.firebaseio.com/close
     [barChart setStrokeColors:@[PNGreen]];
     [barChart strokeChart];
     barChart.backgroundColor = [UIColor colorWithHexString: @"D6D6D6"];
-
-    [self.view addSubview: barChart];
+    
+    
+    [UIView beginAnimations:@"rotate" context:nil];
+    [UIView setAnimationDuration:0.0];
+    barChart.transform = CGAffineTransformMakeRotation(DegreesToRadians(90));
+    [UIView commitAnimations];
+    
+    [self.view  addSubview: barChart];
 
 
 }
