@@ -48,9 +48,17 @@ NSString *const fireURL = @"https://glaring-heat-1751.firebaseio.com";
                    @"https://twitter.com/grupoONCE11",
                    @"https://www.youtube.com/user/grupo11ONCE"];
     ref = [[Firebase alloc] initWithUrl:fireURL];
+    UIBarButtonItem *barButton = [[UIBarButtonItem alloc] init];
+    barButton.title = @"Atrás";
+    self.navigationController.navigationBar.topItem.backBarButtonItem = barButton;
 
 }
 
+-(void) viewWillAppear: (BOOL) animated {
+
+    [[self navigationController] setNavigationBarHidden:YES animated:YES];
+
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }

@@ -88,6 +88,8 @@ NSString *const firebaseChatURL = @"https://glaring-heat-1751.firebaseio.com/mes
     
     self.senderId = userType;
     self.senderDisplayName = userName;
+    [[self navigationController] setNavigationBarHidden:NO animated:YES];
+
 
 }
 

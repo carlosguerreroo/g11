@@ -18,6 +18,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationController.interactivePopGestureRecognizer.delegate = nil;
+    [[self navigationController] setNavigationBarHidden:NO animated:YES];
 
 }
 

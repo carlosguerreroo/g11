@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -562,7 +562,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LGB-Up-fyy">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="44" width="320" height="524"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Law-fv-vmd">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="1200"/>
@@ -789,6 +789,7 @@
                                             <constraint firstItem="c2b-lS-vcw" firstAttribute="leading" secondItem="Law-fv-vmd" secondAttribute="leading" id="9dC-mc-keh"/>
                                             <constraint firstAttribute="trailing" secondItem="c2b-lS-vcw" secondAttribute="trailing" id="DKn-Fx-BPk"/>
                                             <constraint firstAttribute="height" constant="1200" id="J2n-Gb-55k"/>
+                                            <constraint firstItem="c2b-lS-vcw" firstAttribute="top" secondItem="Law-fv-vmd" secondAttribute="top" id="Jfk-PZ-ZfF"/>
                                             <constraint firstItem="4nm-J5-lko" firstAttribute="leading" secondItem="Law-fv-vmd" secondAttribute="leading" id="Pp9-J5-51R"/>
                                             <constraint firstAttribute="trailing" secondItem="4nm-J5-lko" secondAttribute="trailing" id="QHe-1r-VeW"/>
                                             <constraint firstAttribute="trailing" secondItem="Hz5-XK-bmw" secondAttribute="trailing" id="Sap-FX-uMB"/>
@@ -815,6 +816,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="LGB-Up-fyy" secondAttribute="trailing" constant="-16" id="rfe-M0-gf2"/>
                         </constraints>
                     </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="568"/>
                 </viewController>
@@ -1411,7 +1413,7 @@
         <!--Menu Chat Nav View Controller-->
         <scene sceneID="WP8-VN-V9y">
             <objects>
-                <navigationController storyboardIdentifier="MenuChatNavViewController" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="fal-HI-Jda" customClass="MenuChatNavViewController" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="MenuChatNavViewController" automaticallyAdjustsScrollViewInsets="NO" id="fal-HI-Jda" customClass="MenuChatNavViewController" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="kJS-gt-5aL">

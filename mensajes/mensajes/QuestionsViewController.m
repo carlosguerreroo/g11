@@ -26,6 +26,7 @@
                    @"https://www.youtube.com/user/grupo11ONCE"];
     
     self.navigationController.interactivePopGestureRecognizer.delegate = nil;
+    [[self navigationController] setNavigationBarHidden:NO animated:YES];
 
 }
 
