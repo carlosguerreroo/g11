@@ -114,7 +114,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Contraseña" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rP9-ZA-da9">
+                                    <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Contraseña" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rP9-ZA-da9">
                                         <rect key="frame" x="20" y="43" width="272" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="XBc-kD-wtV"/>
@@ -122,50 +122,75 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Contraseña" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W4s-KE-4pp">
+                                        <rect key="frame" x="20" y="81" width="272" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
                                 </subviews>
                                 <color key="backgroundColor" red="0.83921568629999999" green="0.83921568629999999" blue="0.83921568629999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstItem="W4s-KE-4pp" firstAttribute="leading" secondItem="COo-P6-lOZ" secondAttribute="leading" constant="20" id="5l1-53-Whk"/>
                                     <constraint firstAttribute="trailing" secondItem="Vyc-bM-NBR" secondAttribute="trailing" constant="18" id="6Fk-Kc-rao"/>
+                                    <constraint firstAttribute="trailing" secondItem="W4s-KE-4pp" secondAttribute="trailing" constant="28" id="Hdf-NU-aOg"/>
                                     <constraint firstItem="rP9-ZA-da9" firstAttribute="leading" secondItem="COo-P6-lOZ" secondAttribute="leading" constant="20" id="Hmp-Lb-eKq"/>
                                     <constraint firstAttribute="trailing" secondItem="rP9-ZA-da9" secondAttribute="trailing" constant="28" id="M2d-ga-sBn"/>
                                     <constraint firstItem="OHF-Ds-WCI" firstAttribute="leading" secondItem="COo-P6-lOZ" secondAttribute="leading" constant="20" id="bZy-Zc-HYl"/>
                                     <constraint firstAttribute="bottom" secondItem="Vyc-bM-NBR" secondAttribute="bottom" constant="18" id="eSs-sK-v4e"/>
                                     <constraint firstItem="rP9-ZA-da9" firstAttribute="top" secondItem="OHF-Ds-WCI" secondAttribute="bottom" constant="8" id="f0D-x7-wCu"/>
+                                    <constraint firstItem="W4s-KE-4pp" firstAttribute="top" secondItem="rP9-ZA-da9" secondAttribute="bottom" constant="8" id="l9C-Hj-rIr"/>
                                     <constraint firstAttribute="trailing" secondItem="OHF-Ds-WCI" secondAttribute="trailing" constant="28" id="o5l-Ws-ZyZ"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Inicar sesión" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JHq-0Q-nkx">
-                                <rect key="frame" x="0.0" y="152" width="320" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="CmO-WD-ua5"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="sis-pc-B0Y">
+                                <rect key="frame" x="70" y="145" width="181" height="29"/>
+                                <segments>
+                                    <segment title="Inicar sesión"/>
+                                    <segment title="Registro"/>
+                                </segments>
+                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="selectOption:" destination="vXZ-lx-hvc" eventType="valueChanged" id="78W-at-IP2"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" red="0.83921568629999999" green="0.83921568629999999" blue="0.83921568629999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="COo-P6-lOZ" firstAttribute="top" secondItem="sis-pc-B0Y" secondAttribute="top" constant="36" id="3uw-3E-u6B"/>
                             <constraint firstItem="COo-P6-lOZ" firstAttribute="leading" secondItem="RXP-LS-G5Y" secondAttribute="leading" id="4Ov-j1-4UG"/>
-                            <constraint firstItem="OHF-Ds-WCI" firstAttribute="top" secondItem="JHq-0Q-nkx" secondAttribute="bottom" constant="13" id="7ca-Mf-2I6"/>
-                            <constraint firstItem="JHq-0Q-nkx" firstAttribute="top" secondItem="RXP-LS-G5Y" secondAttribute="bottom" constant="14" id="AaP-at-Zgj"/>
                             <constraint firstItem="COo-P6-lOZ" firstAttribute="top" secondItem="RXP-LS-G5Y" secondAttribute="bottom" constant="43" id="Bz6-by-pBW"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="JHq-0Q-nkx" secondAttribute="trailing" constant="-16" id="GOv-FR-0SO"/>
-                            <constraint firstItem="JHq-0Q-nkx" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="MvH-WM-JF6"/>
+                            <constraint firstItem="COo-P6-lOZ" firstAttribute="centerY" secondItem="sis-pc-B0Y" secondAttribute="centerY" constant="215.5" id="F1m-hJ-nMz"/>
+                            <constraint firstItem="sis-pc-B0Y" firstAttribute="leading" secondItem="COo-P6-lOZ" secondAttribute="trailing" constant="-250" id="Fc7-5J-JPi"/>
+                            <constraint firstItem="COo-P6-lOZ" firstAttribute="top" secondItem="sis-pc-B0Y" secondAttribute="bottom" constant="8" symbolic="YES" id="Iz5-Qk-DG0"/>
+                            <constraint firstItem="OHF-Ds-WCI" firstAttribute="top" secondItem="sis-pc-B0Y" secondAttribute="bottom" constant="13" id="bxd-sT-lmt"/>
                             <constraint firstItem="RXP-LS-G5Y" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" id="dFD-Xz-fBF"/>
                             <constraint firstItem="COo-P6-lOZ" firstAttribute="trailing" secondItem="RXP-LS-G5Y" secondAttribute="trailing" id="dKU-wf-ZXw"/>
                             <constraint firstItem="COo-P6-lOZ" firstAttribute="bottom" secondItem="2fi-mo-0CV" secondAttribute="top" id="eX5-gp-14O"/>
                             <constraint firstItem="RXP-LS-G5Y" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="hPF-Kt-Phe"/>
+                            <constraint firstItem="OHF-Ds-WCI" firstAttribute="top" secondItem="sis-pc-B0Y" secondAttribute="bottom" constant="13" id="hUT-bM-Di4"/>
                             <constraint firstAttribute="trailingMargin" secondItem="RXP-LS-G5Y" secondAttribute="trailing" constant="-16" id="lnj-rA-AZm"/>
+                            <constraint firstItem="COo-P6-lOZ" firstAttribute="centerX" secondItem="sis-pc-B0Y" secondAttribute="centerX" constant="-0.5" id="v9S-mB-LTl"/>
+                            <constraint firstItem="COo-P6-lOZ" firstAttribute="centerX" secondItem="sis-pc-B0Y" secondAttribute="centerX" constant="-0.5" id="xgH-U4-9JJ"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Fc7-5J-JPi"/>
+                                <exclude reference="F1m-hJ-nMz"/>
+                                <exclude reference="Iz5-Qk-DG0"/>
+                                <exclude reference="v9S-mB-LTl"/>
+                                <exclude reference="hUT-bM-Di4"/>
+                            </mask>
+                        </variation>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="header" destination="RXP-LS-G5Y" id="XKM-pI-v9Z"/>
                         <outlet property="login" destination="COo-P6-lOZ" id="Uwd-kf-Ykp"/>
                         <outlet property="loginButton" destination="Vyc-bM-NBR" id="aBt-Fs-QpH"/>
+                        <outlet property="viewSelector" destination="sis-pc-B0Y" id="Rbt-Op-Mxb"/>
                         <outletCollection property="loginItems" destination="OHF-Ds-WCI" id="Jg0-TZ-8WB"/>
                         <outletCollection property="loginItems" destination="rP9-ZA-da9" id="Kp5-qw-YVN"/>
+                        <outletCollection property="loginItems" destination="W4s-KE-4pp" id="7Gg-SD-aQb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

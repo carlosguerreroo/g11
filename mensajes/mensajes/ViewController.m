@@ -28,6 +28,7 @@
 @property (weak, nonatomic) IBOutlet UIView *login;
 @property (weak, nonatomic) IBOutlet UIView *header;
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *viewSelector;
 
 
 // Login items
@@ -75,6 +76,8 @@ NSString *const firebaseURL = @"https://glaring-heat-1751.firebaseio.com";
 
     ref = [[Firebase alloc] initWithUrl:firebaseURL];
     [self.view endEditing:YES];
+    ((UITextField*)_loginItems[2]).hidden = YES;
+
     
 }
 - (void)didReceiveMemoryWarning {
@@ -115,28 +118,31 @@ NSString *const firebaseURL = @"https://glaring-heat-1751.firebaseio.com";
     
         NSString *username = ((UITextField *) _loginItems[0]).text;
         NSString *password = ((UITextField *) _loginItems[1]).text;
-        
-        if ([self stringIsEmpty: username] || [self stringIsEmpty: password] ) {
+
+        if (_viewSelector.selectedSegmentIndex == 0) {
+
+    
+            if ([self stringIsEmpty: username] || [self stringIsEmpty: password] ) {
             
 
-            [self displayAlertWith: @"Verifique sus datos."
+                [self displayAlertWith: @"Verifique sus datos."
                                And: @"Ningún campo tiene que estar vació."];
 
-            return;
-        }
+                return;
+            }
         
-        [ref authUser:username password:password
+            [ref authUser:username password:password
                 withCompletionBlock:^(NSError *error, FAuthData *authData) {
       
-            if (error) {
-                // an error occurred while attempting login
-                NSLog(@"Not logged with credentials %@ %@",username,password);
+                    if (error) {
+                        // an error occurred while attempting login
+                        NSLog(@"Not logged with credentials %@ %@",username,password);
                 
-                UIAlertController *alertController = [UIAlertController
+                        UIAlertController *alertController = [UIAlertController
                                                       alertControllerWithTitle:@"Ocurrió un error."
                                                       message:@"Verifica tu usario y contraseña"
                                                       preferredStyle:UIAlertControllerStyleAlert];
-                UIAlertAction* accept = [UIAlertAction
+                        UIAlertAction* accept = [UIAlertAction
                                          actionWithTitle:@"Aceptar"
                                          style:UIAlertActionStyleDefault
                                          handler:^(UIAlertAction * action)
@@ -145,54 +151,141 @@ NSString *const firebaseURL = @"https://glaring-heat-1751.firebaseio.com";
                                              
                                          }];
                 
-                [alertController addAction:accept];
+                        [alertController addAction:accept];
                 
-                [self presentViewController:alertController animated:YES completion:nil];
-
-            } else {
-                // user is logged in, check authData for data
-                NSLog(@"User logged");
-                
-                NSString *userPath = [NSString stringWithFormat:@"/users/%@", authData.uid];
-                [[ref childByAppendingPath:userPath]observeSingleEventOfType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
-                    
-                    NSString *companysName = snapshot.value[@"companysName"];
-                    NSString *city = snapshot.value[@"city"];
-                    NSString *userName = snapshot.value[@"userName"];
-                    
-                    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-                    
-                    [prefs setObject: companysName forKey:@"companysName"];
-                    [prefs setObject: city forKey:@"city"];
-                    [prefs setObject: userName forKey:@"userName"];
-                    
-                    [prefs synchronize];
-
-                    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-
-                    if ([companysName isEqualToString:@"grupoonce"]) {
-                       
-                        if ([city isEqualToString:@"admin"]) {
-                            
-                            AdminNavViewController *adminNavViewController = (AdminNavViewController *)[storyboard instantiateViewControllerWithIdentifier:@"AdminNavViewController"];
-                            [self presentViewController:adminNavViewController animated:YES completion:nil];
-                            
-                        } else {
-                            ChatListNavViewController *chatListViewController = (ChatListNavViewController *)[storyboard instantiateViewControllerWithIdentifier:@"ChatListNavViewController"];
-                            [self presentViewController:chatListViewController animated:YES completion:nil];
-                            
-                        }
+                        [self presentViewController:alertController animated:YES completion:nil];
 
                     } else {
-                        MenuChatNavViewController *menuViewController = (MenuChatNavViewController *)[storyboard instantiateViewControllerWithIdentifier:@"MenuChatNavViewController"];
-                        [self presentViewController:menuViewController animated:YES completion:nil];
-                    }
-
-                }];
+                        // user is logged in, check authData for data
+                        NSLog(@"User logged");
                 
+                        NSString *userPath = [NSString stringWithFormat:@"/users/%@", authData.uid];
+                        [[ref childByAppendingPath:userPath]observeSingleEventOfType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
+                    
+                            NSString *companysName = snapshot.value[@"companysName"];
+                            NSString *city = snapshot.value[@"city"];
+                            NSString *userName = snapshot.value[@"userName"];
+                    
+                            NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+                    
+                            [prefs setObject: companysName forKey:@"companysName"];
+                            [prefs setObject: city forKey:@"city"];
+                            [prefs setObject: userName forKey:@"userName"];
+                    
+                            [prefs synchronize];
 
+                            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+
+                            if ([companysName isEqualToString:@"grupoonce"]) {
+                       
+                                if ([city isEqualToString:@"admin"]) {
+                            
+                                    AdminNavViewController *adminNavViewController = (AdminNavViewController *)[storyboard instantiateViewControllerWithIdentifier:@"AdminNavViewController"];
+                                    [self presentViewController:adminNavViewController animated:YES completion:nil];
+                                    
+                                } else {
+                                    ChatListNavViewController *chatListViewController = (ChatListNavViewController *)[storyboard instantiateViewControllerWithIdentifier:@"ChatListNavViewController"];
+                                    [self presentViewController:chatListViewController animated:YES completion:nil];
+                            
+                                }
+
+                            } else {
+                                MenuChatNavViewController *menuViewController = (MenuChatNavViewController *)[storyboard instantiateViewControllerWithIdentifier:@"MenuChatNavViewController"];
+                                [self presentViewController:menuViewController animated:YES completion:nil];
+                            }
+
+                        }];
+
+                        }
+                }];
+        } else {
+            
+            NSString *titleText = @"Datos registrados.";
+            NSString *messageText = @"La cuenta ha sido creada exitosamente.";
+
+            if ([self validatesSignUp]) {
+            
+                [ref createUser: username password: password
+       withValueCompletionBlock:^(NSError *error, NSDictionary *result) {
+           if (error) {
+               
+               [self displayAlertWith: @"Error" And: @"Error al crear su cuenta."];
+               
+           } else {
+               NSString *uid = [result objectForKey:@"uid"];
+               NSLog(@"Successfully created user account with uid: %@", uid);
+               
+               [self displayAlertWith: titleText And: messageText];
+               
+           }
+       }];
+            
+            
+            } else {
+                
+                titleText = @"Verifique sus datos.";
+                messageText = [NSString stringWithFormat:@"%@ \n %@", error1, error2];
+                [self displayAlertWith: titleText And: messageText];
             }
-        }];
+        }
+}
+
+- (IBAction)selectOption:(id)sender {
+    
+    UISegmentedControl* button  = (UISegmentedControl*)sender;
+    
+    switch (button.selectedSegmentIndex)
+    {
+        case 0:
+            ((UITextField*)_loginItems[2]).hidden = YES;
+            [_loginButton setTitle:@"Entrar" forState:UIControlStateNormal];
+            break;
+        case 1:
+            ((UITextField*)_loginItems[2]).hidden = NO;
+            [_loginButton setTitle:@"Registro" forState:UIControlStateNormal];
+
+            break;
+        default: 
+            break; 
+    }
+
+
+}
+
+
+- (BOOL) validatesSignUp {
+    
+    NSString *password1;
+    BOOL flag = YES;
+    error1 = @"";
+    error2 = @"";
+    
+    for (UITextField *object in self.loginItems) {
+        
+        
+        if  ([self stringIsEmpty: object.text]) {
+            
+            flag = NO;
+            error1 = @"Ningún campo puede estar vació.";
+        }
+        
+        if (object.tag == 1) {
+            
+            password1 = object.text;
+        }
+        
+        if (object.tag == 2 &&  ![object.text isEqualToString:password1]) {
+            
+            flag = NO;
+            error2 = @"Las contraseñas deben de ser iguales.";
+            object.text = @"";
+            UITextField *passfield = self.loginItems[1];
+            passfield.text = @"";
+            
+        }
+    }
+    
+    return flag;
 }
 
 
