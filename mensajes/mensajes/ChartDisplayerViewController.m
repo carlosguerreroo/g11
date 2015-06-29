@@ -45,6 +45,10 @@ NSString *const fireURLClosed = @"https://glaring-heat-1751.firebaseio.com/close
 
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [self.navigationController setNavigationBarHidden:NO animated:animated];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
