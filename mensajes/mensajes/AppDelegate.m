@@ -12,6 +12,7 @@
 #import "ChatListNavViewController.h"
 #import "MenuChatNavViewController.h"
 #import "AdminNavViewController.h"
+#import <Parse/Parse.h>
 
 @interface AppDelegate ()
 
@@ -24,7 +25,18 @@ NSString *const firebaseURLRoot = @"https://glaring-heat-1751.firebaseio.com/";
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
-        
+    
+        [Parse setApplicationId:@"RwxxnpNW9zRrZ0Bwpx0NxLXIaJy6BHdlMLjLdeyQ"
+                  clientKey:@"MJ1FXYFTDKb6JqhfLP41kp5KeHjzFaE0WzKzCMTu"];
+    
+        UIUserNotificationType userNotificationTypes = (UIUserNotificationTypeAlert |
+                                                    UIUserNotificationTypeBadge |
+                                                    UIUserNotificationTypeSound);
+        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:userNotificationTypes
+                                                                             categories:nil];
+        [application registerUserNotificationSettings:settings];
+        [application registerForRemoteNotifications];
+    
         Firebase *userInfo;
         NSString *url = @"https://glaring-heat-1751.firebaseio.com/";
         userInfo = [[Firebase alloc] initWithUrl: url];
@@ -86,6 +98,17 @@ NSString *const firebaseURLRoot = @"https://glaring-heat-1751.firebaseio.com/";
 
 - (void)applicationWillTerminate:(UIApplication *)application {
    
+}
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    // Store the deviceToken in the current installation and save it to Parse.
+    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    [currentInstallation setDeviceTokenFromData:deviceToken];
+    [currentInstallation saveInBackground];
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    [PFPush handlePush:userInfo];
 }
 
 @end
