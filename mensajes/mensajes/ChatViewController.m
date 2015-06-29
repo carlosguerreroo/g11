@@ -88,9 +88,6 @@ NSString *const firebaseChatURL = @"https://glaring-heat-1751.firebaseio.com/mes
     
     self.senderId = userType;
     self.senderDisplayName = userName;
-    [[self navigationController] setNavigationBarHidden:NO animated:YES];
-
-
 }
 
 - (void) viewDidDisappear:(BOOL)animated {
@@ -106,6 +103,8 @@ NSString *const firebaseChatURL = @"https://glaring-heat-1751.firebaseio.com/mes
     [messages removeAllObjects];
     [self finishReceivingMessageAnimated:YES];
     [self setupFirebase];
+    [[self navigationController] setNavigationBarHidden:NO animated:YES];
+
 }
 
 - (void)didReceiveMemoryWarning {

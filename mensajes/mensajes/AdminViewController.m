@@ -51,9 +51,14 @@
   
         [citiesImages addObject:[UIImage imageNamed: [NSString stringWithFormat: @"%d", i]]];
     }
-    
-  
+    UIBarButtonItem *barButton = [[UIBarButtonItem alloc] init];
+    barButton.title = @"Atrás";
+    self.navigationController.navigationBar.topItem.backBarButtonItem = barButton;
+}
 
+- (void)viewWillAppear:(BOOL)animated {
+    
+    [self.navigationController setNavigationBarHidden:YES animated:animated];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -32,6 +32,9 @@ NSString *const fireUserURL = @"https://glaring-heat-1751.firebaseio.com/users/"
     _updatePasswordButton.layer.cornerRadius = 4.0f;
     _updatePasswordButton.layer.masksToBounds= YES;
     NSLog(@"%@",userNameText);
+    UIBarButtonItem *barButton = [[UIBarButtonItem alloc] init];
+    barButton.title = @"Atrás";
+    self.navigationController.navigationBar.topItem.backBarButtonItem = barButton;
 
 }
 
@@ -40,6 +43,7 @@ NSString *const fireUserURL = @"https://glaring-heat-1751.firebaseio.com/users/"
     _usernameLabel.text = userNameText;
     [self setFirebase];
     _passwordTextField.text = @"";
+    [self.navigationController setNavigationBarHidden:NO animated:animated];
 
 }
 

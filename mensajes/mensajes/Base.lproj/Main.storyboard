@@ -985,7 +985,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="izb-GB-dju"/>
                     <nil key="simulatedStatusBarMetrics"/>
-                    <nil key="simulatedTopBarMetrics"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
@@ -1131,6 +1131,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="bTJ-Zh-wv0"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="graphsButton" destination="7v7-dk-UH3" id="tYh-7V-Ujd"/>
@@ -1243,7 +1244,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fVM-xM-mD4" userLabel="header">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="138"/>
+                                <rect key="frame" x="-1" y="21" width="320" height="138"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b17-dT-dEp">
                                         <rect key="frame" x="77" y="0.0" width="243" height="138"/>
@@ -1283,14 +1284,8 @@
                                     <constraint firstAttribute="bottom" secondItem="wLh-cK-UQj" secondAttribute="bottom" id="sBt-BV-ava"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0MG-dY-7wS">
-                                <rect key="frame" x="31" y="167" width="47" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contraseña actual:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rIN-a5-hvW">
-                                <rect key="frame" x="33" y="230" width="145" height="21"/>
+                                <rect key="frame" x="33" y="230" width="144.5" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -1335,12 +1330,18 @@
                                     <action selector="changePassword:" destination="Vp6-Mv-Fft" eventType="touchUpInside" id="km6-Dk-XzB"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0MG-dY-7wS">
+                                <rect key="frame" x="33" y="167.5" width="47" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.83921568629999999" green="0.83921568629999999" blue="0.83921568629999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="fVM-xM-mD4" firstAttribute="leading" secondItem="Run-Fj-Ekm" secondAttribute="leadingMargin" constant="-16" id="02m-b4-WIm"/>
+                            <constraint firstItem="fVM-xM-mD4" firstAttribute="leading" secondItem="Run-Fj-Ekm" secondAttribute="leadingMargin" constant="-17" id="02m-b4-WIm"/>
                             <constraint firstAttribute="centerX" secondItem="QAZ-no-s8i" secondAttribute="centerX" constant="1" id="0hZ-Wb-NLo"/>
-                            <constraint firstItem="0MG-dY-7wS" firstAttribute="leading" secondItem="Run-Fj-Ekm" secondAttribute="leadingMargin" constant="15" id="0u8-f9-9gs"/>
+                            <constraint firstItem="0MG-dY-7wS" firstAttribute="leading" secondItem="Run-Fj-Ekm" secondAttribute="leadingMargin" constant="17" id="0u8-f9-9gs"/>
                             <constraint firstItem="rIN-a5-hvW" firstAttribute="top" secondItem="LQl-CL-8CX" secondAttribute="bottom" constant="13" id="6SP-9J-THG"/>
                             <constraint firstItem="LQl-CL-8CX" firstAttribute="top" secondItem="0MG-dY-7wS" secondAttribute="bottom" constant="8" symbolic="YES" id="9D4-8z-duy"/>
                             <constraint firstItem="3KJ-xG-RJz" firstAttribute="leading" secondItem="rIN-a5-hvW" secondAttribute="leading" id="Aad-xZ-8Yc"/>
@@ -1348,8 +1349,8 @@
                             <constraint firstItem="q0k-X0-OkU" firstAttribute="top" secondItem="QAZ-no-s8i" secondAttribute="bottom" constant="13" id="JPO-Di-uNM"/>
                             <constraint firstItem="3KJ-xG-RJz" firstAttribute="leading" secondItem="LQl-CL-8CX" secondAttribute="leading" id="Ou7-dT-TSm"/>
                             <constraint firstItem="fVM-xM-mD4" firstAttribute="top" secondItem="Run-Fj-Ekm" secondAttribute="topMargin" id="UPd-Pa-IOn"/>
-                            <constraint firstItem="0MG-dY-7wS" firstAttribute="top" secondItem="fVM-xM-mD4" secondAttribute="bottom" constant="29" id="YKI-Ja-Ze0"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="fVM-xM-mD4" secondAttribute="trailing" constant="-16" id="cZA-nA-SGq"/>
+                            <constraint firstItem="0MG-dY-7wS" firstAttribute="top" secondItem="fVM-xM-mD4" secondAttribute="bottom" constant="8" id="YKI-Ja-Ze0"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="fVM-xM-mD4" secondAttribute="trailing" constant="-15" id="cZA-nA-SGq"/>
                             <constraint firstAttribute="centerX" secondItem="q0k-X0-OkU" secondAttribute="centerX" constant="-0.5" id="cp3-JL-Oey"/>
                             <constraint firstItem="3KJ-xG-RJz" firstAttribute="centerX" secondItem="QAZ-no-s8i" secondAttribute="centerX" id="dkb-FG-VTB"/>
                             <constraint firstItem="3KJ-xG-RJz" firstAttribute="top" secondItem="Run-Fj-Ekm" secondAttribute="top" constant="259" id="iwS-1Y-YpY"/>
@@ -1358,7 +1359,13 @@
                             <constraint firstItem="LQl-CL-8CX" firstAttribute="top" secondItem="Run-Fj-Ekm" secondAttribute="top" constant="196" id="vKP-Po-TrI"/>
                             <constraint firstItem="3KJ-xG-RJz" firstAttribute="trailing" secondItem="LQl-CL-8CX" secondAttribute="trailing" id="xEX-YZ-8hh"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="UPd-Pa-IOn"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="emailLabel" destination="LQl-CL-8CX" id="Qnf-jm-WGc"/>
@@ -1394,7 +1401,7 @@
         <!--Chat List Nav View Controller-->
         <scene sceneID="PQa-aR-XdE">
             <objects>
-                <navigationController storyboardIdentifier="ChatListNavViewController" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="3bO-Fy-L1t" customClass="ChatListNavViewController" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="ChatListNavViewController" automaticallyAdjustsScrollViewInsets="NO" id="3bO-Fy-L1t" customClass="ChatListNavViewController" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="lML-ey-vgX">
@@ -1432,7 +1439,7 @@
         <!--Admin Nav View Controller-->
         <scene sceneID="PIZ-06-Vvo">
             <objects>
-                <navigationController storyboardIdentifier="AdminNavViewController" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="rRl-vS-EBg" customClass="AdminNavViewController" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="AdminNavViewController" automaticallyAdjustsScrollViewInsets="NO" id="rRl-vS-EBg" customClass="AdminNavViewController" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="myO-MD-RHa">

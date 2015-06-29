@@ -83,9 +83,15 @@ NSString *const fireURLRoot = @"https://glaring-heat-1751.firebaseio.com/message
     }
     
     areas = @[@"Recibos", @"Facturas", @"IMSS", @"Jurídico",
-              @"Requerimiento especial", @"Tesorería",
-              @"Operativo", @"Contabilidad", @"Auditoría", @"Cancelar"];
+              @"Requerimiento especial", @"Tesorería",@"Operativo", @"Contabilidad", @"Auditoría", @"Cancelar"];
+    
+    UIBarButtonItem *barButton = [[UIBarButtonItem alloc] init];
+    barButton.title = @"Atrás";
+    self.navigationController.navigationBar.topItem.backBarButtonItem = barButton;
 }
+
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -266,6 +272,14 @@ NSString *const fireURLRoot = @"https://glaring-heat-1751.firebaseio.com/message
     
     [messages removeAllObjects];
     [self setupFirebase];
+    
+    if (isAdmin) {
+        [self.navigationController setNavigationBarHidden:NO animated:animated];
+    } else {
+        [self.navigationController setNavigationBarHidden:YES animated:animated];
+
+    }
+
 }
 
 - (void) setCity:(NSString*)cityName {
