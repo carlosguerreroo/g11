@@ -51,12 +51,22 @@ NSString *const fireURL = @"https://glaring-heat-1751.firebaseio.com";
     UIBarButtonItem *barButton = [[UIBarButtonItem alloc] init];
     barButton.title = @"Atrás";
     self.navigationController.navigationBar.topItem.backBarButtonItem = barButton;
-
+   
 }
 
 -(void) viewWillAppear: (BOOL) animated {
 
     [[self navigationController] setNavigationBarHidden:YES animated:YES];
+    if (!ref.authData) {
+        
+        _logoutButton.hidden = YES;
+        [((UIButton*)_optionsButtons[2]) setTitle:@"Registro / Inicio Sesión" forState:UIControlStateNormal];
+        [((UIButton*)_optionsButtons[2])  removeTarget:nil
+                                                action:NULL
+                                      forControlEvents:UIControlEventAllEvents];
+        [((UIButton*)_optionsButtons[2])  addTarget:self action:@selector(login:) forControlEvents:UIControlEventTouchUpInside];
+        
+    }
 
 }
 - (void)didReceiveMemoryWarning {
@@ -83,8 +93,15 @@ NSString *const fireURL = @"https://glaring-heat-1751.firebaseio.com";
     [prefs synchronize];
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    ViewController *menuViewController = (ViewController *)[storyboard instantiateViewControllerWithIdentifier:@"ViewController"];
+    ViewController *menuViewController = (ViewController *)[storyboard instantiateViewControllerWithIdentifier:@"MenuChatNavViewController"];
     [self presentViewController:menuViewController animated:YES completion:nil];
 
+}
+
+-(void) login:(UIButton*)sender
+{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    ViewController *menuViewController = (ViewController *)[storyboard instantiateViewControllerWithIdentifier:@"ViewController"];
+    [self.navigationController pushViewController: menuViewController animated: YES];
 }
 @end

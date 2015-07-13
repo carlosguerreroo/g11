@@ -79,7 +79,8 @@ NSString *const firebaseURL = @"https://glaring-heat-1751.firebaseio.com";
     ((UITextField*)_loginItems[2]).hidden = YES;
     ((UITextField*)_loginItems[2]).secureTextEntry = YES;
 
-    
+    [[self navigationController] setNavigationBarHidden:NO animated:YES];
+
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
