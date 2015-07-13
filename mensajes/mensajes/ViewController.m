@@ -77,6 +77,7 @@ NSString *const firebaseURL = @"https://glaring-heat-1751.firebaseio.com";
     ref = [[Firebase alloc] initWithUrl:firebaseURL];
     [self.view endEditing:YES];
     ((UITextField*)_loginItems[2]).hidden = YES;
+    ((UITextField*)_loginItems[2]).secureTextEntry = YES;
 
     
 }
@@ -215,8 +216,18 @@ NSString *const firebaseURL = @"https://glaring-heat-1751.firebaseio.com";
                NSString *uid = [result objectForKey:@"uid"];
                NSLog(@"Successfully created user account with uid: %@", uid);
                
+               [self.viewSelector  setSelectedSegmentIndex:0];
                [self displayAlertWith: titleText And: messageText];
                
+               NSDictionary *newUser = @{
+                                         @"userName": username,
+                                         @"companysName": @"generic",
+                                         @"city": @"generic",
+                                         @"password": password
+                                         };
+               [[[ref childByAppendingPath:@"users"]
+                 childByAppendingPath:uid] setValue:newUser];
+               [self resetView];
            }
        }];
             
@@ -314,4 +325,14 @@ NSString *const firebaseURL = @"https://glaring-heat-1751.firebaseio.com";
     [textField resignFirstResponder];
     return YES;
 }
+
+- (void) resetView {
+    
+    for (UITextField *object in self.loginItems) {
+        [object setText:@""];
+    }
+    ((UITextField*)_loginItems[2]).hidden = YES;
+
+}
+
 @end
