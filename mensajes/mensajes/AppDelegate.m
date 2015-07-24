@@ -105,10 +105,12 @@ NSString *const firebaseURLRoot = @"https://glaring-heat-1751.firebaseio.com/";
     PFInstallation *currentInstallation = [PFInstallation currentInstallation];
     [currentInstallation setDeviceTokenFromData:deviceToken];
     [currentInstallation saveInBackground];
+    NSLog(@"ssasaE");
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
     [PFPush handlePush:userInfo];
+    NSLog(@"%@",userInfo);
 }
 
 @end
