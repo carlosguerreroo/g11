@@ -23,6 +23,9 @@
 
 NSString *const firebaseURLRoot = @"https://glaring-heat-1751.firebaseio.com/";
 
+Firebase *userInfo;
+NSString *url = @"https://glaring-heat-1751.firebaseio.com/";
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
     
@@ -37,8 +40,6 @@ NSString *const firebaseURLRoot = @"https://glaring-heat-1751.firebaseio.com/";
         [application registerUserNotificationSettings:settings];
         [application registerForRemoteNotifications];
     
-        Firebase *userInfo;
-        NSString *url = @"https://glaring-heat-1751.firebaseio.com/";
         userInfo = [[Firebase alloc] initWithUrl: url];
         
         if (userInfo.authData) {
@@ -101,11 +102,24 @@ NSString *const firebaseURLRoot = @"https://glaring-heat-1751.firebaseio.com/";
 }
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
-    // Store the deviceToken in the current installation and save it to Parse.
-    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
-    [currentInstallation setDeviceTokenFromData:deviceToken];
-    [currentInstallation saveInBackground];
-    NSLog(@"ssasaE");
+    
+        if (userInfo.authData) {
+//            PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+//            [currentInstallation setDeviceTokenFromData:deviceToken];
+//            NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+//            NSString *companysName = [prefs stringForKey:@"companysName"];
+//            NSString *city = [prefs stringForKey:@"city"];
+//            NSString *userName = [prefs stringForKey:@"userName"];
+//    
+//            currentInstallation[@"pushType"] = @"iOs";
+//            currentInstallation[@"city"] = city;
+//            currentInstallation[@"companysName"] = companysName;
+//            currentInstallation[@"userName"] = userName;
+//            currentInstallation[@"session"] = @"open";
+//            currentInstallation.channels = @[@""];
+//            [currentInstallation saveInBackground];
+        }
+    NSLog(@"sa1ae");
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {

@@ -14,7 +14,7 @@
 @interface ChatViewController : JSQMessagesViewController <UIActionSheetDelegate>
 
 -(void) setUserMessageNode: (NSString*) userMesageNode;
-
+-(void) setUserName: (NSString*) userNamePathM AndCityPath: (NSString*)cityPathM;
 @end
 
 Firebase *messageRef;

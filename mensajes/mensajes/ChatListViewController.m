@@ -208,11 +208,16 @@ NSString *const fireURLRoot = @"https://glaring-heat-1751.firebaseio.com/message
         chatViewController = (ChatViewController *)[storyboard instantiateViewControllerWithIdentifier:@"chatViewController"];
        
         [chatViewController setUserMessageNode: [NSString stringWithFormat:@"%@/%@%%%@",city, localUsername, localCompany]];
+        [chatViewController setUserName:localUsername AndCityPath:city];
         [self.navigationController pushViewController:chatViewController animated: YES];
 
     } else {
         
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        chatViewController = (ChatViewController *)[storyboard instantiateViewControllerWithIdentifier:@"chatViewController"];
+
         [chatViewController setUserMessageNode: [NSString stringWithFormat:@"%@/%@%%%@",city, localUsername, localCompany]];
+        [chatViewController setUserName:localUsername AndCityPath:city];
         [self.navigationController pushViewController:chatViewController animated: YES];
     }
 }

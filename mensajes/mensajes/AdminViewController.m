@@ -99,6 +99,8 @@
         [self.navigationController pushViewController: chatListViewController animated: YES];
         
     } else {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        chatListViewController = (ChatListViewController *)[storyboard instantiateViewControllerWithIdentifier:@"ChatListViewController"];
         
         [chatListViewController setAdmin: YES];
         [chatListViewController setCity: cities[indexPath.row]];

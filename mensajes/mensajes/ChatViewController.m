@@ -7,6 +7,7 @@
 //
 
 #import "ChatViewController.h"
+#import <Parse/Parse.h>
 
 @interface ChatViewController() {
     
@@ -15,6 +16,8 @@
     NSString *companysName;
     NSString *userMessageNode;
     NSString *userType;
+    NSString *cityPath;
+    NSString *userNamePath;
 }
 
 @end
@@ -69,6 +72,37 @@ NSString *const firebaseChatURL = @"https://glaring-heat-1751.firebaseio.com/mes
     Firebase *sendMessage = [messageRef childByAutoId];
     [sendMessage setValue: message];
     self.navigationController.interactivePopGestureRecognizer.enabled = YES;
+    
+//    PFPush *push = [[PFPush alloc] init];
+//    [push setChannel:@"Asesor"];
+//    [push setMessage:@"Tienes un nuevo mensaje de tu asesor!"];
+//    [push sendPushInBackground];
+    
+    if ([companysName isEqualToString:@"grupoonce"]) {
+        // Create our Installation query
+        PFQuery *pushQuery = [PFInstallation query];
+        [pushQuery whereKey:@"city" equalTo:cityPath];
+        [pushQuery whereKey:@"userName" equalTo:userNamePath];
+        [pushQuery whereKey:@"session" equalTo:@"open"];
+        
+        // Send push notification to query
+        PFPush *push = [[PFPush alloc] init];
+        [push setQuery:pushQuery]; // Set our Installation query
+        [push setMessage:@"Tienes un nuevo mensaje de tu asesor."];
+        [push sendPushInBackground];
+    } else {
+    
+        // Create our Installation query
+        PFQuery *pushQuery = [PFInstallation query];
+        [pushQuery whereKey:@"companysName" equalTo:@"grupoonce"];
+        NSLog(@"adminaaa");
+        // Send push notification to query
+        PFPush *push = [[PFPush alloc] init];
+        [push setQuery:pushQuery]; // Set our Installation query
+        [push setMessage:[NSString stringWithFormat:@"%@ %@", @"Tienes un nuevo mensaje de ", city]];
+        [push sendPushInBackground];
+    }
+   
 }
 
 - (void)viewDidLoad {
@@ -206,12 +240,19 @@ NSString *const firebaseChatURL = @"https://glaring-heat-1751.firebaseio.com/mes
         userType = @"client";
         NSString *cleanUserName = [userName stringByReplacingOccurrencesOfString:@"." withString: @""];
         userMessageNode = [NSString stringWithFormat:@"%@/%@%%%@",city, cleanUserName, companysName];
+        NSLog(@"sasasasa");
     }
 }
 
 -(void) setUserMessageNode: (NSString*) messageNode {
 
     userMessageNode = messageNode;
+}
+
+-(void) setUserName: (NSString*) userNamePathM AndCityPath: (NSString*)cityPathM{
+    
+    userNamePath = userNamePathM;
+    cityPath = cityPathM;
 }
 
 -(void) updateReadMessage: (NSString *)node {
