@@ -41,13 +41,11 @@ NSString *url = @"https://glaring-heat-1751.firebaseio.com/";
         [application registerForRemoteNotifications];
     
         userInfo = [[Firebase alloc] initWithUrl: url];
-        
-        if (userInfo.authData) {
-            
-            NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-            NSString *companysName = [prefs stringForKey:@"companysName"];
-            NSString *city = [prefs stringForKey:@"city"];
+        NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+        NSString *companysName = [prefs stringForKey:@"companysName"];
+        NSString *city = [prefs stringForKey:@"city"];
 
+        if (userInfo.authData && city) {
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
             self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
             [self.window setBackgroundColor:[UIColor whiteColor]];
@@ -76,6 +74,7 @@ NSString *url = @"https://glaring-heat-1751.firebaseio.com/";
         } else {
             
             NSLog(@"Not user logged");
+            [userInfo unauth];
 
         }
     return YES;
@@ -103,28 +102,40 @@ NSString *url = @"https://glaring-heat-1751.firebaseio.com/";
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     
-        if (userInfo.authData) {
-//            PFInstallation *currentInstallation = [PFInstallation currentInstallation];
-//            [currentInstallation setDeviceTokenFromData:deviceToken];
-//            NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-//            NSString *companysName = [prefs stringForKey:@"companysName"];
-//            NSString *city = [prefs stringForKey:@"city"];
-//            NSString *userName = [prefs stringForKey:@"userName"];
-//    
-//            currentInstallation[@"pushType"] = @"iOs";
-//            currentInstallation[@"city"] = city;
-//            currentInstallation[@"companysName"] = companysName;
-//            currentInstallation[@"userName"] = userName;
-//            currentInstallation[@"session"] = @"open";
-//            currentInstallation.channels = @[@""];
-//            [currentInstallation saveInBackground];
+    NSLog(@"Registerirng");
+
+        if (userInfo.authData != nil) {
+
+            PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+            [currentInstallation setDeviceTokenFromData:deviceToken];
+            NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+            NSString *companysName = [prefs stringForKey:@"companysName"];
+            NSString *city = [prefs stringForKey:@"city"];
+            NSString *userName = [prefs stringForKey:@"userName"];
+            
+            if (companysName) {
+                currentInstallation[@"companysName"] = companysName;
+                currentInstallation[@"userName"] = userName;
+                currentInstallation[@"city"] = city;
+                currentInstallation[@"session"] = @"open";
+                [currentInstallation saveInBackground];
+            } else {
+                [userInfo unauth];
+            }
+        } else {
+            PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+            [currentInstallation setDeviceTokenFromData:deviceToken];
+            [currentInstallation saveInBackground];
         }
-    NSLog(@"sa1ae");
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
     [PFPush handlePush:userInfo];
     NSLog(@"%@",userInfo);
+}
+
+-(void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
+    NSLog(@"%@", error);
 }
 
 @end

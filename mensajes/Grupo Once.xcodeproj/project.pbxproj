@@ -27,7 +27,6 @@
 		FA4897C61B419E0C007123D2 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA4897C51B419E0C007123D2 /* MobileCoreServices.framework */; };
 		FA4897C81B419E12007123D2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA4897C71B419E12007123D2 /* QuartzCore.framework */; };
 		FA4897CA1B419E19007123D2 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA4897C91B419E19007123D2 /* Security.framework */; };
-		FA4897CC1B419E1F007123D2 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA4897CB1B419E1F007123D2 /* StoreKit.framework */; };
 		FA4897CE1B419E25007123D2 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA4897CD1B419E25007123D2 /* SystemConfiguration.framework */; };
 		FA4897D01B419E2A007123D2 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FA4897CF1B419E2A007123D2 /* libz.dylib */; };
 		FA4897D21B419E3B007123D2 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FA4897D11B419E3B007123D2 /* libsqlite3.dylib */; };
@@ -94,7 +93,6 @@
 		FA4897C51B419E0C007123D2 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		FA4897C71B419E12007123D2 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		FA4897C91B419E19007123D2 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		FA4897CB1B419E1F007123D2 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		FA4897CD1B419E25007123D2 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		FA4897CF1B419E2A007123D2 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		FA4897D11B419E3B007123D2 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
@@ -142,7 +140,6 @@
 				FA4897D21B419E3B007123D2 /* libsqlite3.dylib in Frameworks */,
 				FA4897D01B419E2A007123D2 /* libz.dylib in Frameworks */,
 				FA4897CE1B419E25007123D2 /* SystemConfiguration.framework in Frameworks */,
-				FA4897CC1B419E1F007123D2 /* StoreKit.framework in Frameworks */,
 				FA4897CA1B419E19007123D2 /* Security.framework in Frameworks */,
 				FA4897C81B419E12007123D2 /* QuartzCore.framework in Frameworks */,
 				FA4897C61B419E0C007123D2 /* MobileCoreServices.framework in Frameworks */,
@@ -186,7 +183,6 @@
 				FA4897D11B419E3B007123D2 /* libsqlite3.dylib */,
 				FA4897CF1B419E2A007123D2 /* libz.dylib */,
 				FA4897CD1B419E25007123D2 /* SystemConfiguration.framework */,
-				FA4897CB1B419E1F007123D2 /* StoreKit.framework */,
 				FA4897C91B419E19007123D2 /* Security.framework */,
 				FA4897C71B419E12007123D2 /* QuartzCore.framework */,
 				FA4897C51B419E0C007123D2 /* MobileCoreServices.framework */,
@@ -358,6 +354,11 @@
 					FA0FD7201ACBB22500A2E82F = {
 						CreatedOnToolsVersion = 6.1.1;
 						DevelopmentTeam = TEMYL4SSX6;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 0;
+							};
+						};
 					};
 					FA0FD7391ACBB22500A2E82F = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -521,7 +522,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: cesar garcia (L6HHF3W33R)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: cesar garcia (L6HHF3W33R)";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -541,6 +542,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "4f91864b-2a4c-4206-896f-82dd3b644cf0";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -562,8 +564,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: cesar garcia (TEMYL4SSX6)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: cesar garcia (L6HHF3W33R)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: cesar garcia (L6HHF3W33R)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -576,6 +578,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "4f91864b-2a4c-4206-896f-82dd3b644cf0";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -586,7 +589,9 @@
 			baseConfigurationReference = 520205260A1AF6FF4691C61F /* Pods-Grupo Once.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
+				"CODE_SIGN_ENTITLEMENTS[sdk=*]" = "";
 				CODE_SIGN_IDENTITY = "iPhone Developer: cesar garcia (L6HHF3W33R)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: cesar garcia (L6HHF3W33R)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -594,7 +599,7 @@
 				INFOPLIST_FILE = mensajes/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "Grupo Once";
-				PROVISIONING_PROFILE = "9f1d9af8-f1bb-443e-8a5d-dedeba28243e";
+				PROVISIONING_PROFILE = "4f91864b-2a4c-4206-896f-82dd3b644cf0";
 			};
 			name = Debug;
 		};
@@ -603,7 +608,8 @@
 			baseConfigurationReference = 4BF07700981B52361D0094B0 /* Pods-Grupo Once.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: cesar garcia (L6HHF3W33R)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -611,7 +617,7 @@
 				INFOPLIST_FILE = mensajes/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "Grupo Once";
-				PROVISIONING_PROFILE = "896f73b1-f43f-4618-9591-ce2cf65c3678";
+				PROVISIONING_PROFILE = "4f91864b-2a4c-4206-896f-82dd3b644cf0";
 			};
 			name = Release;
 		};
@@ -630,6 +636,7 @@
 				INFOPLIST_FILE = mensajesTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "Grupo OnceTests";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -644,6 +651,7 @@
 				INFOPLIST_FILE = mensajesTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "Grupo OnceTests";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

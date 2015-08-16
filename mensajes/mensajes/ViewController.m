@@ -12,6 +12,7 @@
 #import "ChatListNavViewController.h"
 #import "MenuChatNavViewController.h"
 #import "AdminNavViewController.h"
+#import <Parse/Parse.h>
 
 @interface ViewController () {
     
@@ -168,6 +169,13 @@ NSString *const firebaseURL = @"https://glaring-heat-1751.firebaseio.com";
                             NSString *city = snapshot.value[@"city"];
                             NSString *userName = snapshot.value[@"userName"];
                     
+                            PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+                            currentInstallation[@"companysName"] = companysName;
+                            currentInstallation[@"userName"] = userName;
+                            currentInstallation[@"city"] = city;
+                            currentInstallation[@"session"] = @"open";
+                            [currentInstallation saveInBackground];
+                            
                             NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
                     
                             [prefs setObject: companysName forKey:@"companysName"];
