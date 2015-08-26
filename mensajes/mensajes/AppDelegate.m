@@ -116,6 +116,7 @@ NSString *url = @"https://glaring-heat-1751.firebaseio.com/";
             if (companysName) {
                 currentInstallation[@"companysName"] = companysName;
                 currentInstallation[@"userName"] = userName;
+                
                 currentInstallation[@"city"] = city;
                 currentInstallation[@"session"] = @"open";
                 [currentInstallation saveInBackground];

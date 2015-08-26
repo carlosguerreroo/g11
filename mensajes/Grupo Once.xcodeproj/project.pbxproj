@@ -599,7 +599,7 @@
 				INFOPLIST_FILE = mensajes/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "Grupo Once";
-				PROVISIONING_PROFILE = "4f91864b-2a4c-4206-896f-82dd3b644cf0";
+				PROVISIONING_PROFILE = "169eb982-61f4-48f0-88ed-8c9186c2d283";
 			};
 			name = Debug;
 		};
@@ -617,7 +617,7 @@
 				INFOPLIST_FILE = mensajes/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "Grupo Once";
-				PROVISIONING_PROFILE = "4f91864b-2a4c-4206-896f-82dd3b644cf0";
+				PROVISIONING_PROFILE = "169eb982-61f4-48f0-88ed-8c9186c2d283";
 			};
 			name = Release;
 		};
