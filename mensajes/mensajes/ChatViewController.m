@@ -73,33 +73,33 @@ NSString *const firebaseChatURL = @"https://glaring-heat-1751.firebaseio.com/mes
     [sendMessage setValue: message];
     self.navigationController.interactivePopGestureRecognizer.enabled = YES;
     
-//    PFPush *push = [[PFPush alloc] init];
-//    [push setChannel:@"Asesor"];
-//    [push setMessage:@"Tienes un nuevo mensaje de tu asesor!"];
-//    [push sendPushInBackground];
-    
     if ([companysName isEqualToString:@"grupoonce"]) {
         // Create our Installation query
         PFQuery *pushQuery = [PFInstallation query];
         [pushQuery whereKey:@"city" equalTo:cityPath];
         [pushQuery whereKey:@"userName" equalTo:userNamePath];
+        
+        NSDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys:
+                              @"Tienes un nuevo mensaje de tu asesor", @"alert",
+                              @"cheering.caf", @"sound",
+                              nil];
         [pushQuery whereKey:@"session" equalTo:@"open"];
         
-        // Send push notification to query
         PFPush *push = [[PFPush alloc] init];
         [push setQuery:pushQuery]; // Set our Installation query
-        [push setMessage:@"Tienes un nuevo mensaje de tu asesor."];
+        [push setData:data];
         [push sendPushInBackground];
     } else {
     
-        // Create our Installation query
         PFQuery *pushQuery = [PFInstallation query];
         [pushQuery whereKey:@"companysName" equalTo:@"grupoonce"];
-        NSLog(@"adminaaa");
-        // Send push notification to query
         PFPush *push = [[PFPush alloc] init];
         [push setQuery:pushQuery]; // Set our Installation query
-        [push setMessage:[NSString stringWithFormat:@"%@ %@", @"Tienes un nuevo mensaje de ", city]];
+        
+        NSDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys:
+                              [NSString stringWithFormat:@"%@ %@", @"Tienes un nuevo mensaje de ", city], @"alert",
+                              @"cheering.caf", @"sound", nil];
+        [push setData:data];
         [push sendPushInBackground];
     }
    

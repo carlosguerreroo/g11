@@ -171,7 +171,11 @@ NSString *const firebaseURL = @"https://glaring-heat-1751.firebaseio.com";
                     
                             PFInstallation *currentInstallation = [PFInstallation currentInstallation];
                             currentInstallation[@"companysName"] = companysName;
-                            currentInstallation[@"userName"] = userName;
+                            NSString *stringWithoutSpaces = [userName
+                                                             stringByReplacingOccurrencesOfString:@"." withString:@""];
+                            NSLog(userName);
+                            NSLog(stringWithoutSpaces);
+                            currentInstallation[@"userName"] = stringWithoutSpaces;
                             currentInstallation[@"city"] = city;
                             currentInstallation[@"session"] = @"open";
                             [currentInstallation saveInBackground];
