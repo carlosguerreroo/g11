@@ -20,3 +20,4 @@
 Firebase *messageRef;
 FirebaseHandle handle;
 NSMutableArray *messages;
+NSMutableArray *messagesDate;

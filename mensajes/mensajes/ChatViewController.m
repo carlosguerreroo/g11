@@ -44,6 +44,7 @@ NSString *const firebaseChatURL = @"https://glaring-heat-1751.firebaseio.com/mes
                                                                date: date
                                                                text: text];
         [messages addObject:message];
+        [messagesDate addObject: snapshot.value[@"date"]];
         
         if (![sender isEqualToString:userType]) {
             
@@ -109,6 +110,8 @@ NSString *const firebaseChatURL = @"https://glaring-heat-1751.firebaseio.com/mes
     
     [super viewDidLoad];
     messages = [[NSMutableArray alloc] init];
+    messagesDate = [[NSMutableArray alloc] init];
+
     self.navigationController.interactivePopGestureRecognizer.delegate = nil;
     
     self.collectionView.collectionViewLayout.incomingAvatarViewSize = CGSizeZero;
@@ -135,6 +138,7 @@ NSString *const firebaseChatURL = @"https://glaring-heat-1751.firebaseio.com/mes
 
     [super viewWillAppear:animated];
     [messages removeAllObjects];
+    [messagesDate removeAllObjects];
     [self finishReceivingMessageAnimated:YES];
     [self setupFirebase];
     [[self navigationController] setNavigationBarHidden:NO animated:YES];
@@ -176,7 +180,6 @@ NSString *const firebaseChatURL = @"https://glaring-heat-1751.firebaseio.com/mes
 {
     
     JSQMessagesBubbleImageFactory *bubbleFactory = [[JSQMessagesBubbleImageFactory alloc] init];
-    
     UIColor *bubbleColor;
     
     if ([((JSQMessage*)[messages objectAtIndex:indexPath.item]).senderId isEqualToString:@"client"]) {
@@ -194,6 +197,54 @@ NSString *const firebaseChatURL = @"https://glaring-heat-1751.firebaseio.com/mes
     return nil;
 }
 
+- (NSAttributedString *)collectionView:(JSQMessagesCollectionView *)collectionView attributedTextForCellTopLabelAtIndexPath:(NSIndexPath *)indexPath
+{
+    /**
+     *  This logic should be consistent with what you return from `heightForCellTopLabelAtIndexPath:`
+     *  The other label text delegate methods should follow a similar pattern.
+     *
+     *  Show a timestamp for every 3rd message
+     */
+    if (indexPath.item % 3 == 0) {
+        JSQMessage *msg = [messages objectAtIndex:indexPath.item];
+
+        return [[NSAttributedString alloc] initWithString:[messagesDate objectAtIndex:indexPath.item]];
+    }
+    
+    return nil;
+}
+#pragma mark - Adjusting cell label heights
+
+- (CGFloat)collectionView:(JSQMessagesCollectionView *)collectionView
+                   layout:(JSQMessagesCollectionViewFlowLayout *)collectionViewLayout heightForCellTopLabelAtIndexPath:(NSIndexPath *)indexPath
+{
+    /**
+     *  Each label in a cell has a `height` delegate method that corresponds to its text dataSource method
+     */
+    
+    /**
+     *  This logic should be consistent with what you return from `attributedTextForCellTopLabelAtIndexPath:`
+     *  The other label height delegate methods should follow similarly
+     *
+     *  Show a timestamp for every 3rd message
+     */
+    if (indexPath.item % 3 == 0) {
+        return kJSQMessagesCollectionViewCellLabelHeightDefault;
+    }
+    return  0.0f;
+}
+
+- (CGFloat)collectionView:(JSQMessagesCollectionView *)collectionView
+                   layout:(JSQMessagesCollectionViewFlowLayout *)collectionViewLayout heightForMessageBubbleTopLabelAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 0.0f;
+}
+
+- (CGFloat)collectionView:(JSQMessagesCollectionView *)collectionView
+                   layout:(JSQMessagesCollectionViewFlowLayout *)collectionViewLayout heightForCellBottomLabelAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 0.0f;
+}
 #pragma mark - UICollectionView DataSource
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
@@ -210,7 +261,6 @@ NSString *const firebaseChatURL = @"https://glaring-heat-1751.firebaseio.com/mes
     JSQMessage *msg = [messages objectAtIndex:indexPath.item];
     
     if (!msg.isMediaMessage) {
-        
         if ([msg.senderId isEqualToString: @"adviser"]) {
             cell.textView.textColor = [UIColor blackColor];
         }
